@@ -15,12 +15,18 @@ concurrency:
 jobs:
   analyse:
     name: Collecte PMU et moteurs M1-M5
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 20
+
+    env:
+      TZ: Europe/Paris
+      PYTHONUNBUFFERED: "1"
 
     steps:
       - name: Recuperer le depot
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Installer Python
         uses: actions/setup-python@v6
@@ -29,54 +35,108 @@ jobs:
 
       - name: Verifier les scripts
         run: |
+          set -euo pipefail
           python -m py_compile \
             collecte_pmu.py \
             main.py \
             publish_data.py
+          mkdir -p data
 
       - name: Collecter les courses PMU
-        run: python collecte_pmu.py
+        run: |
+          set -euo pipefail
+          rm -f data/courses.json
+          python collecte_pmu.py
 
       - name: Verifier les donnees du jour
         run: |
           python - <<'PY'
           import json
+          from pathlib import Path
           from datetime import datetime
           from zoneinfo import ZoneInfo
 
-          with open(
-              'data/courses.json',
-              encoding='utf-8'
-          ) as f:
-              data = json.load(f)
-
-          courses = data.get('courses', [])
-          assert courses, 'Aucune course collectee'
-
-          today = datetime.now(
-              ZoneInfo('Europe/Paris')
-          ).date()
-
-          for course in courses:
-              depart = datetime.fromisoformat(
-                  course['depart']
+          path = Path("data/courses.json")
+          if not path.is_file():
+              raise SystemExit(
+                  "ERREUR : fichier courses.json absent"
               )
-              assert depart.tzinfo is not None
-              assert depart.astimezone(
-                  ZoneInfo('Europe/Paris')
-              ).date() == today
+
+          data = json.loads(
+              path.read_text(encoding="utf-8")
+          )
+
+          if not isinstance(data, dict):
+              raise SystemExit(
+                  "ERREUR : format JSON invalide"
+              )
+
+          courses = data.get("courses")
+          if not isinstance(courses, list) or not courses:
+              raise SystemExit(
+                  "ERREUR : aucune course collectee"
+              )
+
+          paris = ZoneInfo("Europe/Paris")
+          today = datetime.now(paris).date()
+          ids = set()
+
+          for index, course in enumerate(courses, 1):
+              if not isinstance(course, dict):
+                  raise SystemExit(
+                      f"Course {index} : format invalide"
+                  )
+
+              depart = course.get("depart")
+              if not depart:
+                  raise SystemExit(
+                      f"Course {index} : depart absent"
+                  )
+
+              try:
+                  dt = datetime.fromisoformat(
+                      depart.replace("Z", "+00:00")
+                  )
+              except (ValueError, AttributeError):
+                  raise SystemExit(
+                      f"Course {index} : date invalide"
+                  )
+
+              if dt.tzinfo is None:
+                  raise SystemExit(
+                      f"Course {index} : fuseau absent"
+                  )
+
+              if dt.astimezone(paris).date() != today:
+                  raise SystemExit(
+                      f"Course {index} : mauvaise date"
+                  )
+
+              ident = (
+                  course.get("id")
+                  or course.get("course_id")
+              )
+              if ident is not None:
+                  if str(ident) in ids:
+                      raise SystemExit(
+                          f"Course dupliquee : {ident}"
+                      )
+                  ids.add(str(ident))
 
           print(
-              'Courses validees :',
-              len(courses)
+              f"COLLECTE VALIDEE : {len(courses)} courses"
           )
           PY
 
       - name: Diagnostic M1 M2 M3 M4 M5
-        run: python main.py --diagnostic
+        run: |
+          set -euo pipefail
+          python main.py --diagnostic
 
       - name: Executer les cinq moteurs
         run: |
+          set -euo pipefail
+          rm -f data/publication_latest.json
           python main.py \
             --figer \
             --strict-input \
@@ -86,61 +146,106 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          from pathlib import Path
 
-          with open(
-              'data/publication_latest.json',
-              encoding='utf-8'
-          ) as f:
-              publication = json.load(f)
+          path = Path("data/publication_latest.json")
 
-          courses = publication.get('courses', [])
-
-          if not courses:
+          if not path.is_file():
               raise SystemExit(
-                  'Aucune analyse publiee'
+                  "ERREUR : publication absente"
               )
 
+          publication = json.loads(
+              path.read_text(encoding="utf-8")
+          )
+
+          if not isinstance(publication, dict):
+              raise SystemExit(
+                  "ERREUR : publication invalide"
+              )
+
+          courses = publication.get("courses")
+
+          if not isinstance(courses, list) or not courses:
+              raise SystemExit(
+                  "ERREUR : aucune analyse publiee"
+              )
+
+          actifs = 0
+
           for course in courses:
-              if course.get('statut') in (
-                  'analyse_provisoire',
-                  'fige',
-                  'fige_existant'
+              if not isinstance(course, dict):
+                  raise SystemExit(
+                      "ERREUR : entree course invalide"
+                  )
+
+              statut = course.get("statut")
+
+              if statut in (
+                  "analyse_provisoire",
+                  "fige",
+                  "fige_existant"
               ):
+                  actifs += 1
+                  moteurs = course.get("moteurs")
+
+                  if not isinstance(moteurs, dict):
+                      raise SystemExit(
+                          "ERREUR : moteurs absents"
+                      )
+
                   for nom in (
-                      'M1', 'M2', 'M3', 'M4', 'M5'
+                      "M1", "M2", "M3", "M4", "M5"
                   ):
-                      if nom not in course.get(
-                          'moteurs', {}
+                      if nom not in moteurs:
+                          raise SystemExit(
+                              f"ERREUR : {nom} absent"
+                          )
+
+                      if not isinstance(
+                          moteurs[nom], dict
                       ):
                           raise SystemExit(
-                              'Moteur absent : ' + nom
+                              f"ERREUR : {nom} invalide"
                           )
 
           print(
-              'Publications controlees :',
-              len(courses)
+              f"PUBLICATION VALIDEE : {len(courses)} courses"
           )
+          print(f"ANALYSES ACTIVES : {actifs}")
           PY
 
       - name: Enregistrer les donnees
         run: |
-          git config user.name \
-            'github-actions[bot]'
+          set -euo pipefail
 
+          git config user.name "github-actions[bot]"
           git config user.email \
-            '41898282+github-actions[bot]@users.noreply.github.com'
+            "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/
 
-          if ! git diff --cached --quiet; then
-            git commit -m \
-              'Actualisation TURBOFUSION M1-M5'
-            git pull --rebase origin main
-            git push origin HEAD:main
+          if git diff --cached --quiet; then
+            echo "Aucune modification a publier"
+            exit 0
           fi
+
+          git commit -m \
+            "Actualisation TURBOFUSION M1-M5"
+
+          git pull --rebase origin main
+          git push origin HEAD:main
 
       - name: Bilan de fonctionnement
         if: always()
         run: |
-          echo 'TURBOFUSION 3.0 - Controle termine'
-          
+          echo "## TURBOFUSION 3.0" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Collecte PMU et moteurs M1-M5" \
+            >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Resultat : ${{ job.status }}" \
+            >> "$GITHUB_STEP_SUMMARY"
+          echo "Heure Paris : $(TZ=Europe/Paris date)" \
+            >> "$GITHUB_STEP_SUMMARY"
+            
