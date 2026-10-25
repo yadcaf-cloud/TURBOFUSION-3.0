@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TURBOFUSION 3.0 | Intelligence Hippique</title>
+<title>TURBOFUSION 3.0 — Intelligence hippique</title>
 <style>
 :root {
   --fond:#071c18;
   --carte:#10372d;
   --or:#e8bf66;
   --texte:#f4f6ef;
+  --bord:#386657;
 }
 * { box-sizing:border-box; }
 body {
   margin:0;
   background:var(--fond);
   color:var(--texte);
-  font-family:Arial,sans-serif;
+  font-family:Arial, sans-serif;
 }
 header {
   background:linear-gradient(120deg,#063b30,#10291f);
   text-align:center;
-  padding:45px 15px;
+  padding:40px 15px;
   border-bottom:3px solid var(--or);
 }
 h1 {
@@ -30,7 +31,6 @@ h1 {
   margin:10px 0;
 }
 h2 { color:var(--or); }
-.subtitle { font-size:17px; }
 .motto { color:#c9d8c9; }
 main {
   max-width:1250px;
@@ -44,9 +44,9 @@ main {
 }
 .engine {
   background:var(--carte);
-  padding:22px;
+  padding:20px;
   border-radius:15px;
-  border:1px solid #386657;
+  border:1px solid var(--bord);
 }
 .engine h3 { margin:0 0 10px; }
 .m1 { border-top:5px solid #2196f3; }
@@ -64,15 +64,27 @@ section {
 table {
   border-collapse:collapse;
   width:100%;
-  min-width:850px;
+  min-width:1050px;
 }
 th,td {
-  padding:13px;
-  border-bottom:1px solid #3d6659;
+  padding:12px;
+  border-bottom:1px solid var(--bord);
   text-align:left;
+  vertical-align:top;
 }
 th { background:#205041;color:#f7d88b; }
 .status { color:#e9c676; }
+small { color:#c9d8c9; }
+button {
+  background:var(--or);
+  color:#10291f;
+  border:0;
+  border-radius:8px;
+  padding:11px 17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+button:hover { filter:brightness(1.1); }
 footer {
   text-align:center;
   padding:30px;
@@ -85,58 +97,63 @@ footer {
 <header>
   <div style="font-size:35px">🇸🇳 🧠 🔥 🐎 🇫🇷</div>
   <h1>TURBOFUSION 3.0</h1>
-  <p class="subtitle">INTELLIGENCE HIPPIQUE SPÉCIALISÉE</p>
+  <p>INTELLIGENCE HIPPIQUE SPÉCIALISÉE</p>
   <p class="motto">
     La mémoire conserve • L'analyse comprend • L'expérience enseigne
   </p>
+  <strong>LA MAGIE DU SAVOIR</strong>
 </header>
 
 <main>
-  <h2>🧠 Deux moteurs — Cinq spécialités</h2>
+  <h2>🧠 Cinq moteurs indépendants — M1 à M5</h2>
+
   <div class="engines">
     <div class="engine m1">
       <h3>🔵 M1</h3>
       Forme et régularité
-      <p>Moteur A</p>
     </div>
     <div class="engine m2">
       <h3>🟢 M2</h3>
-      Aptitudes et conditions
-      <p>Moteur A</p>
+      Aptitudes et conditions de course
     </div>
     <div class="engine m3">
       <h3>🟣 M3</h3>
       Origines et entourage
-      <p>Moteur A</p>
     </div>
     <div class="engine m4">
       <h3>🟠 M4</h3>
       Classe et stratégie
-      <p>Moteur B</p>
     </div>
     <div class="engine m5">
       <h3>🔴 M5</h3>
       Risques et régularité
-      <p>Moteur B</p>
     </div>
   </div>
 
   <section>
     <h2>🏆 TABLEAU OFFICIEL TURBOFUSION 3.0</h2>
-    <p id="statut" class="status">Chargement des données...</p>
+    <p id="statut" class="status" role="status">
+      Chargement des données...
+    </p>
+    <p id="actualisation"></p>
+    <button id="rafraichir" type="button">
+      🔄 Actualiser le tableau
+    </button>
+
     <div class="scroll">
       <table>
         <thead>
           <tr>
             <th>Course</th>
             <th>Hippodrome</th>
-            <th>Départ Paris</th>
-            <th>Partants</th>
-            <th>M1</th>
-            <th>M2</th>
-            <th>M3</th>
-            <th>M4</th>
-            <th>M5</th>
+            <th>Heure Paris</th>
+            <th>👥 Partants</th>
+            <th>🔵 M1</th>
+            <th>🟢 M2</th>
+            <th>🟣 M3</th>
+            <th>🟠 M4</th>
+            <th>🔴 M5</th>
+            <th>Validation</th>
           </tr>
         </thead>
         <tbody id="tableau"></tbody>
@@ -147,88 +164,176 @@ footer {
   <section>
     <h2>🔒 FIGÉS ET AUDITS</h2>
     <p>
-      Les pronostics FIGÉS doivent être enregistrés avant le départ
-      et conservés sans modification.
+      Les pronostics FIGÉS sont des instantanés enregistrés
+      avant le départ. Une analyse provisoire ne constitue
+      jamais un FIGÉ.
     </p>
     <p>
-      Les résultats officiels et les audits seront affichés après
-      raccordement à une source de données vérifiée.
+      Les arrivées et résultats officiels ne sont publiés
+      qu'après vérification de leurs sources.
+    </p>
+    <p id="avertissement">
+      Aucun pari réel exécuté.
     </p>
   </section>
 </main>
 
 <footer>
   🇸🇳 TURBOFUSION 3.0 — La magie du savoir
-  <p>Analyses expérimentales — Aucun pari réel exécuté</p>
+  <p>Analyses expérimentales — Aucune garantie de gain</p>
 </footer>
 
 <script>
+"use strict";
+
 const tbody = document.getElementById("tableau");
 const statut = document.getElementById("statut");
+const actualisation = document.getElementById("actualisation");
+const bouton = document.getElementById("rafraichir");
 
 function cellule(valeur) {
   const td = document.createElement("td");
-  td.textContent = valeur == null ? "—" : String(valeur);
+  td.textContent = valeur == null || valeur === ""
+    ? "—" : String(valeur);
   return td;
 }
 
-fetch("./dashboard.json", {cache:"no-store"})
-.then(reponse => {
-  if (!reponse.ok) throw new Error("Données indisponibles");
-  return reponse.json();
-})
-.then(data => {
-  if (!Array.isArray(data.courses)) {
-    throw new Error("Format invalide");
+function messageVide(texte) {
+  tbody.replaceChildren();
+  const tr = document.createElement("tr");
+  const td = cellule(texte);
+  td.colSpan = 10;
+  tr.appendChild(td);
+  tbody.appendChild(tr);
+}
+
+function heureParis(date) {
+  if (!date) return "—";
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return "—";
+
+  return new Intl.DateTimeFormat("fr-FR", {
+    timeZone:"Europe/Paris",
+    day:"2-digit",
+    month:"2-digit",
+    hour:"2-digit",
+    minute:"2-digit"
+  }).format(d);
+}
+
+function obtenirMoteur(course, nom) {
+  const moteurs = course.moteurs || {};
+
+  if (Array.isArray(moteurs)) {
+    return moteurs.find(m =>
+      m && (m.moteur === nom || m.nom === nom)
+    ) || null;
   }
+
+  return moteurs[nom] || null;
+}
+
+function affichageMoteur(moteur) {
+  if (!moteur) return "Indisponible";
+
+  const classement = Array.isArray(moteur.classement)
+    ? moteur.classement.map(h => h.numero)
+    : Array.isArray(moteur.ordre_espere)
+      ? moteur.ordre_espere
+      : [];
+
+  const qualification =
+    moteur.qualification || "Non qualifié";
+
+  if (!classement.length) return qualification;
+
+  return classement.join(" - ") +
+    " | " + qualification;
+}
+
+function afficher(data) {
+  if (!data || !Array.isArray(data.courses)) {
+    throw new Error("Format des données invalide");
+  }
+
+  const courses = [...data.courses].sort((a,b) => {
+    const ta = Date.parse(a.depart || a.depart_paris || "");
+    const tb = Date.parse(b.depart || b.depart_paris || "");
+    return (Number.isNaN(ta) ? Infinity : ta) -
+           (Number.isNaN(tb) ? Infinity : tb);
+  });
+
   statut.textContent =
-    (data.statut_donnees || "Données non vérifiées") +
-    " — " + data.courses.length + " course(s)";
+    (data.statut_collecte ||
+     data.statut_donnees ||
+     "État non vérifié") +
+    " — " + courses.length + " course(s)";
+
+  actualisation.textContent = data.genere_a
+    ? "Dernière publication : " + heureParis(data.genere_a)
+    : "Date de publication indisponible";
 
   tbody.replaceChildren();
 
-  if (!data.courses.length) {
-    const tr = document.createElement("tr");
-    const td = cellule("Aucune course importée");
-    td.colSpan = 9;
-    tr.appendChild(td);
-    tbody.appendChild(tr);
+  if (!courses.length) {
+    messageVide("Aucune course vérifiée disponible");
     return;
   }
 
-  data.courses.forEach(course => {
+  courses.forEach(course => {
     const tr = document.createElement("tr");
+
     [
       course.id,
       course.hippodrome,
-      course.depart_paris,
-      course.nombre_partants
+      heureParis(course.depart || course.depart_paris),
+      course.partants ?? course.nombre_partants
     ].forEach(v => tr.appendChild(cellule(v)));
 
     for (let i = 1; i <= 5; i++) {
-      const moteur = (course.moteurs || [])
-        .find(m => m.moteur === "M" + i);
-
-      const affichage = moteur?.ordre_espere?.length
-        ? moteur.ordre_espere.join(" - ") +
-          " (" + moteur.validation + ")"
-        : moteur?.qualification || "Indisponible";
-
-      tr.appendChild(cellule(affichage));
+      const moteur = obtenirMoteur(course, "M" + i);
+      tr.appendChild(cellule(affichageMoteur(moteur)));
     }
+
+    tr.appendChild(cellule(course.statut || "Non vérifié"));
     tbody.appendChild(tr);
   });
-})
-.catch(() => {
-  statut.textContent = "En attente des données officielles";
-  tbody.replaceChildren();
-  const tr = document.createElement("tr");
-  const td = cellule("Aucune donnée disponible");
-  td.colSpan = 9;
-  tr.appendChild(td);
-  tbody.appendChild(tr);
-});
+}
+
+async function charger() {
+  statut.textContent = "Actualisation en cours...";
+  bouton.disabled = true;
+
+  try {
+    const reponse = await fetch(
+      "./data/publication_latest.json",
+      {cache:"no-store"}
+    );
+
+    if (!reponse.ok) {
+      throw new Error("Publication indisponible : HTTP " +
+        reponse.status);
+    }
+
+    const data = await reponse.json();
+    afficher(data);
+
+  } catch (erreur) {
+    statut.textContent = "Données indisponibles";
+    actualisation.textContent =
+      "La publication des analyses doit être vérifiée.";
+    messageVide("Aucune donnée vérifiée à afficher");
+    console.error("TURBOFUSION :", erreur);
+
+  } finally {
+    bouton.disabled = false;
+  }
+}
+
+bouton.addEventListener("click", charger);
+charger();
 </script>
 
 </body>
-</html>
+  </html>
+  
