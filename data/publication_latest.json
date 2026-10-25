@@ -1,7 +1,7 @@
 {
   "application": "TURBOFUSION 3.0",
   "date_programme": "2026-10-25",
-  "genere_a": "2026-10-25T09:33:07.490831+00:00",
+  "genere_a": "2026-10-25T10:03:24.042110+00:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/1",
   "statut_collecte": "Programme PMU collecté",
   "reunions_source": 16,
@@ -14,7 +14,7 @@
       "course": 1,
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "nom": "PRIX JEAN-LUC MICHEL",
-      "depart": "2026-10-25T09:54:00+00:00",
+      "depart": "2026-10-25T09:56:00+00:00",
       "partants": null,
       "distance": 2200,
       "discipline": "ATTELE",
