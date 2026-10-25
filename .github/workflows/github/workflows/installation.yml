@@ -2,53 +2,153 @@ name: Installation TURBOFUSION 3.0
 
 on:
   workflow_dispatch:
+    inputs:
+      remplacer_fichiers:
+        description: "Remplacer les composants existants après sauvegarde"
+        required: true
+        type: boolean
+        default: false
 
 permissions:
   contents: write
 
+concurrency:
+  group: turbofusion-installation
+  cancel-in-progress: false
+
 jobs:
   installation:
+    name: Installer et tester TURBOFUSION M1-M5
     runs-on: ubuntu-24.04
+    timeout-minutes: 15
 
     steps:
       - name: Recuperer le depot
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Executer l'installateur
+      - name: Verifier les fichiers essentiels
+        shell: bash
         run: |
-          python installer_turbofusion.py
+          set -euo pipefail
 
-      - name: Tester les composants
+          for fichier in \
+            installer_turbofusion.py \
+            main.py \
+            publish_data.py \
+            index.html
+          do
+            if [ ! -f "$fichier" ]; then
+              echo "::error::Fichier absent : $fichier"
+              exit 1
+            fi
+          done
+
+          echo "Fichiers essentiels presents."
+
+      - name: Executer l'installateur
+        shell: bash
+        env:
+          REMPLACER: ${{ inputs.remplacer_fichiers }}
         run: |
+          set -euo pipefail
+
+          if [ "$REMPLACER" = "true" ]; then
+            python installer_turbofusion.py --force
+          else
+            python installer_turbofusion.py
+          fi
+
+      - name: Verifier la syntaxe Python
+        shell: bash
+        run: |
+          set -euo pipefail
+
           python -m py_compile \
+            installer_turbofusion.py \
             main.py \
             publish_data.py \
             collect_courses.py
 
-          python -m unittest discover -s tests -v
-
-      - name: Enregistrer les fichiers
+      - name: Tester le collecteur
+        shell: bash
         run: |
+          set -euo pipefail
+
+          python -m unittest discover \
+            -s tests \
+            -p "test_*.py" \
+            -v
+
+      - name: Diagnostiquer les moteurs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python main.py --diagnostic
+
+      - name: Verifier les composants generes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for fichier in \
+            collect_courses.py \
+            tests/test_collect_courses.py \
+            .github/workflows/turbofusion.yml
+          do
+            if [ ! -f "$fichier" ]; then
+              echo "::error::Composant absent : $fichier"
+              exit 1
+            fi
+          done
+
+          echo "Composants installes et testes."
+
+      - name: Enregistrer les fichiers dans GitHub
+        shell: bash
+        run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add \
+          git add -- \
             collect_courses.py \
             tests/test_collect_courses.py \
             .github/workflows/turbofusion.yml
 
           if git diff --cached --quiet; then
-            echo "Aucune modification"
+            echo "Aucune modification a enregistrer."
             exit 0
           fi
 
           git commit -m \
-            "Installer collecte TURBOFUSION M1-M5"
+            "Installation TURBOFUSION 3.0 M1-M5"
 
-          git push origin HEAD:main
+          BRANCHE="${GITHUB_REF_NAME}"
+
+          echo "Branche cible : $BRANCHE"
+
+          git push origin "HEAD:refs/heads/$BRANCHE"
+
+      - name: Confirmation
+        if: success()
+        shell: bash
+        run: |
+          echo "====================================="
+          echo "TURBOFUSION 3.0"
+          echo "INSTALLATION TERMINEE"
+          echo "====================================="
+          echo "Collecteur installe."
+          echo "Tests executes."
+          echo "Moteurs M1-M5 preserves."
+          echo "Workflow horaire installe."
+          echo "====================================="
