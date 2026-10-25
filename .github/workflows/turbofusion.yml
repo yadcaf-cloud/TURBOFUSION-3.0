@@ -14,68 +14,132 @@ concurrency:
 
 jobs:
   analyse:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    name: Analyse et publication M1-M5
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
 
     steps:
       - name: Recuperer le depot
         uses: actions/checkout@v4
         with:
           persist-credentials: true
+          fetch-depth: 1
 
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Diagnostic des moteurs
+      - name: Verifier les fichiers essentiels
+        shell: bash
         run: |
+          set -euo pipefail
+          test -f main.py
+          test -f publish_data.py
+          test -f index.html
           python -m py_compile main.py publish_data.py
+
+      - name: Verifier les cinq moteurs
+        shell: bash
+        run: |
+          python - <<'PY'
+          from main import WEIGHTS
+          from publish_data import MOTEURS
+
+          attendus = ("M1", "M2", "M3", "M4", "M5")
+
+          assert tuple(WEIGHTS) == attendus
+          assert tuple(MOTEURS) == attendus
+
+          for moteur, poids in WEIGHTS.items():
+              assert len(poids) == 7, moteur
+
+          print("M1-M5 : configuration valide")
+          PY
+
+      - name: Diagnostic du logiciel
+        run: |
           python main.py --diagnostic
 
-      - name: Executer les analyses M1 a M5
+      - name: Executer les analyses M1-M5
+        shell: bash
         run: |
           set +e
           python main.py --figer --safety-minutes 2
           code=$?
           set -e
 
-          if [ "$code" -ne 0 ] && [ "$code" -ne 2 ]; then
+          if [ "$code" -eq 2 ]; then
+            echo "::notice::Collecte absente ou aucune course verifiee."
+          elif [ "$code" -ne 0 ]; then
+            echo "::error::Echec des analyses M1-M5."
             exit "$code"
           fi
 
-      - name: Verifier la publication
+      - name: Verifier les donnees publiees
+        shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          path = Path("data/publication_latest.json")
-          if not path.is_file():
+          chemin = Path("data/publication_latest.json")
+          if not chemin.is_file():
               raise SystemExit("Publication absente")
 
-          data = json.loads(path.read_text(
-              encoding="utf-8"
-          ))
+          with chemin.open(encoding="utf-8") as fichier:
+              donnees = json.load(fichier)
 
-          if not isinstance(data.get("courses"), list):
-              raise SystemExit("Courses invalides")
+          if not isinstance(donnees, dict):
+              raise SystemExit("Publication invalide")
 
-          print("Publication valide")
-          print("Courses :", len(data["courses"]))
+          courses = donnees.get("courses")
+          if not isinstance(courses, list):
+              raise SystemExit("Liste des courses invalide")
+
+          autorises = {"M1", "M2", "M3", "M4", "M5"}
+
+          for course in courses:
+              if not isinstance(course, dict):
+                  raise SystemExit("Course invalide")
+              moteurs = course.get("moteurs", {})
+              if not isinstance(moteurs, dict):
+                  raise SystemExit("Moteurs invalides")
+              if not set(moteurs).issubset(autorises):
+                  raise SystemExit("Moteur inconnu")
+
+          print("Publication valide :", len(courses), "courses")
           PY
 
-      - name: Enregistrer les donnees et FIGES
+      - name: Enregistrer les donnees
+        shell: bash
         run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/
+          git add -- data/
 
           if git diff --cached --quiet; then
             echo "Aucune modification"
-          else
-            git commit -m "Actualisation TURBOFUSION M1-M5"
-            git push
+            exit 0
           fi
+
+          git commit -m "Actualisation TURBOFUSION M1-M5"
+
+          for tentative in 1 2 3; do
+            if git push origin HEAD:main; then
+              echo "Donnees enregistrees"
+              exit 0
+            fi
+
+            if [ "$tentative" -eq 3 ]; then
+              echo "::error::Echec de publication Git."
+              exit 1
+            fi
+
+            sleep 5
+          done
+          
