@@ -23,14 +23,13 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: true
-          fetch-depth: 1
 
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Verifier les fichiers essentiels
+      - name: Verifier le logiciel
         shell: bash
         run: |
           set -euo pipefail
@@ -39,7 +38,7 @@ jobs:
           test -f index.html
           python -m py_compile main.py publish_data.py
 
-      - name: Verifier les cinq moteurs
+      - name: Proteger les cinq moteurs
         shell: bash
         run: |
           python - <<'PY'
@@ -51,17 +50,45 @@ jobs:
           assert tuple(WEIGHTS) == attendus
           assert tuple(MOTEURS) == attendus
 
-          for moteur, poids in WEIGHTS.items():
-              assert len(poids) == 7, moteur
+          for nom, poids in WEIGHTS.items():
+              assert len(poids) == 7, nom
 
-          print("M1-M5 : configuration valide")
+          print("M1-M5 : configuration preservee")
           PY
 
-      - name: Diagnostic du logiciel
+      - name: Diagnostic de la collecte
+        shell: bash
         run: |
-          python main.py --diagnostic
+          python - <<'PY'
+          import json
+          from pathlib import Path
 
-      - name: Executer les analyses M1-M5
+          source = Path("data/courses.json")
+
+          if not source.is_file():
+              print("::warning::Collecte absente.")
+              print("Aucun programme PMU disponible.")
+          else:
+              try:
+                  donnees = json.loads(
+                      source.read_text(encoding="utf-8")
+                  )
+                  courses = donnees.get("courses")
+                  if not isinstance(courses, list):
+                      raise ValueError("Liste courses invalide")
+
+                  print("Courses recues :", len(courses))
+                  if not courses:
+                      print("::warning::Aucune course recue.")
+              except (OSError, ValueError, TypeError) as exc:
+                  print(f"::error::Donnees invalides : {exc}")
+                  raise SystemExit(1)
+          PY
+
+      - name: Diagnostic des moteurs
+        run: python main.py --diagnostic
+
+      - name: Executer les analyses
         shell: bash
         run: |
           set +e
@@ -70,45 +97,80 @@ jobs:
           set -e
 
           if [ "$code" -eq 2 ]; then
-            echo "::notice::Collecte absente ou aucune course verifiee."
+            echo "::warning::Aucune course verifiee."
           elif [ "$code" -ne 0 ]; then
-            echo "::error::Echec des analyses M1-M5."
+            echo "::error::Echec du logiciel."
             exit "$code"
           fi
 
-      - name: Verifier les donnees publiees
+      - name: Controler la publication
         shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          chemin = Path("data/publication_latest.json")
-          if not chemin.is_file():
+          audit_path = Path("data/audit_latest.json")
+          publication_path = Path(
+              "data/publication_latest.json"
+          )
+
+          if not audit_path.is_file():
+              raise SystemExit("Audit absent")
+
+          if not publication_path.is_file():
               raise SystemExit("Publication absente")
 
-          with chemin.open(encoding="utf-8") as fichier:
-              donnees = json.load(fichier)
+          audit = json.loads(
+              audit_path.read_text(encoding="utf-8")
+          )
+          publication = json.loads(
+              publication_path.read_text(encoding="utf-8")
+          )
 
-          if not isinstance(donnees, dict):
+          if not isinstance(audit, dict):
+              raise SystemExit("Audit invalide")
+          if not isinstance(publication, dict):
               raise SystemExit("Publication invalide")
 
-          courses = donnees.get("courses")
+          courses = publication.get("courses")
           if not isinstance(courses, list):
-              raise SystemExit("Liste des courses invalide")
+              raise SystemExit("Courses invalides")
 
-          autorises = {"M1", "M2", "M3", "M4", "M5"}
+          moteurs = {"M1", "M2", "M3", "M4", "M5"}
 
           for course in courses:
               if not isinstance(course, dict):
                   raise SystemExit("Course invalide")
-              moteurs = course.get("moteurs", {})
-              if not isinstance(moteurs, dict):
+              valeurs = course.get("moteurs", {})
+              if not isinstance(valeurs, dict):
                   raise SystemExit("Moteurs invalides")
-              if not set(moteurs).issubset(autorises):
+              if not set(valeurs).issubset(moteurs):
                   raise SystemExit("Moteur inconnu")
 
-          print("Publication valide :", len(courses), "courses")
+          statuts = {
+              "analyse_provisoire",
+              "fige",
+              "fige_existant",
+          }
+
+          verifiees = sum(
+              c.get("statut") in statuts
+              for c in courses
+          )
+
+          print("Courses publiees :", len(courses))
+          print("Courses analysees :", verifiees)
+          print(
+              "Statut collecte :",
+              audit.get("statut_collecte")
+          )
+
+          if verifiees == 0:
+              print(
+                  "::warning::Aucune analyse "
+                  "de course verifiee."
+              )
           PY
 
       - name: Enregistrer les donnees
@@ -131,12 +193,12 @@ jobs:
 
           for tentative in 1 2 3; do
             if git push origin HEAD:main; then
-              echo "Donnees enregistrees"
+              echo "Publication terminee"
               exit 0
             fi
 
             if [ "$tentative" -eq 3 ]; then
-              echo "::error::Echec de publication Git."
+              echo "::error::Echec du push Git."
               exit 1
             fi
 
