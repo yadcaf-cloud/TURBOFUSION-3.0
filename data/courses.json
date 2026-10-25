@@ -2,7 +2,7 @@
   "logiciel": "TURBOFUSION 3.0",
   "version_collecteur": "3.1",
   "date": "2026-10-25",
-  "collecte_a": "2026-10-25T17:46:04.569004+01:00",
+  "collecte_a": "2026-10-25T18:22:52.549566+01:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026",
   "statut_collecte": "ok",
   "erreurs_participants": [],
@@ -53295,7 +53295,8 @@
           "performances": {
             "nombreCourses": 0,
             "nombreVictoires": 0,
-            "nombrePlaces": 0
+            "nombrePlaces": 0,
+            "reductionKilometrique": 88200
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53337,7 +53338,8 @@
             "musique": "Dm",
             "nombreCourses": 1,
             "nombreVictoires": 0,
-            "nombrePlaces": 0
+            "nombrePlaces": 0,
+            "reductionKilometrique": 79300
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53423,7 +53425,8 @@
             "musique": "3m5m2m4m",
             "nombreCourses": 4,
             "nombreVictoires": 0,
-            "nombrePlaces": 4
+            "nombrePlaces": 4,
+            "reductionKilometrique": 77500
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53466,7 +53469,8 @@
             "musique": "2m5a1a2a",
             "nombreCourses": 4,
             "nombreVictoires": 1,
-            "nombrePlaces": 3
+            "nombrePlaces": 3,
+            "reductionKilometrique": 77900
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53638,7 +53642,8 @@
             "musique": "7a4m3m7a6aDa2a1a3a",
             "nombreCourses": 9,
             "nombreVictoires": 1,
-            "nombrePlaces": 7
+            "nombrePlaces": 7,
+            "reductionKilometrique": 77900
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53715,7 +53720,8 @@
             "musique": "9aDa0aDa0a0aDa6a0a(25)",
             "nombreCourses": 50,
             "nombreVictoires": 4,
-            "nombrePlaces": 18
+            "nombrePlaces": 18,
+            "reductionKilometrique": 76700
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53756,7 +53762,8 @@
             "musique": "7m3m6a8a2a8a3a6a0mDa",
             "nombreCourses": 40,
             "nombreVictoires": 1,
-            "nombrePlaces": 28
+            "nombrePlaces": 28,
+            "reductionKilometrique": 75700
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53799,7 +53806,8 @@
             "musique": "2a3a7a4a5a3a5a2a2a3a",
             "nombreCourses": 76,
             "nombreVictoires": 0,
-            "nombrePlaces": 47
+            "nombrePlaces": 47,
+            "reductionKilometrique": 75400
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53842,7 +53850,8 @@
             "musique": "2a8a8aDa7a5a1a2a3a1a",
             "nombreCourses": 35,
             "nombreVictoires": 2,
-            "nombrePlaces": 25
+            "nombrePlaces": 25,
+            "reductionKilometrique": 75100
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53885,7 +53894,8 @@
             "musique": "0aDa0a9a(25)8aDaDaDa6a",
             "nombreCourses": 24,
             "nombreVictoires": 4,
-            "nombrePlaces": 7
+            "nombrePlaces": 7,
+            "reductionKilometrique": 76400
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -53969,7 +53979,8 @@
             "musique": "DaDa1a4a6a9a4aDa4aDa",
             "nombreCourses": 71,
             "nombreVictoires": 3,
-            "nombrePlaces": 36
+            "nombrePlaces": 36,
+            "reductionKilometrique": 75900
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54010,7 +54021,8 @@
             "musique": "4a0a7a3a9a6a0a0a3a6a",
             "nombreCourses": 64,
             "nombreVictoires": 2,
-            "nombrePlaces": 37
+            "nombrePlaces": 37,
+            "reductionKilometrique": 75200
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54053,7 +54065,8 @@
             "musique": "5a3aDa3a5aDa6a8a5a3a",
             "nombreCourses": 87,
             "nombreVictoires": 11,
-            "nombrePlaces": 37
+            "nombrePlaces": 37,
+            "reductionKilometrique": 75300
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54096,7 +54109,8 @@
             "musique": "6aDaDaDaDaDa4a1aDa3a",
             "nombreCourses": 54,
             "nombreVictoires": 5,
-            "nombrePlaces": 26
+            "nombrePlaces": 26,
+            "reductionKilometrique": 75500
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54139,7 +54153,8 @@
             "musique": "Da0a5a7a4a9a6a2a(24)Da",
             "nombreCourses": 19,
             "nombreVictoires": 6,
-            "nombrePlaces": 6
+            "nombrePlaces": 6,
+            "reductionKilometrique": 75300
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54182,7 +54197,8 @@
             "musique": "0a8aAa0a4a0a(25)7m1aDa",
             "nombreCourses": 49,
             "nombreVictoires": 6,
-            "nombrePlaces": 17
+            "nombrePlaces": 17,
+            "reductionKilometrique": 76200
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54225,7 +54241,8 @@
             "musique": "8a5a3a2a2a1a2a5a2a5a",
             "nombreCourses": 50,
             "nombreVictoires": 3,
-            "nombrePlaces": 31
+            "nombrePlaces": 31,
+            "reductionKilometrique": 75000
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
@@ -54268,7 +54285,8 @@
             "musique": "9a6a5a8a6a7a3aDa0a2a",
             "nombreCourses": 60,
             "nombreVictoires": 3,
-            "nombrePlaces": 33
+            "nombrePlaces": 33,
+            "reductionKilometrique": 75400
           },
           "origines": {
             "race": "TROTTEUR FRANCAIS"
