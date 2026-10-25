@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -931,4 +930,154 @@ def installer(
 
         shutil.copy2(
             destination,
-      
+            sauvegarde
+        )
+
+        print(
+            "SAUVEGARDE :",
+            sauvegarde.relative_to(ROOT)
+        )
+
+    destination.write_text(
+        contenu,
+        encoding="utf-8"
+    )
+
+    print(
+        "INSTALLÉ :",
+        fichier
+    )
+
+    return True
+
+
+# ============================================================
+# INSTALLATEUR PRINCIPAL
+# ============================================================
+
+def main():
+    parser = argparse.ArgumentParser(
+        description=(
+            "Installation protégée "
+            "de TURBOFUSION 3.0"
+        )
+    )
+
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help=(
+            "Remplacer les fichiers générés "
+            "après sauvegarde"
+        ),
+    )
+
+    args = parser.parse_args()
+
+    print("=" * 55)
+    print("🇸🇳🧠🔥 TURBOFUSION 3.0")
+    print("INTELLIGENCE HIPPIQUE M1 À M5")
+    print("LA MAGIE DU SAVOIR")
+    print("=" * 55)
+
+    verifier_fichiers()
+    verifier_python()
+    verifier_moteurs()
+
+    fichiers = (
+        (
+            "collect_courses.py",
+            COLLECTEUR,
+        ),
+        (
+            "tests/test_collect_courses.py",
+            TESTS,
+        ),
+        (
+            ".github/workflows/turbofusion.yml",
+            WORKFLOW,
+        ),
+    )
+
+    installes = 0
+
+    for fichier, contenu in fichiers:
+        if installer(
+            fichier,
+            contenu,
+            force=args.force,
+        ):
+            installes += 1
+
+    print()
+    print("=" * 55)
+    print("INSTALLATION TERMINÉE")
+    print("=" * 55)
+
+    print(
+        "Fichiers installés :",
+        installes
+    )
+
+    print(
+        "Moteurs M1-M5 : préservés"
+    )
+
+    print(
+        "main.py : préservé"
+    )
+
+    print(
+        "publish_data.py : préservé"
+    )
+
+    print(
+        "index.html : préservé"
+    )
+
+    print()
+    print(
+        "À CONFIGURER :"
+    )
+
+    print(
+        "Secret GitHub : "
+        "TURBOFUSION_COURSES_URL"
+    )
+
+    print()
+    print(
+        "À VÉRIFIER :"
+    )
+
+    print(
+        "Compatibilité des arguments "
+        "de main.py"
+    )
+
+    print(
+        "Production de "
+        "data/publication_latest.json"
+    )
+
+    print(
+        "Horodatage et preuves des FIGÉS"
+    )
+
+    print(
+        "Publication GitHub Pages"
+    )
+
+    print()
+    print(
+        "TURBOFUSION 3.0 — "
+        "La mémoire conserve, "
+        "l'analyse comprend, "
+        "l'expérience enseigne."
+    )
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
