@@ -3,7 +3,7 @@ name: TURBOFUSION 3.0 - Intelligence M1 M5
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: '*/15 * * * *'
 
 permissions:
   contents: write
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   analyse:
-    name: Intelligence hippique M1-M5
+    name: Collecte PMU et moteurs M1-M5
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -25,20 +25,17 @@ jobs:
       - name: Installer Python
         uses: actions/setup-python@v6
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
-      - name: Verifier les programmes
+      - name: Verifier les scripts
         run: |
           python -m py_compile \
+            collecte_pmu.py \
             main.py \
-            publish_data.py \
-            collecte_pmu.py
+            publish_data.py
 
       - name: Collecter les courses PMU
-        env:
-          TURBOFUSION_SOURCE_URL: ${{ secrets.TURBOFUSION_SOURCE_URL }}
-        run: |
-          python collecte_pmu.py
+        run: python collecte_pmu.py
 
       - name: Verifier les donnees du jour
         run: |
@@ -47,24 +44,32 @@ jobs:
           from datetime import datetime
           from zoneinfo import ZoneInfo
 
-          with open("data/courses.json", encoding="utf-8") as f:
+          with open(
+              'data/courses.json',
+              encoding='utf-8'
+          ) as f:
               data = json.load(f)
 
-          courses = data.get("courses", [])
-          assert courses, "Aucune course collectee"
+          courses = data.get('courses', [])
+          assert courses, 'Aucune course collectee'
 
           today = datetime.now(
-              ZoneInfo("Europe/Paris")
+              ZoneInfo('Europe/Paris')
           ).date()
 
           for course in courses:
-              depart = datetime.fromisoformat(course["depart"])
+              depart = datetime.fromisoformat(
+                  course['depart']
+              )
               assert depart.tzinfo is not None
               assert depart.astimezone(
-                  ZoneInfo("Europe/Paris")
+                  ZoneInfo('Europe/Paris')
               ).date() == today
 
-          print("Courses validees :", len(courses))
+          print(
+              'Courses validees :',
+              len(courses)
+          )
           PY
 
       - name: Diagnostic M1 M2 M3 M4 M5
@@ -83,50 +88,53 @@ jobs:
           import json
 
           with open(
-              "data/publication_latest.json",
-              encoding="utf-8"
+              'data/publication_latest.json',
+              encoding='utf-8'
           ) as f:
               publication = json.load(f)
 
-          courses = publication.get("courses", [])
+          courses = publication.get('courses', [])
+
           if not courses:
-              raise SystemExit("Aucune analyse publiee")
-
-          analyses = [
-              c for c in courses
-              if c.get("statut") in (
-                  "analyse_provisoire",
-                  "fige",
-                  "fige_existant"
-              )
-          ]
-
-          if not analyses:
               raise SystemExit(
-                  "Aucune analyse exploitable"
+                  'Aucune analyse publiee'
               )
 
-          for course in analyses:
-              moteurs = course.get("moteurs", {})
-              for nom in ("M1", "M2", "M3", "M4", "M5"):
-                  if nom not in moteurs:
-                      raise SystemExit(
-                          "Moteur absent : " + nom
-                      )
+          for course in courses:
+              if course.get('statut') in (
+                  'analyse_provisoire',
+                  'fige',
+                  'fige_existant'
+              ):
+                  for nom in (
+                      'M1', 'M2', 'M3', 'M4', 'M5'
+                  ):
+                      if nom not in course.get(
+                          'moteurs', {}
+                      ):
+                          raise SystemExit(
+                              'Moteur absent : ' + nom
+                          )
 
-          print("Analyses controlees :", len(analyses))
+          print(
+              'Publications controlees :',
+              len(courses)
+          )
           PY
 
       - name: Enregistrer les donnees
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name \
+            'github-actions[bot]'
+
           git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
+            '41898282+github-actions[bot]@users.noreply.github.com'
 
           git add data/
 
           if ! git diff --cached --quiet; then
-            git commit -m "Actualisation TURBOFUSION M1-M5"
+            git commit -m \
+              'Actualisation TURBOFUSION M1-M5'
             git pull --rebase origin main
             git push origin HEAD:main
           fi
@@ -134,7 +142,5 @@ jobs:
       - name: Bilan de fonctionnement
         if: always()
         run: |
-          echo "TURBOFUSION 3.0"
-          echo "Controle termine"
-          echo "Consulter les etapes du workflow"
+          echo 'TURBOFUSION 3.0 - Controle termine'
           
