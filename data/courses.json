@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "collecte_a": "2026-10-25T11:59:21.399848+00:00",
+  "collecte_a": "2026-10-25T12:34:59.192511+00:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026",
   "erreurs_participants": [],
   "courses": [
@@ -1228,7 +1228,7 @@
       "course": 2,
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "nom": "CRITERIUM INTERNATIONAL",
-      "depart": "2026-10-25T12:23:00+00:00",
+      "depart": "2026-10-25T12:25:00+00:00",
       "distance_metres": 1600,
       "discipline": "PLAT",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R1/C2/participants",
@@ -1509,7 +1509,7 @@
         {
           "numero": 2,
           "nom": "NEWAIN",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "THO .JOURNIAC",
           "entraineur_nom": "P&C.PELTIER (S)"
         },
@@ -1804,76 +1804,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R5-C1",
-      "reunion": 5,
-      "course": 1,
-      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
-      "nom": "PRIX DU BAS-RHIN",
-      "depart": "2026-10-25T12:40:00+00:00",
-      "distance_metres": 2150,
-      "discipline": "ATTELE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R5/C1/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "ONE MORE LIFE",
-          "non_partant": false,
-          "jockey_nom": "J.PH. DUBOIS",
-          "entraineur_nom": "J.PH. DUBOIS"
-        },
-        {
-          "numero": 2,
-          "nom": "OLADYLADYLAY",
-          "non_partant": false,
-          "jockey_nom": "A. ABRIVARD",
-          "entraineur_nom": "L.CL. ABRIVARD"
-        },
-        {
-          "numero": 3,
-          "nom": "ONDINE FRANCE",
-          "non_partant": false,
-          "jockey_nom": "L. BALU",
-          "entraineur_nom": "S. GUARATO"
-        },
-        {
-          "numero": 4,
-          "nom": "OUTLANDING",
-          "non_partant": false,
-          "jockey_nom": "B. ROCHARD",
-          "entraineur_nom": "Dariusz CZERWINSKI"
-        },
-        {
-          "numero": 5,
-          "nom": "ONAMARIA",
-          "non_partant": false,
-          "jockey_nom": "J.P. DUBOIS",
-          "entraineur_nom": "Dariusz CZERWINSKI"
-        },
-        {
-          "numero": 6,
-          "nom": "ONELLE LANDING",
-          "non_partant": false,
-          "jockey_nom": "E. RAFFIN",
-          "entraineur_nom": "L. BAUDRON"
-        },
-        {
-          "numero": 7,
-          "nom": "OZANA PRIMA",
-          "non_partant": false,
-          "jockey_nom": "A. COLLETTE",
-          "entraineur_nom": "P.Y. VERVA"
-        },
-        {
-          "numero": 8,
-          "nom": "ODYSSEE DU CAIEU",
-          "non_partant": false,
-          "jockey_nom": "F. OUVRIE",
-          "entraineur_nom": "Tristan OUVRIE"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R9-C1",
       "reunion": 9,
       "course": 1,
@@ -1939,6 +1869,76 @@
           "non_partant": false,
           "jockey_nom": "M.ROMARY",
           "entraineur_nom": "J.PIEDNOEL"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
+      "id": "2026-10-25-R5-C1",
+      "reunion": 5,
+      "course": 1,
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
+      "nom": "PRIX DU BAS-RHIN",
+      "depart": "2026-10-25T12:41:00+00:00",
+      "distance_metres": 2150,
+      "discipline": "ATTELE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R5/C1/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "ONE MORE LIFE",
+          "non_partant": false,
+          "jockey_nom": "J.PH. DUBOIS",
+          "entraineur_nom": "J.PH. DUBOIS"
+        },
+        {
+          "numero": 2,
+          "nom": "OLADYLADYLAY",
+          "non_partant": false,
+          "jockey_nom": "A. ABRIVARD",
+          "entraineur_nom": "L.CL. ABRIVARD"
+        },
+        {
+          "numero": 3,
+          "nom": "ONDINE FRANCE",
+          "non_partant": false,
+          "jockey_nom": "L. BALU",
+          "entraineur_nom": "S. GUARATO"
+        },
+        {
+          "numero": 4,
+          "nom": "OUTLANDING",
+          "non_partant": false,
+          "jockey_nom": "B. ROCHARD",
+          "entraineur_nom": "Dariusz CZERWINSKI"
+        },
+        {
+          "numero": 5,
+          "nom": "ONAMARIA",
+          "non_partant": false,
+          "jockey_nom": "J.P. DUBOIS",
+          "entraineur_nom": "Dariusz CZERWINSKI"
+        },
+        {
+          "numero": 6,
+          "nom": "ONELLE LANDING",
+          "non_partant": false,
+          "jockey_nom": "E. RAFFIN",
+          "entraineur_nom": "L. BAUDRON"
+        },
+        {
+          "numero": 7,
+          "nom": "OZANA PRIMA",
+          "non_partant": false,
+          "jockey_nom": "A. COLLETTE",
+          "entraineur_nom": "P.Y. VERVA"
+        },
+        {
+          "numero": 8,
+          "nom": "ODYSSEE DU CAIEU",
+          "non_partant": false,
+          "jockey_nom": "F. OUVRIE",
+          "entraineur_nom": "Tristan OUVRIE"
         }
       ],
       "collecte_participants": "ok"
