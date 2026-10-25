@@ -1,1084 +1,220 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+"""TURBOFUSION 3.0 — audit prudent des FIGÉS M1–M5.
 
+Usage: python audit_figes.py --results data/arrivees_officielles.json
+Un audit n'est dit officiel que si la provenance des résultats et
+l'antériorité de publication sont vérifiées indépendamment.
 """
-🇸🇳🧠🔥 TURBOFUSION 3.0
-COLLECTEUR PMU RENFORCÉ — M1 À M5
-
-LA MAGIE DU SAVOIR
-
-La mémoire conserve.
-L'analyse comprend.
-L'expérience enseigne.
-
-Fonctions :
-- Recherche des réunions PMU françaises du jour
-- Collecte des courses et participants
-- Identification des non-partants
-- Récupération des informations sportives disponibles
-- Étude préparatoire cheval par cheval
-- Origines, jockeys, drivers, entraîneurs
-- Équipement, ferrure et performances publiées
-- Conservation des données sources
-- Contrôle des doublons et erreurs
-- Publication atomique de data/courses.json
-- Diagnostic de couverture M1 à M5
-
-IMPORTANT :
-Les champs sportifs absents restent absents.
-Aucun score, probabilité ou pronostic inventé.
-Aucun pari réel exécuté.
-"""
-
 import argparse
 import datetime as dt
+import hashlib
 import json
 import os
-import sys
-import time
-import urllib.error
-import urllib.request
-
 from pathlib import Path
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
-
-# ============================================================
-# CONFIGURATION
-# ============================================================
-
-PARIS = ZoneInfo("Europe/Paris")
-
-BASE_DIR = Path(__file__).resolve().parent
-
-DATA_DIR = BASE_DIR / "data"
-
-OUTPUT_FILE = DATA_DIR / "courses.json"
-
-DIAGNOSTIC_FILE = (
-    DATA_DIR / "diagnostic_collecte.json"
-)
-
-BASE_URL = os.environ.get(
-    "PMU_API_BASE",
-    "https://online.turfinfo.api.pmu.fr/rest/client/61"
-).rstrip("/")
-
-TIMEOUT = 18
-TENTATIVES = 3
-PAUSE_REQUETES = 0.10
-
-USER_AGENT = (
-    "TURBOFUSION-3.0/"
-    "collecteur-hippique"
-)
-
-# Valeurs descriptives disponibles dans
-# certaines réponses PMU. Les noms des champs
-# peuvent varier selon les disciplines et API.
-
-CHAMPS_PERFORMANCES = (
-    "musique",
-    "performances",
-    "performancesPassees",
-    "historiquePerformances",
-    "dernierePerformance",
-    "nombreCourses",
-    "nombreVictoires",
-    "nombrePlaces",
-    "gainsCarriere",
-    "gains",
-    "record",
-    "reductionKilometrique",
-    "handicapValeur",
-    "valeurHandicap",
-)
-
-CHAMPS_ORIGINES = (
-    "pere",
-    "mere",
-    "pereDeMere",
-    "origine",
-    "origines",
-    "race",
-    "studBook",
-)
-
-CHAMPS_ENTOURAGE = (
-    "jockey",
-    "driver",
-    "entraineur",
-    "proprietaire",
-    "eleveur",
-)
-
-CHAMPS_EQUIPEMENT = (
-    "ferrure",
-    "deferre",
-    "oeilleres",
-    "equipement",
-    "robe",
-    "corde",
-)
-
-CHAMPS_CONDITIONS = (
-    "distance",
-    "discipline",
-    "specialite",
-    "terrain",
-    "etatTerrain",
-    "piste",
-    "corde",
-    "allocation",
-    "montantPrix",
-    "categorieParticularite",
-    "conditions",
-    "conditionsCourse",
-)
+PARIS = ZoneInfo('Europe/Paris')
+MOTEURS = ('M1', 'M2', 'M3', 'M4', 'M5')
 
 
-# ============================================================
-# OUTILS GÉNÉRAUX
-# ============================================================
+def lire(path):
+    def unique(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f'Clé JSON dupliquée : {key}')
+            result[key] = value
+        return result
 
-def maintenant():
-    return dt.datetime.now(PARIS)
+    def constante_invalide(value):
+        raise ValueError(f'Constante JSON interdite : {value}')
 
-
-def texte(valeur):
-    if valeur is None:
-        return ""
-
-    if isinstance(valeur, dict):
-        for cle in (
-            "libelleLong",
-            "libelleCourt",
-            "libelle",
-            "nom",
-            "name",
-            "code",
-        ):
-            resultat = valeur.get(cle)
-            if resultat is not None:
-                return str(resultat).strip()
-
-        return ""
-
-    return str(valeur).strip()
+    return json.loads(Path(path).read_text(encoding='utf-8'),
+                      object_pairs_hook=unique,
+                      parse_constant=constante_invalide)
 
 
-def entier(valeur):
-    if isinstance(valeur, bool):
-        return None
-
-    try:
-        if valeur is None or valeur == "":
-            return None
-
-        return int(valeur)
-
-    except (ValueError, TypeError):
-        return None
+def empreinte(objet):
+    contenu = json.dumps(objet, ensure_ascii=False, sort_keys=True,
+                         allow_nan=False).encode('utf-8')
+    return hashlib.sha256(contenu).hexdigest()
 
 
-def premier(objet, *cles):
-    if not isinstance(objet, dict):
-        return None
-
-    for cle in cles:
-        valeur = objet.get(cle)
-
-        if valeur is not None and valeur != "":
-            return valeur
-
-    return None
+def heure(texte):
+    if not isinstance(texte, str):
+        raise ValueError('Horodatage absent ou invalide')
+    date = dt.datetime.fromisoformat(texte.replace('Z', '+00:00'))
+    if date.tzinfo is None or date.utcoffset() is None:
+        raise ValueError('Horodatage sans fuseau')
+    return date.astimezone(dt.timezone.utc)
 
 
-def champs_disponibles(objet, champs):
-    if not isinstance(objet, dict):
-        return {}
+def numeros(valeurs, libelle, longueur_min=1):
+    if (not isinstance(valeurs, list) or len(valeurs) < longueur_min
+            or any(type(n) is not int or n <= 0 for n in valeurs)
+            or len(set(valeurs)) != len(valeurs)):
+        raise ValueError(f'{libelle} invalide')
+    return valeurs
 
-    resultat = {}
 
-    for champ in champs:
-        if champ not in objet:
+def verifier_fige(fichier, marge):
+    record = lire(fichier)
+    if not isinstance(record, dict):
+        raise ValueError('Enveloppe FIGÉ invalide')
+    rapport = record.get('rapport')
+    if not isinstance(rapport, dict):
+        raise ValueError('Rapport FIGÉ absent')
+    if not isinstance(record.get('sha256'), str) or empreinte(rapport) != record['sha256']:
+        raise ValueError('Empreinte SHA-256 incorrecte')
+    if not isinstance(rapport.get('id'), str) or not rapport['id'].strip():
+        raise ValueError('Identifiant de course absent')
+    depart = heure(rapport.get('depart'))
+    fige_a = heure(record.get('fige_a'))
+    if fige_a >= depart - dt.timedelta(minutes=marge):
+        raise ValueError('FIGÉ trop tardif selon son horodatage déclaré')
+    moteurs = rapport.get('moteurs')
+    if not isinstance(moteurs, dict):
+        raise ValueError('Moteurs absents')
+    qualifies = 0
+    for nom in MOTEURS:
+        moteur = moteurs.get(nom)
+        if moteur is None:
             continue
+        if not isinstance(moteur, dict):
+            raise ValueError(f'Moteur {nom} invalide')
+        if moteur.get('qualification') == 'candidate':
+            qualifies += 1
+            numeros(moteur.get('ordre_arrivee_espere'), f'Classement {nom}')
+    if not qualifies:
+        raise ValueError('Aucun moteur qualifié')
+    return record
 
-        valeur = objet[champ]
 
-        if valeur is None or valeur == "":
+def verifier_resultat(resultat):
+    if not isinstance(resultat, dict):
+        raise ValueError('Résultat invalide')
+    arrivee = numeros(resultat.get('arrivee'), 'Arrivée officielle', 5)
+    if resultat.get('statut') != 'definitive':
+        raise ValueError('Arrivée non définitive')
+    url = resultat.get('source')
+    if not isinstance(url, str):
+        raise ValueError('Source absente')
+    parsed = urlparse(url)
+    if parsed.scheme != 'https' or not parsed.hostname:
+        raise ValueError('URL de source HTTPS invalide')
+    np = numeros(resultat['non_partants'], 'Non-partants', 0) if 'non_partants' in resultat else []
+    if set(arrivee) & set(np):
+        raise ValueError('Cheval présent dans arrivée et non-partants')
+    return arrivee, np
+
+
+def evaluer(record, resultat):
+    rapport = record['rapport']
+    arrivee, np = verifier_resultat(resultat)
+    evaluations = {}
+    for nom in MOTEURS:
+        moteur = rapport['moteurs'].get(nom) or {}
+        if moteur.get('qualification') != 'candidate':
+            evaluations[nom] = {'statut': 'abstention'}
             continue
-
-        if isinstance(valeur, (list, dict)):
-            if not valeur:
-                continue
-
-        resultat[champ] = valeur
-
-    return resultat
-
-
-def date_iso(valeur):
-    if valeur is None:
-        return None
-
-    try:
-        if isinstance(valeur, (int, float)):
-            secondes = (
-                valeur / 1000
-                if valeur > 100000000000
-                else valeur
-            )
-
-            instant = dt.datetime.fromtimestamp(
-                secondes,
-                tz=dt.timezone.utc,
-            )
-
-            return instant.isoformat()
-
-        instant = dt.datetime.fromisoformat(
-            str(valeur).replace(
-                "Z",
-                "+00:00",
-            )
-        )
-
-        if instant.tzinfo is None:
-            # Une date sans fuseau ne doit pas
-            # être convertie silencieusement.
-            return None
-
-        return instant.astimezone(
-            dt.timezone.utc
-        ).isoformat()
-
-    except (
-        ValueError,
-        TypeError,
-        OverflowError,
-        OSError,
-    ):
-        return None
-
-
-def ecrire_json(chemin, donnees):
-    chemin.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    temporaire = chemin.with_suffix(
-        chemin.suffix + ".tmp"
-    )
-
-    temporaire.write_text(
-        json.dumps(
-            donnees,
-            ensure_ascii=False,
-            indent=2,
-            allow_nan=False,
-        ) + "\n",
-        encoding="utf-8",
-    )
-
-    os.replace(
-        temporaire,
-        chemin,
-    )
-
-
-# ============================================================
-# REQUÊTES HTTP
-# ============================================================
-
-def obtenir_json(url):
-    derniere_erreur = None
-
-    for tentative in range(TENTATIVES):
-        try:
-            requete = urllib.request.Request(
-                url,
-                headers={
-                    "Accept": "application/json",
-                    "User-Agent": USER_AGENT,
-                },
-            )
-
-            with urllib.request.urlopen(
-                requete,
-                timeout=TIMEOUT,
-            ) as reponse:
-
-                if reponse.status != 200:
-                    raise RuntimeError(
-                        f"HTTP {reponse.status}"
-                    )
-
-                return json.load(reponse)
-
-        except (
-            urllib.error.URLError,
-            TimeoutError,
-            OSError,
-            ValueError,
-            RuntimeError,
-        ) as erreur:
-
-            derniere_erreur = erreur
-
-            if tentative < TENTATIVES - 1:
-                time.sleep(
-                    2 ** tentative
-                )
-
-    raise RuntimeError(
-        f"Collecte impossible : "
-        f"{url} — {derniere_erreur}"
-    )
-
-
-# ============================================================
-# IDENTIFICATION DES NON-PARTANTS
-# ============================================================
-
-def est_non_partant(cheval):
-    statut = texte(
-        cheval.get("statut")
-    ).upper()
-
-    if cheval.get("nonPartant") is True:
-        return True
-
-    if cheval.get("estNonPartant") is True:
-        return True
-
-    return statut in (
-        "NON_PARTANT",
-        "NON PARTANT",
-        "NP",
-    )
-
-
-# ============================================================
-# EXTRACTION CHEVAL PAR CHEVAL
-# ============================================================
-
-def analyser_participant(brut, source):
-    numero = entier(
-        premier(
-            brut,
-            "numPmu",
-            "numero",
-        )
-    )
-
-    nom = texte(
-        premier(
-            brut,
-            "nom",
-            "nomCheval",
-        )
-    )
-
-    if numero is None or numero <= 0:
-        return None
-
-    if not nom:
-        return None
-
-    performances = champs_disponibles(
-        brut,
-        CHAMPS_PERFORMANCES,
-    )
-
-    origines = champs_disponibles(
-        brut,
-        CHAMPS_ORIGINES,
-    )
-
-    entourage = champs_disponibles(
-        brut,
-        CHAMPS_ENTOURAGE,
-    )
-
-    equipement = champs_disponibles(
-        brut,
-        CHAMPS_EQUIPEMENT,
-    )
-
-    jockey = texte(
-        premier(
-            brut,
-            "jockey",
-            "driver",
-        )
-    )
-
-    entraineur = texte(
-        brut.get("entraineur")
-    )
-
-    proprietaire = texte(
-        brut.get("proprietaire")
-    )
-
-    cheval = {
-        "numero": numero,
-        "nom": nom,
-
-        "non_partant": est_non_partant(
-            brut
-        ),
-
-        "age": entier(
-            brut.get("age")
-        ),
-
-        "sexe": texte(
-            brut.get("sexe")
-        ),
-
-        "jockey_nom": jockey,
-        "entraineur_nom": entraineur,
-        "proprietaire_nom": proprietaire,
-
-        "performances": performances,
-        "origines": origines,
-        "entourage": entourage,
-        "equipement": equipement,
-
-        "source": source,
-
-        "donnees_disponibles": {
-            "performances": bool(
-                performances
-            ),
-            "origines": bool(
-                origines
-            ),
-            "entourage": bool(
-                entourage
-            ),
-            "equipement": bool(
-                equipement
-            ),
-        },
-    }
-
-    # Données descriptives directement
-    # identifiables, sans calcul artificiel.
-
-    musique = premier(
-        brut,
-        "musique",
-    )
-
-    if musique is not None:
-        cheval["musique"] = musique
-
-    gains = premier(
-        brut,
-        "gainsCarriere",
-        "gains",
-    )
-
-    if gains is not None:
-        cheval["gains"] = gains
-
-    ferrure = premier(
-        brut,
-        "ferrure",
-        "deferre",
-    )
-
-    if ferrure is not None:
-        cheval["ferrure"] = ferrure
-
-    pere = premier(
-        brut,
-        "pere",
-    )
-
-    mere = premier(
-        brut,
-        "mere",
-    )
-
-    if pere is not None:
-        cheval["pere"] = texte(pere)
-
-    if mere is not None:
-        cheval["mere"] = texte(mere)
-
-    # Les moteurs utilisent des critères
-    # numériques normalisés entre 0 et 1.
-    # Les données brutes ne sont PAS des scores.
-    #
-    # Aucun champ forme/regularite/etc.
-    # n'est créé artificiellement.
-    #
-    # Un module d'analyse sportive validé
-    # devra produire ces critères à partir
-    # des données vérifiées.
-
-    return cheval
-
-
-# ============================================================
-# COLLECTE DES PARTICIPANTS
-# ============================================================
-
-def collecter_participants(url):
-    donnees = obtenir_json(url)
-
-    if isinstance(donnees, list):
-        participants = donnees
-
-    elif isinstance(donnees, dict):
-        participants = donnees.get(
-            "participants"
-        )
-
-    else:
-        participants = None
-
-    if not isinstance(participants, list):
-        raise ValueError(
-            "Liste des participants indisponible"
-        )
-
-    chevaux = []
-    numeros = set()
-
-    for brut in participants:
-        if not isinstance(brut, dict):
-            continue
-
-        cheval = analyser_participant(
-            brut,
-            url,
-        )
-
-        if cheval is None:
-            continue
-
-        numero = cheval["numero"]
-
-        if numero in numeros:
-            raise ValueError(
-                f"Numéro de cheval en double : "
-                f"{numero}"
-            )
-
-        numeros.add(numero)
-        chevaux.append(cheval)
-
-    chevaux.sort(
-        key=lambda cheval: cheval["numero"]
-    )
-
-    return chevaux
-
-
-# ============================================================
-# DIAGNOSTIC DES INFORMATIONS
-# ============================================================
-
-def diagnostic_chevaux(chevaux):
-    categories = (
-        "performances",
-        "origines",
-        "entourage",
-        "equipement",
-    )
-
-    bilan = {
-        "chevaux": len(chevaux),
-        "partants": sum(
-            not cheval["non_partant"]
-            for cheval in chevaux
-        ),
-        "non_partants": sum(
-            cheval["non_partant"]
-            for cheval in chevaux
-        ),
-    }
-
-    for categorie in categories:
-        bilan[categorie] = sum(
-            bool(
-                cheval[
-                    "donnees_disponibles"
-                ][categorie]
-            )
-            for cheval in chevaux
-        )
-
-    return bilan
-
-
-# ============================================================
-# COLLECTE DU PROGRAMME FRANÇAIS
-# ============================================================
-
-def collecter(date_cible=None):
-    debut = maintenant()
-
-    jour = (
-        date_cible
-        if date_cible is not None
-        else debut.date()
-    )
-
-    date_pmu = jour.strftime(
-        "%d%m%Y"
-    )
-
-    programme_url = (
-        f"{BASE_URL}/programme/{date_pmu}"
-    )
-
-    programme = obtenir_json(
-        programme_url
-    )
-
-    reunions = (
-        programme.get("programme") or {}
-    ).get("reunions") or []
-
-    if not isinstance(reunions, list):
-        raise RuntimeError(
-            "Structure du programme invalide"
-        )
-
-    if not reunions:
-        raise RuntimeError(
-            "Programme PMU indisponible"
-        )
-
-    courses = []
-    erreurs = []
-    identifiants = set()
-
-    for reunion in reunions:
-        if not isinstance(reunion, dict):
-            continue
-
-        pays = texte(
-            premier(
-                reunion,
-                "paysCode",
-                "pays",
-            )
-        ).upper()
-
-        if pays not in (
-            "FR",
-            "FRA",
-            "FRANCE",
-        ):
-            continue
-
-        reunion_numero = entier(
-            reunion.get("numOfficiel")
-        )
-
-        if reunion_numero is None:
-            continue
-
-        hippodrome = texte(
-            reunion.get("hippodrome")
-        )
-
-        courses_reunion = (
-            reunion.get("courses") or []
-        )
-
-        for brut in courses_reunion:
-            if not isinstance(brut, dict):
-                continue
-
-            course_numero = entier(
-                brut.get("numOrdre")
-            )
-
-            depart = date_iso(
-                premier(
-                    brut,
-                    "heureDepart",
-                    "heureDepartPrevue",
-                )
-            )
-
-            if course_numero is None:
-                continue
-
-            if depart is None:
-                erreurs.append(
-                    f"R{reunion_numero}"
-                    f"C{course_numero}: "
-                    "départ indisponible"
-                )
-                continue
-
-            date_depart = (
-                dt.datetime.fromisoformat(
-                    depart
-                ).astimezone(PARIS).date()
-            )
-
-            if date_depart != jour:
-                continue
-
-            identifiant = (
-                f"{jour.isoformat()}"
-                f"-R{reunion_numero}"
-                f"-C{course_numero}"
-            )
-
-            if identifiant in identifiants:
-                erreurs.append(
-                    f"Course en double : "
-                    f"{identifiant}"
-                )
-                continue
-
-            identifiants.add(
-                identifiant
-            )
-
-            participants_url = (
-                f"{BASE_URL}/programme/"
-                f"{date_pmu}/"
-                f"R{reunion_numero}/"
-                f"C{course_numero}/"
-                f"participants"
-            )
-
-            chevaux = []
-            collecte_statut = "ok"
-
-            try:
-                chevaux = collecter_participants(
-                    participants_url
-                )
-
-                if not chevaux:
-                    collecte_statut = (
-                        "participants_vides"
-                    )
-
-            except (
-                RuntimeError,
-                ValueError,
-            ) as erreur:
-
-                collecte_statut = (
-                    "indisponible"
-                )
-
-                erreurs.append(
-                    f"{identifiant}: "
-                    f"{erreur}"
-                )
-
-            conditions = champs_disponibles(
-                brut,
-                CHAMPS_CONDITIONS,
-            )
-
-            diagnostic = diagnostic_chevaux(
-                chevaux
-            )
-
-            course = {
-                "id": identifiant,
-
-                "reunion": reunion_numero,
-                "course": course_numero,
-
-                "hippodrome": hippodrome,
-
-                "nom": texte(
-                    brut.get("libelle")
-                ),
-
-                "depart": depart,
-
-                "distance_metres": entier(
-                    brut.get("distance")
-                ),
-
-                "discipline": texte(
-                    brut.get("discipline")
-                ),
-
-                "conditions": conditions,
-
-                "source": participants_url,
-
-                # Format attendu par main.py
-                "partants": chevaux,
-
-                "nombre_partants": diagnostic[
-                    "partants"
-                ],
-
-                "nombre_non_partants": diagnostic[
-                    "non_partants"
-                ],
-
-                "collecte_participants": (
-                    collecte_statut
-                ),
-
-                "diagnostic": diagnostic,
+        ordre = moteur['ordre_arrivee_espere']
+        if set(ordre) & set(np):
+            evaluations[nom] = {
+                'statut': 'non_evaluable_np',
+                'numeros_np_selectionnes': sorted(set(ordre) & set(np))
             }
-
-            courses.append(course)
-
-            print(
-                f"{identifiant} — "
-                f"{hippodrome} — "
-                f"{diagnostic['partants']} "
-                f"partants — "
-                f"{collecte_statut}"
-            )
-
-            time.sleep(
-                PAUSE_REQUETES
-            )
-
-    if not courses:
-        raise RuntimeError(
-            "Aucune course française "
-            "collectée pour cette date"
-        )
-
-    courses.sort(
-        key=lambda course: (
-            course["depart"],
-            course["id"],
-        )
-    )
-
-    # Vérification finale des identifiants
-    # et des départs avant publication.
-
-    for course in courses:
-        if not course["id"]:
-            raise ValueError(
-                "Identifiant de course absent"
-            )
-
-        if not course["depart"]:
-            raise ValueError(
-                "Heure de départ absente"
-            )
-
-    total_chevaux = sum(
-        len(course["partants"])
-        for course in courses
-    )
-
-    total_partants = sum(
-        course["nombre_partants"]
-        for course in courses
-    )
-
-    total_np = sum(
-        course["nombre_non_partants"]
-        for course in courses
-    )
-
-    fin = maintenant()
-
-    resultat = {
-        "logiciel": "TURBOFUSION 3.0",
-
-        "version_collecteur": "3.1",
-
-        "date": jour.isoformat(),
-
-        "collecte_a": fin.isoformat(),
-
-        "source": programme_url,
-
-        "statut_collecte": (
-            "partielle"
-            if erreurs
-            else "ok"
-        ),
-
-        "erreurs_participants": erreurs,
-
-        "courses": courses,
+            continue
+        evaluations[nom] = {
+            'statut': 'compare',
+            'ordre_espere': ordre,
+            'gagnant_correct': ordre[0] == arrivee[0],
+            'premier_dans_trois': ordre[0] in arrivee[:3],
+            'chevaux_dans_cinq': len(set(ordre[:5]) & set(arrivee[:5])),
+            'ordre_exact_top5': len(ordre) >= 5 and ordre[:5] == arrivee[:5],
+            'pari_reel': 'non_verifie'
+        }
+    return {
+        'id': rapport['id'], 'depart': rapport['depart'],
+        'fige_a_declare': record['fige_a'], 'sha256': record['sha256'],
+        'source_arrivee_declaree': resultat['source'],
+        'arrivee_declaree': arrivee, 'non_partants_declares': np,
+        'moteurs': evaluations,
+        'statut': 'comparaison_documentaire_non_certifiee',
+        'preuve_publication_avant_depart': 'non_verifiee',
+        'preuve_source_officielle': 'non_verifiee'
     }
 
-    diagnostic_global = {
-        "logiciel": "TURBOFUSION 3.0",
 
-        "date": jour.isoformat(),
+def ecrire_nouveau(path, objet):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    contenu = json.dumps(objet, ensure_ascii=False, indent=2,
+                         sort_keys=True, allow_nan=False) + '\n'
+    # Création exclusive : aucune archive existante n'est écrasée.
+    with path.open('x', encoding='utf-8') as sortie:
+        sortie.write(contenu)
 
-        "collecte_a": fin.isoformat(),
-
-        "courses_collectees": len(
-            courses
-        ),
-
-        "chevaux_recenses": total_chevaux,
-
-        "partants": total_partants,
-
-        "non_partants": total_np,
-
-        "erreurs": erreurs,
-
-        "couverture": {
-            "performances": sum(
-                course["diagnostic"][
-                    "performances"
-                ]
-                for course in courses
-            ),
-
-            "origines": sum(
-                course["diagnostic"][
-                    "origines"
-                ]
-                for course in courses
-            ),
-
-            "entourage": sum(
-                course["diagnostic"][
-                    "entourage"
-                ]
-                for course in courses
-            ),
-
-            "equipement": sum(
-                course["diagnostic"][
-                    "equipement"
-                ]
-                for course in courses
-            ),
-        },
-
-        "note": (
-            "Les informations descriptives "
-            "ne sont pas des scores sportifs. "
-            "Les moteurs doivent s'abstenir "
-            "si les critères calculés et "
-            "validés sont absents."
-        ),
-    }
-
-    ecrire_json(
-        OUTPUT_FILE,
-        resultat,
-    )
-
-    ecrire_json(
-        DIAGNOSTIC_FILE,
-        diagnostic_global,
-    )
-
-    print()
-    print("=" * 60)
-    print("🇸🇳🧠🔥 TURBOFUSION 3.0")
-    print("COLLECTE PMU TERMINÉE")
-    print("=" * 60)
-
-    print(
-        "Courses collectées :",
-        len(courses),
-    )
-
-    print(
-        "Chevaux recensés :",
-        total_chevaux,
-    )
-
-    print(
-        "Partants :",
-        total_partants,
-    )
-
-    print(
-        "Non-partants :",
-        total_np,
-    )
-
-    print(
-        "Erreurs de collecte :",
-        len(erreurs),
-    )
-
-    print(
-        "Publication :",
-        OUTPUT_FILE,
-    )
-
-    print(
-        "Diagnostic :",
-        DIAGNOSTIC_FILE,
-    )
-
-    print("=" * 60)
-
-
-# ============================================================
-# PROGRAMME PRINCIPAL
-# ============================================================
 
 def main():
-    parser = argparse.ArgumentParser(
-        description=(
-            "TURBOFUSION 3.0 — "
-            "Collecte hippique PMU renforcée"
-        )
-    )
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--data', type=Path, default=Path('data'))
+    parser.add_argument('--results', type=Path,
+                        default=Path('data/arrivees_officielles.json'))
+    parser.add_argument('--safety-minutes', type=int, default=2)
+    args = parser.parse_args()
+    if args.safety_minutes < 0:
+        parser.error('Marge de sécurité négative')
+    if not args.results.is_file():
+        print('Arrivées absentes : aucun audit de performance créé.')
+        return 0
+    source = lire(args.results)
+    if not isinstance(source, dict) or not isinstance(source.get('courses'), list):
+        raise ValueError('Format des arrivées invalide')
+    resultats = {}
+    for item in source['courses']:
+        if not isinstance(item, dict) or not isinstance(item.get('id'), str) or not item['id'].strip():
+            raise ValueError('Identifiant de résultat invalide')
+        if item['id'] in resultats:
+            raise ValueError(f'Résultat dupliqué : {item["id"]}')
+        resultats[item['id']] = item
 
-    parser.add_argument(
-        "--date",
-        help="Date au format AAAA-MM-JJ",
-    )
-
-    arguments = parser.parse_args()
-
-    date_cible = None
-
-    if arguments.date:
+    audits, erreurs, vus = [], [], set()
+    for fichier in sorted((args.data / 'figes').glob('*/*.json')):
         try:
-            date_cible = dt.date.fromisoformat(
-                arguments.date
-            )
+            record = verifier_fige(fichier, args.safety_minutes)
+            cid = record['rapport']['id']
+            if cid not in resultats:
+                continue
+            cle = (cid, record['sha256'])
+            if cle in vus:
+                continue
+            vus.add(cle)
+            audit = evaluer(record, resultats[cid])
+            audit['fichier_fige'] = str(fichier)
+            audits.append(audit)
+        except (ValueError, TypeError, KeyError, OSError, OverflowError) as exc:
+            erreurs.append({'fichier': str(fichier), 'erreur': str(exc)})
 
-        except ValueError:
-            parser.error(
-                "Date invalide. "
-                "Utiliser AAAA-MM-JJ."
-            )
-
-    collecter(date_cible)
-
-
-if __name__ == "__main__":
-    try:
-        main()
-
-    except (
-        RuntimeError,
-        ValueError,
-        OSError,
-        TypeError,
-    ) as erreur:
-
-        print(
-            "ERREUR COLLECTE PMU :",
-            erreur,
-            file=sys.stderr,
+    sortie = {
+        'logiciel': 'TURBOFUSION 3.0',
+        'genere_a': dt.datetime.now(PARIS).isoformat(),
+        'statut': 'comparaison_partielle' if erreurs else 'comparaison_documentaire',
+        'audits': audits, 'erreurs': erreurs,
+        'avertissement': (
+            'Le SHA-256 prouve seulement la cohérence du contenu. '
+            'La date déclarée, la publication antérieure et la provenance '
+            'officielle des résultats nécessitent des preuves indépendantes. '
+            'Aucun pari ni gain réel n’est certifié.'
         )
+    }
+    horodatage = dt.datetime.now(PARIS).strftime('%Y%m%dT%H%M%S%f')
+    chemin = args.data / f'audit_documentaire_{horodatage}_{os.getpid()}.json'
+    ecrire_nouveau(chemin, sortie)
+    print(f'Audits documentaires : {len(audits)} ; anomalies : {len(erreurs)}')
+    print(f'Archive créée : {chemin}')
+    return 1 if erreurs else 0
 
-        sys.exit(1)
+
+if __name__ == '__main__':
+    raise SystemExit(main())
