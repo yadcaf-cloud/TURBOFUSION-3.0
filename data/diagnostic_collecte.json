@@ -1,0 +1,17 @@
+{
+  "logiciel": "TURBOFUSION 3.0",
+  "date": "2026-10-25",
+  "collecte_a": "2026-10-25T17:46:04.569004+01:00",
+  "courses_collectees": 97,
+  "chevaux_recenses": 1199,
+  "partants": 1167,
+  "non_partants": 32,
+  "erreurs": [],
+  "couverture": {
+    "performances": 1199,
+    "origines": 1199,
+    "entourage": 1199,
+    "equipement": 1199
+  },
+  "note": "Les informations descriptives ne sont pas des scores sportifs. Les moteurs doivent s'abstenir si les critères calculés et validés sont absents."
+}
