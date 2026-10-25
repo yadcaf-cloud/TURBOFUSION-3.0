@@ -1,15 +1,11 @@
 #!/usr/bin/env python3
-"""Collecte prudente des programmes PMU pour TURBOFUSION 3.0.
-
-Interface PMU non contractuelle : les endpoints et leur schéma peuvent changer.
-Aucune note prédictive n'est inventée.
-"""
+"""TURBOFUSION 3.0 - Collecte des programmes PMU."""
 import json
 import os
 import sys
 import time
-import urllib.error
 import urllib.request
+import urllib.error
 from datetime import datetime, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -17,303 +13,196 @@ from zoneinfo import ZoneInfo
 PARIS = ZoneInfo("Europe/Paris")
 BASE = os.getenv(
     "PMU_API_BASE",
-    "https://online.turfinfo.api.pmu.fr/rest/client/61"
+    "https://online.turfinfo.api.pmu.fr/rest/client/1"
 ).rstrip("/")
-OUTPUT = Path("data/courses.json")
-MAX_BYTES = 8_000_000
+SORTIE = Path("data/publication_latest.json")
+TIMEOUT = 20
 
 
-def fetch_json(path):
-    url = BASE + path
-    last_error = None
-    for attempt in range(3):
+def maintenant():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def telecharger(url):
+    erreur = None
+    for essai in range(3):
         try:
             req = urllib.request.Request(
                 url,
                 headers={
                     "Accept": "application/json",
-                    "User-Agent": "Mozilla/5.0 TURBOFUSION/3.0",
-                },
+                    "User-Agent": "TURBOFUSION-3.0/1.0"
+                }
             )
-            with urllib.request.urlopen(req, timeout=20) as response:
-                raw = response.read(MAX_BYTES + 1)
-                if len(raw) > MAX_BYTES:
-                    raise ValueError("Réponse PMU trop volumineuse")
-                return json.loads(raw.decode("utf-8-sig"))
-        except (urllib.error.URLError, ValueError, TimeoutError) as exc:
-            last_error = exc
-            if attempt < 2:
-                time.sleep(attempt + 1)
-    raise RuntimeError(f"Échec requête {path}: {last_error}")
+            with urllib.request.urlopen(
+                req, timeout=TIMEOUT
+            ) as rep:
+                return json.load(rep)
+        except (
+            urllib.error.URLError,
+            TimeoutError,
+            ValueError,
+            OSError
+        ) as exc:
+            erreur = exc
+            if essai < 2:
+                time.sleep(2 ** essai)
+    raise RuntimeError(
+        f"Source PMU inaccessible : {erreur}"
+    )
 
 
-def iso_depart(value):
-    if isinstance(value, (int, float)) and not isinstance(value, bool):
-        seconds = value / 1000 if value > 10**11 else value
-        return datetime.fromtimestamp(
-            seconds, timezone.utc
-        ).astimezone(PARIS).isoformat()
-
-    if isinstance(value, str):
-        d = datetime.fromisoformat(value.replace("Z", "+00:00"))
-        if d.tzinfo is None:
-            raise ValueError("Départ sans fuseau")
-        return d.astimezone(PARIS).isoformat()
-
-    raise ValueError("Horaire de départ inconnu")
+def liste(valeur):
+    return valeur if isinstance(valeur, list) else []
 
 
-def pick(obj, *keys):
-    for key in keys:
-        value = obj.get(key)
-        if value is not None and value != "":
-            return value
+def texte(valeur):
+    if isinstance(valeur, dict):
+        return str(
+            valeur.get("libelleLong")
+            or valeur.get("libelleCourt")
+            or valeur.get("libelle")
+            or valeur.get("nom")
+            or ""
+        )
+    return str(valeur or "")
+
+
+def date_depart(valeur):
+    if valeur is None:
+        return None
+    try:
+        if isinstance(valeur, (int, float)):
+            # Le PMU utilise des timestamps en millisecondes.
+            return datetime.fromtimestamp(
+                valeur / 1000 if valeur > 1e11 else valeur,
+                tz=timezone.utc
+            ).isoformat()
+        if isinstance(valeur, str):
+            dt = datetime.fromisoformat(
+                valeur.replace("Z", "+00:00")
+            )
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=PARIS)
+            return dt.astimezone(timezone.utc).isoformat()
+    except (ValueError, OverflowError, OSError):
+        pass
     return None
 
 
-def name(obj):
-    if isinstance(obj, str):
-        return obj.strip()
-    if isinstance(obj, dict):
-        return str(
-            pick(obj, "libelle", "nom", "name") or ""
-        ).strip()
-    return ""
+def entier(valeur):
+    try:
+        return int(valeur)
+    except (TypeError, ValueError):
+        return None
 
 
-def participants(reunion, course, date_pmu):
-    rid = pick(reunion, "numOfficiel", "numReunion")
-    cid = pick(course, "numOrdre", "numCourse")
+def main():
+    date = datetime.now(PARIS).strftime("%d%m%Y")
+    url = f"{BASE}/programme/{date}"
+    brut = telecharger(url)
 
-    if rid is None or cid is None:
-        raise ValueError("Identifiants réunion/course manquants")
-
-    path = (
-        f"/programme/{date_pmu}/R{int(rid)}"
-        f"/C{int(cid)}/participants"
-    )
-    payload = fetch_json(path)
-
-    entries = (
-        payload if isinstance(payload, list)
-        else payload.get("participants", [])
-    )
-    if not isinstance(entries, list):
-        raise ValueError("Liste de participants invalide")
-
-    result = []
-    seen = set()
-
-    for horse in entries:
-        if not isinstance(horse, dict):
-            continue
-
-        try:
-            number = int(
-                pick(horse, "numPmu", "numero", "numCheval")
-            )
-        except (TypeError, ValueError):
-            continue
-
-        horse_name = name(
-            pick(horse, "nom", "nomCheval")
-        )
-
-        if number <= 0 or number in seen or not horse_name:
-            continue
-
-        seen.add(number)
-
-        record = {
-            "numero": number,
-            "nom": horse_name,
-            "non_partant": bool(
-                horse.get("nonPartant", False)
-            ),
-        }
-
-        for target, keys in {
-            "jockey_nom": ("nomJockey", "jockey"),
-            "entraineur_nom": (
-                "nomEntraineur", "entraineur"
-            ),
-            "driver_nom": ("nomDriver", "driver"),
-        }.items():
-            value = name(pick(horse, *keys))
-            if value:
-                record[target] = value
-
-        result.append(record)
-
-    return result
-
-
-def collect():
-    today = datetime.now(PARIS).date()
-    date_pmu = today.strftime("%d%m%Y")
-
-    programme = fetch_json(
-        f"/programme/{date_pmu}"
-    )
-    reunions = programme.get(
-        "programme", {}
-    ).get("reunions", [])
-
-    if not isinstance(reunions, list):
-        raise ValueError(
-            "Structure des réunions PMU invalide"
+    reunions = liste(brut.get("programme", {}).get("reunions"))
+    if not reunions:
+        raise RuntimeError(
+            "Aucune réunion trouvée : format PMU à vérifier"
         )
 
     courses = []
-    errors = []
+    total_reunions = len(reunions)
 
     for reunion in reunions:
-        if not isinstance(reunion, dict):
+        pays = texte(
+            reunion.get("pays")
+            or reunion.get("paysCode")
+        ).upper()
+
+        # Ne retenir que les courses physiquement en France.
+        if pays not in ("FR", "FRA", "FRANCE"):
             continue
 
-        pays = name(
-            pick(reunion, "pays", "paysLibelle")
-        )
-        if pays and pays.upper() not in (
-            "FRANCE", "FR", "FRA"
-        ):
+        nr = entier(reunion.get("numOfficiel"))
+        if nr is None:
             continue
 
-        for course in reunion.get("courses", []):
-            try:
-                rid = int(
-                    pick(
-                        reunion,
-                        "numOfficiel",
-                        "numReunion",
-                    )
-                )
-                cid = int(
-                    pick(
-                        course,
-                        "numOrdre",
-                        "numCourse",
-                    )
-                )
+        hippodrome = texte(reunion.get("hippodrome"))
+        for course in liste(reunion.get("courses")):
+            nc = entier(course.get("numOrdre"))
+            if nc is None:
+                continue
 
-                depart = iso_depart(
-                    pick(
-                        course,
-                        "heureDepart",
-                        "heureDepartPrevue",
-                    )
-                )
+            depart = date_depart(
+                course.get("heureDepart")
+                or course.get("heureDepartPrevue")
+            )
+            if not depart:
+                continue
 
-                if (
-                    datetime.fromisoformat(depart).date()
-                    != today
-                ):
-                    continue
+            identifiant = f"R{nr}C{nc}"
+            courses.append({
+                "id": identifiant,
+                "reunion": nr,
+                "course": nc,
+                "hippodrome": hippodrome,
+                "nom": texte(course.get("libelle")),
+                "depart": depart,
+                "partants": entier(
+                    course.get("nombrePartants")
+                ),
+                "distance": entier(course.get("distance")),
+                "discipline": texte(
+                    course.get("discipline")
+                ),
+                "moteurs": {
+                    f"M{i}": {
+                        "qualification": "Non analysé",
+                        "ordre_espere": []
+                    }
+                    for i in range(1, 6)
+                },
+                "statut": "Programme collecté - non figé"
+            })
 
-                runners = participants(
-                    reunion, course, date_pmu
-                )
-
-                if len(runners) < 2:
-                    raise ValueError(
-                        "Moins de deux chevaux identifiés"
-                    )
-
-                item = {
-                    "id": (
-                        f"{today.isoformat()}"
-                        f"-R{rid}-C{cid}"
-                    ),
-                    "hippodrome": name(
-                        pick(
-                            reunion,
-                            "hippodrome",
-                            "libelleHippodrome",
-                        )
-                    ),
-                    "reunion": rid,
-                    "course": cid,
-                    "depart": depart,
-                    "source": (
-                        BASE
-                        + f"/programme/{date_pmu}"
-                        + f"/R{rid}/C{cid}/participants"
-                    ),
-                    "partants": runners,
-                }
-
-                distance = pick(
-                    course,
-                    "distance",
-                    "distanceMetres",
-                )
-                if (
-                    isinstance(distance, (int, float))
-                    and not isinstance(distance, bool)
-                    and distance > 0
-                ):
-                    item["distance_metres"] = distance
-
-                courses.append(item)
-
-            except (
-                ValueError,
-                TypeError,
-                KeyError,
-                RuntimeError,
-            ) as exc:
-                errors.append(
-                    f"R{reunion.get('numOfficiel', '?')} "
-                    f"C{course.get('numOrdre', '?')}: "
-                    f"{exc}"
-                )
+    courses.sort(key=lambda c: (c["depart"], c["id"]))
 
     if not courses:
         raise RuntimeError(
-            "Aucune course française valide récupérée; "
-            "ancien fichier conservé. "
-            + "; ".join(errors[:3])
+            "Aucune course française exploitable trouvée"
         )
 
-    courses.sort(
-        key=lambda x: (x["depart"], x["id"])
-    )
+    publication = {
+        "application": "TURBOFUSION 3.0",
+        "date_programme": datetime.now(PARIS).date().isoformat(),
+        "genere_a": maintenant(),
+        "source": BASE,
+        "statut_collecte": "Programme PMU collecté",
+        "reunions_source": total_reunions,
+        "nombre_courses": len(courses),
+        "analyses_confirmees": False,
+        "courses": courses
+    }
 
-    OUTPUT.parent.mkdir(
-        parents=True, exist_ok=True
+    SORTIE.parent.mkdir(parents=True, exist_ok=True)
+    temporaire = SORTIE.with_suffix(".json.tmp")
+    temporaire.write_text(
+        json.dumps(
+            publication,
+            ensure_ascii=False,
+            indent=2
+        ),
+        encoding="utf-8"
     )
-    temp = OUTPUT.with_suffix(".json.tmp")
-
-    try:
-        temp.write_text(
-            json.dumps(
-                {"courses": courses},
-                ensure_ascii=False,
-                indent=2,
-                allow_nan=False,
-            ) + "\n",
-            encoding="utf-8",
-        )
-        os.replace(temp, OUTPUT)
-    finally:
-        temp.unlink(missing_ok=True)
+    os.replace(temporaire, SORTIE)
 
     print(
-        f"Collecte : {len(courses)} courses "
-        f"françaises; {len(errors)} avertissements"
+        f"Collecte réussie : {len(courses)} courses françaises"
     )
-
-    for error in errors[:10]:
-        print("AVERTISSEMENT :", error)
+    print(f"Publication : {SORTIE}")
 
 
 if __name__ == "__main__":
     try:
-        collect()
+        main()
     except Exception as exc:
-        print(
-            "ERREUR COLLECTE :", exc,
-            file=sys.stderr
-        )
+        print(f"ERREUR COLLECTE : {exc}", file=sys.stderr)
         sys.exit(1)
-                
