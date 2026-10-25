@@ -2,9 +2,9 @@
   "avertissement": "Aucune garantie de gain ; donnees sportives verifiees requises",
   "courses": [
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
-      "depart": "2026-10-25T10:54:00+01:00",
-      "hippodrome": "",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
+      "depart": "2026-10-25T10:56:00+01:00",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C1",
       "moteurs": {
         "M1": {
@@ -44,7 +44,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -86,7 +86,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -128,7 +128,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -170,7 +170,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -212,23 +212,23 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 13,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R4/C1/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
-      "depart": "2026-10-25T11:24:00+01:00",
-      "hippodrome": "",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
+      "depart": "2026-10-25T11:26:00+01:00",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C2",
       "moteurs": {
         "M1": {
@@ -268,7 +268,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -310,7 +310,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -352,7 +352,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -394,7 +394,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -436,23 +436,23 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 14,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R4/C2/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
-      "depart": "2026-10-25T11:56:00+01:00",
-      "hippodrome": "",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
+      "depart": "2026-10-25T11:57:00+01:00",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C3",
       "moteurs": {
         "M1": {
@@ -674,9 +674,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T12:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C1",
       "moteurs": {
         "M1": {
@@ -898,9 +898,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T12:28:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C4",
       "moteurs": {
         "M1": {
@@ -1122,9 +1122,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T12:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C1",
       "moteurs": {
         "M1": {
@@ -1340,15 +1340,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
+      "non_partants": 1,
+      "partants": 11,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R15/C1/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T12:45:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C2",
       "moteurs": {
         "M1": {
@@ -1570,9 +1570,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T12:48:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C1",
       "moteurs": {
         "M1": {
@@ -1794,9 +1794,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C2",
       "moteurs": {
         "M1": {
@@ -2012,15 +2012,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 15,
+      "non_partants": 1,
+      "partants": 14,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R15/C2/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C1",
       "moteurs": {
         "M1": {
@@ -2242,9 +2242,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C5",
       "moteurs": {
         "M1": {
@@ -2466,9 +2466,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C3",
       "moteurs": {
         "M1": {
@@ -2690,9 +2690,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:23:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C2",
       "moteurs": {
         "M1": {
@@ -2914,9 +2914,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C1",
       "moteurs": {
         "M1": {
@@ -3138,9 +3138,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C3",
       "moteurs": {
         "M1": {
@@ -3362,19 +3362,13 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C1",
       "moteurs": {
         "M1": {
           "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "NUNCIO D'ELIPE",
-              "numero": 1,
-              "score": 0.0
-            },
             {
               "couverture": 0.0,
               "nom": "NEWAIN",
@@ -3397,6 +3391,12 @@
               "couverture": 0.0,
               "nom": "NISSAN DES MOTTES",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGIC DREAMS",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -3413,12 +3413,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "NUNCIO D'ELIPE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NEWAIN",
               "numero": 2,
               "score": 0.0
@@ -3439,6 +3433,12 @@
               "couverture": 0.0,
               "nom": "NISSAN DES MOTTES",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGIC DREAMS",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -3455,12 +3455,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "NUNCIO D'ELIPE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NEWAIN",
               "numero": 2,
               "score": 0.0
@@ -3481,6 +3475,12 @@
               "couverture": 0.0,
               "nom": "NISSAN DES MOTTES",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGIC DREAMS",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -3497,12 +3497,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "NUNCIO D'ELIPE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NEWAIN",
               "numero": 2,
               "score": 0.0
@@ -3523,6 +3517,12 @@
               "couverture": 0.0,
               "nom": "NISSAN DES MOTTES",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGIC DREAMS",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -3539,12 +3539,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "NUNCIO D'ELIPE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NEWAIN",
               "numero": 2,
               "score": 0.0
@@ -3566,6 +3560,12 @@
               "nom": "NISSAN DES MOTTES",
               "numero": 5,
               "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGIC DREAMS",
+              "numero": 6,
+              "score": 0.0
             }
           ],
           "couverture": 0.0,
@@ -3580,15 +3580,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 9,
+      "non_partants": 1,
+      "partants": 8,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R16/C1/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:35:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C2",
       "moteurs": {
         "M1": {
@@ -3810,9 +3810,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:35:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C6",
       "moteurs": {
         "M1": {
@@ -4034,9 +4034,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:40:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C1",
       "moteurs": {
         "M1": {
@@ -4258,9 +4258,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:40:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C1",
       "moteurs": {
         "M1": {
@@ -4482,9 +4482,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:45:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C4",
       "moteurs": {
         "M1": {
@@ -4700,15 +4700,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 13,
+      "non_partants": 1,
+      "partants": 12,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R12/C4/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:55:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C1",
       "moteurs": {
         "M1": {
@@ -4930,9 +4930,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T13:58:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C3",
       "moteurs": {
         "M1": {
@@ -5154,9 +5154,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C1",
       "moteurs": {
         "M1": {
@@ -5378,9 +5378,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C2",
       "moteurs": {
         "M1": {
@@ -5399,12 +5399,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NOLANN DE MONGOCHY",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NICKEL MARANCOURT",
               "numero": 4,
               "score": 0.0
@@ -5413,6 +5407,12 @@
               "couverture": 0.0,
               "nom": "NINJA UP STAR",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "NELVIS PASMARICK",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -5441,12 +5441,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NOLANN DE MONGOCHY",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NICKEL MARANCOURT",
               "numero": 4,
               "score": 0.0
@@ -5455,6 +5449,12 @@
               "couverture": 0.0,
               "nom": "NINJA UP STAR",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "NELVIS PASMARICK",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -5483,12 +5483,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NOLANN DE MONGOCHY",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NICKEL MARANCOURT",
               "numero": 4,
               "score": 0.0
@@ -5497,6 +5491,12 @@
               "couverture": 0.0,
               "nom": "NINJA UP STAR",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "NELVIS PASMARICK",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -5525,12 +5525,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NOLANN DE MONGOCHY",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NICKEL MARANCOURT",
               "numero": 4,
               "score": 0.0
@@ -5539,6 +5533,12 @@
               "couverture": 0.0,
               "nom": "NINJA UP STAR",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "NELVIS PASMARICK",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -5567,12 +5567,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NOLANN DE MONGOCHY",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "NICKEL MARANCOURT",
               "numero": 4,
               "score": 0.0
@@ -5581,6 +5575,12 @@
               "couverture": 0.0,
               "nom": "NINJA UP STAR",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "NELVIS PASMARICK",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -5596,15 +5596,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
+      "non_partants": 1,
+      "partants": 11,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R13/C2/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C1",
       "moteurs": {
         "M1": {
@@ -5826,9 +5826,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C4",
       "moteurs": {
         "M1": {
@@ -6050,9 +6050,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C2",
       "moteurs": {
         "M1": {
@@ -6274,9 +6274,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C3",
       "moteurs": {
         "M1": {
@@ -6498,9 +6498,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C7",
       "moteurs": {
         "M1": {
@@ -6722,9 +6722,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:10:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C2",
       "moteurs": {
         "M1": {
@@ -6946,9 +6946,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C5",
       "moteurs": {
         "M1": {
@@ -7170,9 +7170,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C2",
       "moteurs": {
         "M1": {
@@ -7394,9 +7394,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:25:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C2",
       "moteurs": {
         "M1": {
@@ -7618,9 +7618,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C2",
       "moteurs": {
         "M1": {
@@ -7842,19 +7842,13 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C3",
       "moteurs": {
         "M1": {
           "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "MAYA DES DUNES",
-              "numero": 1,
-              "score": 0.0
-            },
             {
               "couverture": 0.0,
               "nom": "MA BELLE DU THIL",
@@ -7877,6 +7871,12 @@
               "couverture": 0.0,
               "nom": "MANDALIKA",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MISS DE JAFRAN",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -7893,12 +7893,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAYA DES DUNES",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MA BELLE DU THIL",
               "numero": 2,
               "score": 0.0
@@ -7919,6 +7913,12 @@
               "couverture": 0.0,
               "nom": "MANDALIKA",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MISS DE JAFRAN",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -7935,12 +7935,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAYA DES DUNES",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MA BELLE DU THIL",
               "numero": 2,
               "score": 0.0
@@ -7961,6 +7955,12 @@
               "couverture": 0.0,
               "nom": "MANDALIKA",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MISS DE JAFRAN",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -7977,12 +7977,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAYA DES DUNES",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MA BELLE DU THIL",
               "numero": 2,
               "score": 0.0
@@ -8003,6 +7997,12 @@
               "couverture": 0.0,
               "nom": "MANDALIKA",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MISS DE JAFRAN",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -8019,12 +8019,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAYA DES DUNES",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MA BELLE DU THIL",
               "numero": 2,
               "score": 0.0
@@ -8046,6 +8040,12 @@
               "nom": "MANDALIKA",
               "numero": 5,
               "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MISS DE JAFRAN",
+              "numero": 6,
+              "score": 0.0
             }
           ],
           "couverture": 0.0,
@@ -8060,15 +8060,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
+      "non_partants": 1,
+      "partants": 11,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R13/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C2",
       "moteurs": {
         "M1": {
@@ -8290,9 +8290,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C5",
       "moteurs": {
         "M1": {
@@ -8514,9 +8514,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C3",
       "moteurs": {
         "M1": {
@@ -8738,9 +8738,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:33:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C4",
       "moteurs": {
         "M1": {
@@ -8962,9 +8962,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:35:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C4",
       "moteurs": {
         "M1": {
@@ -9186,9 +9186,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:35:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C8",
       "moteurs": {
         "M1": {
@@ -9410,9 +9410,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:40:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C3",
       "moteurs": {
         "M1": {
@@ -9437,14 +9437,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "WUKOLINA",
-              "numero": 4,
+              "nom": "JOLEK LISES",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOLEK LISES",
-              "numero": 5,
+              "nom": "IWANTOBREAK FREE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -9479,14 +9479,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "WUKOLINA",
-              "numero": 4,
+              "nom": "JOLEK LISES",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOLEK LISES",
-              "numero": 5,
+              "nom": "IWANTOBREAK FREE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -9521,14 +9521,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "WUKOLINA",
-              "numero": 4,
+              "nom": "JOLEK LISES",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOLEK LISES",
-              "numero": 5,
+              "nom": "IWANTOBREAK FREE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -9563,14 +9563,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "WUKOLINA",
-              "numero": 4,
+              "nom": "JOLEK LISES",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOLEK LISES",
-              "numero": 5,
+              "nom": "IWANTOBREAK FREE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -9605,14 +9605,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "WUKOLINA",
-              "numero": 4,
+              "nom": "JOLEK LISES",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOLEK LISES",
-              "numero": 5,
+              "nom": "IWANTOBREAK FREE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -9628,15 +9628,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 10,
+      "non_partants": 1,
+      "partants": 9,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R9/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:45:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C6",
       "moteurs": {
         "M1": {
@@ -9858,9 +9858,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:50:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C3",
       "moteurs": {
         "M1": {
@@ -10076,15 +10076,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 16,
+      "non_partants": 1,
+      "partants": 15,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R5/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T14:55:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C3",
       "moteurs": {
         "M1": {
@@ -10306,9 +10306,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C3",
       "moteurs": {
         "M1": {
@@ -10530,9 +10530,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C4",
       "moteurs": {
         "M1": {
@@ -10754,9 +10754,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C3",
       "moteurs": {
         "M1": {
@@ -10978,9 +10978,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C6",
       "moteurs": {
         "M1": {
@@ -11202,9 +11202,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C4",
       "moteurs": {
         "M1": {
@@ -11426,9 +11426,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C5",
       "moteurs": {
         "M1": {
@@ -11650,9 +11650,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:10:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C4",
       "moteurs": {
         "M1": {
@@ -11874,9 +11874,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C5",
       "moteurs": {
         "M1": {
@@ -12098,9 +12098,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C7",
       "moteurs": {
         "M1": {
@@ -12322,9 +12322,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C4",
       "moteurs": {
         "M1": {
@@ -12546,9 +12546,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C5",
       "moteurs": {
         "M1": {
@@ -12770,9 +12770,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C4",
       "moteurs": {
         "M1": {
@@ -12994,9 +12994,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C7",
       "moteurs": {
         "M1": {
@@ -13218,9 +13218,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C5",
       "moteurs": {
         "M1": {
@@ -13442,9 +13442,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C4",
       "moteurs": {
         "M1": {
@@ -13666,9 +13666,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:32:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C4",
       "moteurs": {
         "M1": {
@@ -13890,9 +13890,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:35:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C6",
       "moteurs": {
         "M1": {
@@ -13911,12 +13911,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "LISTED DU FOSSE",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "LADY NANIE",
               "numero": 4,
               "score": 0.0
@@ -13925,6 +13919,12 @@
               "couverture": 0.0,
               "nom": "LA BIO JOSSELYN",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LITTLE STAR JIEL",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -13953,12 +13953,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "LISTED DU FOSSE",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "LADY NANIE",
               "numero": 4,
               "score": 0.0
@@ -13967,6 +13961,12 @@
               "couverture": 0.0,
               "nom": "LA BIO JOSSELYN",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LITTLE STAR JIEL",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -13995,12 +13995,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "LISTED DU FOSSE",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "LADY NANIE",
               "numero": 4,
               "score": 0.0
@@ -14009,6 +14003,12 @@
               "couverture": 0.0,
               "nom": "LA BIO JOSSELYN",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LITTLE STAR JIEL",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -14037,12 +14037,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "LISTED DU FOSSE",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "LADY NANIE",
               "numero": 4,
               "score": 0.0
@@ -14051,6 +14045,12 @@
               "couverture": 0.0,
               "nom": "LA BIO JOSSELYN",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LITTLE STAR JIEL",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -14079,12 +14079,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "LISTED DU FOSSE",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "LADY NANIE",
               "numero": 4,
               "score": 0.0
@@ -14093,6 +14087,12 @@
               "couverture": 0.0,
               "nom": "LA BIO JOSSELYN",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LITTLE STAR JIEL",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -14108,15 +14108,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 13,
+      "non_partants": 2,
+      "partants": 11,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R10/C6/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:40:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C5",
       "moteurs": {
         "M1": {
@@ -14338,9 +14338,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:45:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C8",
       "moteurs": {
         "M1": {
@@ -14562,9 +14562,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T15:50:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C6",
       "moteurs": {
         "M1": {
@@ -14786,9 +14786,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C5",
       "moteurs": {
         "M1": {
@@ -15010,9 +15010,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C6",
       "moteurs": {
         "M1": {
@@ -15234,9 +15234,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C5",
       "moteurs": {
         "M1": {
@@ -15458,9 +15458,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C8",
       "moteurs": {
         "M1": {
@@ -15682,19 +15682,13 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C6",
       "moteurs": {
         "M1": {
           "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "MAROILLES DE KIDOR",
-              "numero": 1,
-              "score": 0.0
-            },
             {
               "couverture": 0.0,
               "nom": "MOKO DE BOUERE",
@@ -15717,6 +15711,12 @@
               "couverture": 0.0,
               "nom": "MARTIN DE REGO",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGICIEN DU SABLE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -15733,12 +15733,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAROILLES DE KIDOR",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MOKO DE BOUERE",
               "numero": 2,
               "score": 0.0
@@ -15759,6 +15753,12 @@
               "couverture": 0.0,
               "nom": "MARTIN DE REGO",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGICIEN DU SABLE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -15775,12 +15775,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAROILLES DE KIDOR",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MOKO DE BOUERE",
               "numero": 2,
               "score": 0.0
@@ -15801,6 +15795,12 @@
               "couverture": 0.0,
               "nom": "MARTIN DE REGO",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGICIEN DU SABLE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -15817,12 +15817,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAROILLES DE KIDOR",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MOKO DE BOUERE",
               "numero": 2,
               "score": 0.0
@@ -15843,6 +15837,12 @@
               "couverture": 0.0,
               "nom": "MARTIN DE REGO",
               "numero": 5,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGICIEN DU SABLE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -15859,12 +15859,6 @@
           "classement": [
             {
               "couverture": 0.0,
-              "nom": "MAROILLES DE KIDOR",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MOKO DE BOUERE",
               "numero": 2,
               "score": 0.0
@@ -15886,6 +15880,12 @@
               "nom": "MARTIN DE REGO",
               "numero": 5,
               "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "MAGICIEN DU SABLE",
+              "numero": 6,
+              "score": 0.0
             }
           ],
           "couverture": 0.0,
@@ -15900,15 +15900,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
+      "non_partants": 1,
+      "partants": 11,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R16/C6/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C5",
       "moteurs": {
         "M1": {
@@ -16130,9 +16130,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C7",
       "moteurs": {
         "M1": {
@@ -16354,9 +16354,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:07:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C5",
       "moteurs": {
         "M1": {
@@ -16578,9 +16578,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:10:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C6",
       "moteurs": {
         "M1": {
@@ -16611,8 +16611,8 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NIKO KALEO",
-              "numero": 5,
+              "nom": "VISIONNAIRE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -16653,8 +16653,8 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NIKO KALEO",
-              "numero": 5,
+              "nom": "VISIONNAIRE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -16695,8 +16695,8 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NIKO KALEO",
-              "numero": 5,
+              "nom": "VISIONNAIRE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -16737,8 +16737,8 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NIKO KALEO",
-              "numero": 5,
+              "nom": "VISIONNAIRE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -16779,8 +16779,8 @@
             },
             {
               "couverture": 0.0,
-              "nom": "NIKO KALEO",
-              "numero": 5,
+              "nom": "VISIONNAIRE",
+              "numero": 6,
               "score": 0.0
             }
           ],
@@ -16796,15 +16796,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 9,
+      "non_partants": 1,
+      "partants": 8,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R9/C6/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:15:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C9",
       "moteurs": {
         "M1": {
@@ -17026,9 +17026,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:25:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C7",
       "moteurs": {
         "M1": {
@@ -17250,9 +17250,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C6",
       "moteurs": {
         "M1": {
@@ -17474,9 +17474,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C6",
       "moteurs": {
         "M1": {
@@ -17698,9 +17698,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C9",
       "moteurs": {
         "M1": {
@@ -17916,15 +17916,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 14,
+      "non_partants": 1,
+      "partants": 13,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R15/C9/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C7",
       "moteurs": {
         "M1": {
@@ -18116,9 +18116,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C6",
       "moteurs": {
         "M1": {
@@ -18340,9 +18340,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:35:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C8",
       "moteurs": {
         "M1": {
@@ -18564,9 +18564,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:40:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C7",
       "moteurs": {
         "M1": {
@@ -18788,9 +18788,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:40:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C7",
       "moteurs": {
         "M1": {
@@ -19012,9 +19012,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T16:42:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C6",
       "moteurs": {
         "M1": {
@@ -19236,9 +19236,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C8",
       "moteurs": {
         "M1": {
@@ -19460,9 +19460,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C7",
       "moteurs": {
         "M1": {
@@ -19678,15 +19678,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 14,
+      "non_partants": 1,
+      "partants": 13,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R11/C7/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C7",
       "moteurs": {
         "M1": {
@@ -19908,9 +19908,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C10",
       "moteurs": {
         "M1": {
@@ -20132,9 +20132,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C7",
       "moteurs": {
         "M1": {
@@ -20356,9 +20356,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:05:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C9",
       "moteurs": {
         "M1": {
@@ -20580,9 +20580,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:10:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C8",
       "moteurs": {
         "M1": {
@@ -20798,15 +20798,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
+      "non_partants": 1,
+      "partants": 11,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R13/C8/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:18:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C7",
       "moteurs": {
         "M1": {
@@ -21028,9 +21028,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:30:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C8",
       "moteurs": {
         "M1": {
@@ -21055,14 +21055,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "JOMIZIO",
-              "numero": 4,
+              "nom": "JOKER DU CHOQUEL",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOKER DU CHOQUEL",
-              "numero": 5,
+              "nom": "JIMI'S BLUES",
+              "numero": 7,
               "score": 0.0
             }
           ],
@@ -21097,14 +21097,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "JOMIZIO",
-              "numero": 4,
+              "nom": "JOKER DU CHOQUEL",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOKER DU CHOQUEL",
-              "numero": 5,
+              "nom": "JIMI'S BLUES",
+              "numero": 7,
               "score": 0.0
             }
           ],
@@ -21139,14 +21139,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "JOMIZIO",
-              "numero": 4,
+              "nom": "JOKER DU CHOQUEL",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOKER DU CHOQUEL",
-              "numero": 5,
+              "nom": "JIMI'S BLUES",
+              "numero": 7,
               "score": 0.0
             }
           ],
@@ -21181,14 +21181,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "JOMIZIO",
-              "numero": 4,
+              "nom": "JOKER DU CHOQUEL",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOKER DU CHOQUEL",
-              "numero": 5,
+              "nom": "JIMI'S BLUES",
+              "numero": 7,
               "score": 0.0
             }
           ],
@@ -21223,14 +21223,14 @@
             },
             {
               "couverture": 0.0,
-              "nom": "JOMIZIO",
-              "numero": 4,
+              "nom": "JOKER DU CHOQUEL",
+              "numero": 5,
               "score": 0.0
             },
             {
               "couverture": 0.0,
-              "nom": "JOKER DU CHOQUEL",
-              "numero": 5,
+              "nom": "JIMI'S BLUES",
+              "numero": 7,
               "score": 0.0
             }
           ],
@@ -21246,15 +21246,15 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 14,
+      "non_partants": 2,
+      "partants": 12,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R11/C8/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T17:53:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C8",
       "moteurs": {
         "M1": {
@@ -21476,9 +21476,9 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T09:46:39.049961+01:00",
+      "analyse_a": "2026-10-25T11:53:09.379109+01:00",
       "depart": "2026-10-25T18:00:00+01:00",
-      "hippodrome": "",
+      "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C9",
       "moteurs": {
         "M1": {
@@ -21701,7 +21701,7 @@
     }
   ],
   "date": "2026-10-25",
-  "genere_a": "2026-10-25T09:46:39.049961+01:00",
+  "genere_a": "2026-10-25T11:53:09.379109+01:00",
   "source": "data/courses.json",
   "statut_collecte": "ok"
 }
