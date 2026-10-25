@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "collecte_a": "2026-10-25T11:29:52.646737+00:00",
+  "collecte_a": "2026-10-25T11:59:21.399848+00:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026",
   "erreurs_participants": [],
   "courses": [
@@ -745,7 +745,7 @@
       "course": 1,
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "nom": "PRIX DE FLORE",
-      "depart": "2026-10-25T11:48:00+00:00",
+      "depart": "2026-10-25T11:51:00+00:00",
       "distance_metres": 2100,
       "discipline": "PLAT",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R1/C1/participants",
@@ -1032,7 +1032,7 @@
       "course": 5,
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "nom": "GRAND PRIX D'AUTOMNE",
-      "depart": "2026-10-25T12:05:00+00:00",
+      "depart": "2026-10-25T12:07:00+00:00",
       "distance_metres": 2200,
       "discipline": "ATTELE",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R4/C5/participants",
@@ -6627,7 +6627,7 @@
           "numero": 12,
           "nom": "MERCI RAFALE",
           "non_partant": false,
-          "jockey_nom": "ET. GAUVIN",
+          "jockey_nom": "R. VILAULT",
           "entraineur_nom": "J.P. GAUVIN"
         },
         {
