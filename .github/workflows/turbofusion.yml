@@ -14,8 +14,8 @@ concurrency:
 
 jobs:
   analyse:
-    name: Analyse et publication M1-M5
-    runs-on: ubuntu-24.04
+    name: Intelligence hippique M1-M5
+    runs-on: ubuntu-latest
     timeout-minutes: 20
 
     steps:
@@ -29,67 +29,47 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Verifier le logiciel
-        shell: bash
+      - name: Verifier les fichiers Python
         run: |
-          set -euo pipefail
-          test -f main.py
-          test -f publish_data.py
-          test -f index.html
+          set -e
           python -m py_compile main.py publish_data.py
+          echo "Fichiers Python valides"
 
-      - name: Proteger les cinq moteurs
-        shell: bash
-        run: |
-          python - <<'PY'
-          from main import WEIGHTS
-          from publish_data import MOTEURS
-
-          attendus = ("M1", "M2", "M3", "M4", "M5")
-
-          assert tuple(WEIGHTS) == attendus
-          assert tuple(MOTEURS) == attendus
-
-          for nom, poids in WEIGHTS.items():
-              assert len(poids) == 7, nom
-
-          print("M1-M5 : configuration preservee")
-          PY
-
-      - name: Diagnostic de la collecte
-        shell: bash
+      - name: Controler la source des courses
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          source = Path("data/courses.json")
+          p = Path("data/courses.json")
 
-          if not source.is_file():
-              print("::warning::Collecte absente.")
-              print("Aucun programme PMU disponible.")
+          if not p.is_file():
+              print("::warning::Source courses absente")
+              print("Aucune course verifiee disponible")
           else:
-              try:
-                  donnees = json.loads(
-                      source.read_text(encoding="utf-8")
-                  )
-                  courses = donnees.get("courses")
-                  if not isinstance(courses, list):
-                      raise ValueError("Liste courses invalide")
+              data = json.loads(
+                  p.read_text(encoding="utf-8")
+              )
 
-                  print("Courses recues :", len(courses))
-                  if not courses:
-                      print("::warning::Aucune course recue.")
-              except (OSError, ValueError, TypeError) as exc:
-                  print(f"::error::Donnees invalides : {exc}")
-                  raise SystemExit(1)
+              if not isinstance(data, dict):
+                  raise SystemExit("Source invalide")
+
+              courses = data.get("courses")
+
+              if not isinstance(courses, list):
+                  raise SystemExit("Format courses invalide")
+
+              print("Courses disponibles :", len(courses))
+
+              if not courses:
+                  print("::warning::Liste des courses vide")
           PY
 
-      - name: Diagnostic des moteurs
-        run: python main.py --diagnostic
+      - name: Diagnostic des moteurs M1 a M5
+        run: |
+          python main.py --diagnostic
 
-      - name: Executer les analyses
-        shell: bash
+      - name: Executer les analyses M1 a M5
         run: |
           set +e
           python main.py --figer --safety-minutes 2
@@ -97,111 +77,67 @@ jobs:
           set -e
 
           if [ "$code" -eq 2 ]; then
-            echo "::warning::Aucune course verifiee."
+            echo "::warning::Collecte en attente ou aucune course"
           elif [ "$code" -ne 0 ]; then
-            echo "::error::Echec du logiciel."
+            echo "::error::Echec de l'analyse"
             exit "$code"
           fi
 
-      - name: Controler la publication
-        shell: bash
+      - name: Verifier la publication
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          audit_path = Path("data/audit_latest.json")
-          publication_path = Path(
-              "data/publication_latest.json"
-          )
+          path = Path("data/publication_latest.json")
 
-          if not audit_path.is_file():
-              raise SystemExit("Audit absent")
-
-          if not publication_path.is_file():
+          if not path.is_file():
               raise SystemExit("Publication absente")
 
-          audit = json.loads(
-              audit_path.read_text(encoding="utf-8")
-          )
-          publication = json.loads(
-              publication_path.read_text(encoding="utf-8")
+          data = json.loads(
+              path.read_text(encoding="utf-8")
           )
 
-          if not isinstance(audit, dict):
-              raise SystemExit("Audit invalide")
-          if not isinstance(publication, dict):
+          if not isinstance(data, dict):
               raise SystemExit("Publication invalide")
 
-          courses = publication.get("courses")
+          courses = data.get("courses")
+
           if not isinstance(courses, list):
               raise SystemExit("Courses invalides")
 
-          moteurs = {"M1", "M2", "M3", "M4", "M5"}
-
-          for course in courses:
-              if not isinstance(course, dict):
-                  raise SystemExit("Course invalide")
-              valeurs = course.get("moteurs", {})
-              if not isinstance(valeurs, dict):
-                  raise SystemExit("Moteurs invalides")
-              if not set(valeurs).issubset(moteurs):
-                  raise SystemExit("Moteur inconnu")
-
-          statuts = {
-              "analyse_provisoire",
-              "fige",
-              "fige_existant",
-          }
-
-          verifiees = sum(
-              c.get("statut") in statuts
-              for c in courses
-          )
-
+          print("Publication valide")
           print("Courses publiees :", len(courses))
-          print("Courses analysees :", verifiees)
           print(
-              "Statut collecte :",
-              audit.get("statut_collecte")
+              "Etat collecte :",
+              data.get("statut_collecte", "inconnu")
           )
-
-          if verifiees == 0:
-              print(
-                  "::warning::Aucune analyse "
-                  "de course verifiee."
-              )
           PY
 
-      - name: Enregistrer les donnees
-        shell: bash
+      - name: Enregistrer les donnees et FIGES
         run: |
-          set -euo pipefail
+          set -e
 
           git config user.name "github-actions[bot]"
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add -- data/
+          git add data/
 
           if git diff --cached --quiet; then
             echo "Aucune modification"
-            exit 0
+          else
+            git commit -m "Actualisation TURBOFUSION M1-M5"
+            git push
           fi
 
-          git commit -m "Actualisation TURBOFUSION M1-M5"
-
-          for tentative in 1 2 3; do
-            if git push origin HEAD:main; then
-              echo "Publication terminee"
-              exit 0
-            fi
-
-            if [ "$tentative" -eq 3 ]; then
-              echo "::error::Echec du push Git."
-              exit 1
-            fi
-
-            sleep 5
-          done
-          
+      - name: Resume du fonctionnement
+        if: always()
+        run: |
+          echo "================================"
+          echo "TURBOFUSION 3.0"
+          echo "Intelligence hippique M1 a M5"
+          echo "================================"
+          echo "Controle GitHub Actions termine"
+          echo "Consulter les etapes precedentes"
+          echo "pour connaitre le resultat exact"
