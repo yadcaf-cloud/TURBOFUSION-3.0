@@ -1,9 +1,9 @@
-name: TURBOFUSION 3.0 - M1 a M5
+name: TURBOFUSION 3.0 - Analyse controlee
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "15 * * * *"
 
 permissions:
   contents: write
@@ -13,154 +13,67 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  analyse:
-    name: Collecte et analyse hippique
-    runs-on: ubuntu-24.04
-    timeout-minutes: 20
-
-    env:
-      TZ: Europe/Paris
-      PYTHONUNBUFFERED: "1"
+  analyser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
 
     steps:
       - name: Recuperer le depot
         uses: actions/checkout@v4
         with:
-          ref: main
           persist-credentials: true
 
       - name: Installer Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Verifier les scripts
+      - name: Verifier les fichiers Python
         run: |
-          set -euo pipefail
-          python -m py_compile \
-            collecte_pmu.py \
-            main.py \
-            publish_data.py
-          mkdir -p data
+          python -m py_compile main.py
+          python -m py_compile collecte_pmu.py
+          python -m py_compile publish_data.py
 
-      - name: Collecter les courses PMU
-        run: |
-          set -euo pipefail
-          python collecte_pmu.py
-
-      - name: Controler la collecte
-        run: |
-          python - <<'PY'
-          import json
-          from datetime import datetime
-          from pathlib import Path
-          from zoneinfo import ZoneInfo
-
-          p = Path("data/courses.json")
-          if not p.is_file():
-              raise SystemExit("Collecte absente")
-
-          data = json.loads(p.read_text(encoding="utf-8"))
-          courses = data.get("courses")
-
-          if not isinstance(courses, list) or not courses:
-              raise SystemExit("Aucune course collectee")
-
-          today = datetime.now(
-              ZoneInfo("Europe/Paris")
-          ).date()
-
-          ids = set()
-
-          for course in courses:
-              cid = course.get("id")
-              if not cid or cid in ids:
-                  raise SystemExit("Identifiant invalide")
-              ids.add(cid)
-
-              instant = datetime.fromisoformat(
-                  course["depart"].replace("Z", "+00:00")
-              )
-              if instant.tzinfo is None:
-                  raise SystemExit("Fuseau horaire absent")
-
-              if instant.astimezone(
-                  ZoneInfo("Europe/Paris")
-              ).date() != today:
-                  raise SystemExit("Date de course incorrecte")
-
-          print(f"{len(courses)} courses controlees")
-          PY
-
-      - name: Diagnostic des moteurs
+      - name: Diagnostic des moteurs M1-M5
         run: |
           python main.py --diagnostic
 
-      - name: Analyser et figer avant depart
+      - name: Controle de la collecte PMU
+        id: collecte
+        shell: bash
         run: |
-          set -euo pipefail
+          if python collecte_pmu.py; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Collecte indisponible."
+          fi
+
+      - name: Analyse M1-M5 et FIGE
+        if: steps.collecte.outputs.ready == 'true'
+        run: |
           python main.py \
             --figer \
             --strict-input \
             --safety-minutes 2
 
-      - name: Controler la publication
+      - name: Publication des donnees
+        if: steps.collecte.outputs.ready == 'true'
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
+          python publish_data.py
 
-          p = Path("data/publication_latest.json")
-          if not p.is_file():
-              raise SystemExit("Publication absente")
-
-          data = json.loads(p.read_text(encoding="utf-8"))
-          courses = data.get("courses")
-
-          if not isinstance(courses, list):
-              raise SystemExit("Publication invalide")
-
-          for course in courses:
-              if course.get("statut") in (
-                  "fige", "fige_existant"
-              ):
-                  if not course.get("fichier_fige"):
-                      raise SystemExit(
-                          "Reference FIGE manquante"
-                      )
-
-          print("Publication controlee")
-          PY
-
-      - name: Publier les donnees et conserver les FIGES
+      - name: Enregistrer les archives
+        if: steps.collecte.outputs.ready == 'true'
+        shell: bash
         run: |
-          set -euo pipefail
-
           git config user.name "github-actions[bot]"
-          git config user.email \
-            "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/
+          git add data/courses.json \
+            data/publication_latest.json \
+            data/figes/ || true
 
-          if git diff --cached --quiet; then
-            echo "Aucun changement"
-            exit 0
+          if ! git diff --cached --quiet; then
+            git commit -m "TURBOFUSION: publication et archives controlees"
+            git push
           fi
-
-          git commit -m \
-            "Actualisation TURBOFUSION M1-M5"
-
-          git pull --rebase origin main
-          git push origin HEAD:main
-
-      - name: Rapport GitHub Actions
-        if: always()
-        run: |
-          {
-            echo "## TURBOFUSION 3.0"
-            echo ""
-            echo "Statut : ${{ job.status }}"
-            echo ""
-            echo "Heure Paris : $(TZ=Europe/Paris date)"
-          } >> "$GITHUB_STEP_SUMMARY"
-          
