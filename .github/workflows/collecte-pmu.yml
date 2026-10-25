@@ -1,4 +1,4 @@
-name: TURBOFUSION - Collecte PMU
+name: TURBOFUSION 3.0 - Collecte PMU
 
 on:
   workflow_dispatch:
@@ -28,16 +28,30 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
-          cache-dependency-path: requirements.txt
 
       - name: Installer les dependances
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then
+            python -m pip install -r requirements.txt
+          else
+            echo "Aucun requirements.txt trouve"
+            echo "Installation externe ignoree"
+          fi
 
-      - name: Preparer le dossier des donnees
-        run: mkdir -p data
+      - name: Verifier le programme
+        run: |
+          set -euo pipefail
+          test -f collecte_pmu.py || {
+            echo "ERREUR : collecte_pmu.py absent"
+            exit 1
+          }
+          python -m py_compile collecte_pmu.py
+
+      - name: Preparer les donnees
+        run: |
+          mkdir -p data
 
       - name: Collecter les courses PMU
         env:
@@ -56,31 +70,21 @@ jobs:
           fichier = Path("data/publication_latest.json")
 
           if not fichier.is_file():
-              raise SystemExit(
-                  "ERREUR : publication_latest.json absent"
-              )
+              raise SystemExit("ERREUR : JSON absent")
 
           if fichier.stat().st_size == 0:
-              raise SystemExit(
-                  "ERREUR : fichier JSON vide"
-              )
+              raise SystemExit("ERREUR : JSON vide")
 
-          with fichier.open(
-              encoding="utf-8"
-          ) as f:
+          with fichier.open(encoding="utf-8") as f:
               donnees = json.load(f)
 
           if not isinstance(donnees, (dict, list)):
-              raise SystemExit(
-                  "ERREUR : structure JSON inattendue"
-              )
+              raise SystemExit("ERREUR : JSON invalide")
 
           if not donnees:
-              raise SystemExit(
-                  "ERREUR : aucune donnee collectee"
-              )
+              raise SystemExit("ERREUR : aucune donnee")
 
-          print("JSON valide et non vide")
+          print("Verification JSON reussie")
           PY
 
       - name: Publier les donnees
@@ -96,24 +100,20 @@ jobs:
           git add data/publication_latest.json
 
           if git diff --cached --quiet; then
-            echo "Aucun changement a publier"
+            echo "Aucune modification a publier"
             exit 0
           fi
 
-          git commit -m "PMU: actualisation automatique"
+          git commit -m "TURBOFUSION: collecte PMU"
 
           for tentative in 1 2 3; do
-            echo "Tentative $tentative"
+            echo "Publication tentative $tentative"
 
-            if ! git fetch origin main; then
-              echo "Echec de recuperation distante"
-              sleep 5
-              continue
-            fi
+            git fetch origin main
 
             if ! git rebase origin/main; then
-              echo "Conflit Git : publication interrompue"
               git rebase --abort || true
+              echo "ERREUR : conflit Git"
               exit 1
             fi
 
@@ -122,9 +122,9 @@ jobs:
               exit 0
             fi
 
-            echo "Nouvelle tentative dans 5 secondes"
             sleep 5
           done
 
-          echo "ERREUR : echec de publication"
+          echo "ERREUR : publication impossible"
           exit 1
+          
