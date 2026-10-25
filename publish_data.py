@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """TURBOFUSION 3.0 — Publication contrôlée M1–M5.
