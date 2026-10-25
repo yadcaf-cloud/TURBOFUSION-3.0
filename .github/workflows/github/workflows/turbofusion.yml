@@ -1,7 +1,9 @@
+
 name: TURBOFUSION 3.0 - Controle automatique
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "15 * * * *"
 
@@ -14,7 +16,8 @@ concurrency:
 
 jobs:
   controle:
-    runs-on: ubuntu-latest
+    name: Controle technique M1-M5
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
 
     steps:
@@ -26,29 +29,281 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Verifier le logiciel
+      - name: Verifier les fichiers essentiels
+        shell: bash
         run: |
-          python -m py_compile main.py
+          set -euo pipefail
+
+          for fichier in \
+            main.py \
+            publish_data.py \
+            index.html
+          do
+            if [ ! -f "$fichier" ]; then
+              echo "::error::Fichier absent : $fichier"
+              exit 1
+            fi
+          done
+
+          echo "Fichiers essentiels presents."
+
+      - name: Verifier la syntaxe Python
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          python -m py_compile \
+            main.py \
+            publish_data.py
+
+          if [ -f collect_courses.py ]; then
+            python -m py_compile collect_courses.py
+          fi
+
+      - name: Diagnostiquer les moteurs
+        shell: bash
+        run: |
+          set -euo pipefail
+
           python main.py --diagnostic
 
-      - name: Verifier les donnees du site
+      - name: Executer les tests disponibles
+        shell: bash
         run: |
+          set -euo pipefail
+
+          if [ -d tests ]; then
+            python -m unittest discover \
+              -s tests \
+              -p "test_*.py" \
+              -v
+          else
+            echo "::warning::Aucun repertoire tests."
+          fi
+
+      - name: Verifier la publication officielle
+        shell: bash
+        run: |
+          set -euo pipefail
+
           python - <<'PY'
+          import datetime as dt
           import json
+          import math
+          import re
           from pathlib import Path
 
-          fichier = Path("dashboard.json")
+          fichier = Path(
+              "data/publication_latest.json"
+          )
+
           if not fichier.is_file():
-              raise SystemExit("dashboard.json absent")
+              raise SystemExit(
+                  "Publication absente : "
+                  "data/publication_latest.json"
+              )
 
-          data = json.loads(fichier.read_text(
+          def constante_invalide(valeur):
+              raise ValueError(
+                  "Constante JSON interdite : " + valeur
+              )
+
+          def sans_doublons(paires):
+              resultat = {}
+              for cle, valeur in paires:
+                  if cle in resultat:
+                      raise ValueError(
+                          "Cle JSON dupliquee : " + cle
+                      )
+                  resultat[cle] = valeur
+              return resultat
+
+          with fichier.open(
               encoding="utf-8"
-          ))
+          ) as flux:
+              data = json.load(
+                  flux,
+                  parse_constant=constante_invalide,
+                  object_pairs_hook=sans_doublons,
+              )
 
-          if not isinstance(data.get("courses"), list):
-              raise SystemExit("Format courses invalide")
+          if not isinstance(data, dict):
+              raise SystemExit(
+                  "Racine JSON invalide"
+              )
 
-          print("TURBOFUSION 3.0 : controle OK")
-          print("Courses :", len(data["courses"]))
+          courses = data.get("courses")
+
+          if not isinstance(courses, list):
+              raise SystemExit(
+                  "Format courses[] invalide"
+              )
+
+          moteurs_attendus = {
+              "M1", "M2", "M3", "M4", "M5"
+          }
+
+          identifiants = set()
+          erreurs = []
+
+          for course in courses:
+              if not isinstance(course, dict):
+                  erreurs.append(
+                      "Course non JSON objet"
+                  )
+                  continue
+
+              identifiant = course.get("id")
+
+              if (
+                  not isinstance(identifiant, str)
+                  or not re.fullmatch(
+                      r"[A-Za-z0-9_-]{1,80}",
+                      identifiant
+                  )
+              ):
+                  erreurs.append(
+                      "Identifiant invalide"
+                  )
+                  continue
+
+              if identifiant in identifiants:
+                  erreurs.append(
+                      "Course dupliquee : " + identifiant
+                  )
+
+              identifiants.add(identifiant)
+
+              try:
+                  depart = dt.datetime.fromisoformat(
+                      course["depart"].replace(
+                          "Z", "+00:00"
+                      )
+                  )
+
+                  if (
+                      depart.tzinfo is None
+                      or depart.utcoffset() is None
+                  ):
+                      raise ValueError(
+                          "Fuseau horaire absent"
+                      )
+
+              except (
+                  KeyError,
+                  AttributeError,
+                  TypeError,
+                  ValueError,
+              ):
+                  erreurs.append(
+                      "Depart invalide : " + identifiant
+                  )
+
+              moteurs = course.get("moteurs", {})
+
+              if not isinstance(moteurs, dict):
+                  erreurs.append(
+                      "Moteurs invalides : " + identifiant
+                  )
+                  continue
+
+              inconnus = (
+                  set(moteurs) - moteurs_attendus
+              )
+
+              if inconnus:
+                  erreurs.append(
+                      "Moteurs inconnus : " + identifiant
+                  )
+
+              for nom, analyse in moteurs.items():
+                  if not isinstance(analyse, dict):
+                      erreurs.append(
+                          "Analyse invalide : "
+                          + identifiant + "/" + nom
+                      )
+                      continue
+
+                  ordre = analyse.get(
+                      "ordre_arrivee_espere", []
+                  )
+
+                  if not isinstance(ordre, list):
+                      erreurs.append(
+                          "Classement invalide : "
+                          + identifiant + "/" + nom
+                      )
+                      continue
+
+                  if any(
+                      type(numero) is not int
+                      or numero <= 0
+                      for numero in ordre
+                  ):
+                      erreurs.append(
+                          "Numero invalide : "
+                          + identifiant + "/" + nom
+                      )
+
+                  if len(ordre) != len(set(ordre)):
+                      erreurs.append(
+                          "Doublon classement : "
+                          + identifiant + "/" + nom
+                      )
+
+              if course.get("statut") == "fige":
+                  preuve = course.get(
+                      "preuve_fige", {}
+                  )
+
+                  if not isinstance(preuve, dict):
+                      erreurs.append(
+                          "Preuve FIGE invalide : "
+                          + identifiant
+                      )
+                  elif not all(
+                      preuve.get(champ) is True
+                      for champ in (
+                          "verifie",
+                          "horodatage_avant_depart",
+                          "sha256_verifie",
+                          "pv_verifie",
+                      )
+                  ):
+                      print(
+                          "::warning::FIGE non certifie : "
+                          + identifiant
+                      )
+
+          print("===================================")
+          print("TURBOFUSION 3.0 - CONTROLE")
+          print("===================================")
+          print("Courses :", len(courses))
+          print("Moteurs attendus : M1 M2 M3 M4 M5")
+          print("Erreurs :", len(erreurs))
+
+          for erreur in erreurs:
+              print("::error::" + erreur)
+
+          if erreurs:
+              raise SystemExit(1)
+
+          print("Controle structurel : OK")
+          print(
+              "Certification des FIGES : "
+              "non realisee par ce controle"
+          )
           PY
-          
+
+      - name: Confirmation
+        if: success()
+        shell: bash
+        run: |
+          echo "==================================="
+          echo "TURBOFUSION 3.0"
+          echo "CONTROLE TECHNIQUE TERMINE"
+          echo "==================================="
+          echo "Syntaxe Python : OK"
+          echo "Diagnostic M1-M5 : execute"
+          echo "Publication JSON : structure valide"
+          echo "==================================="
