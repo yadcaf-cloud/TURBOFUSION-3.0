@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -963,3 +962,123 @@ def collecter(date_cible=None):
                     "equipement"
                 ]
                 for course in courses
+            ),
+        },
+
+        "note": (
+            "Les informations descriptives "
+            "ne sont pas des scores sportifs. "
+            "Les moteurs doivent s'abstenir "
+            "si les critères calculés et "
+            "validés sont absents."
+        ),
+    }
+
+    ecrire_json(
+        OUTPUT_FILE,
+        resultat,
+    )
+
+    ecrire_json(
+        DIAGNOSTIC_FILE,
+        diagnostic_global,
+    )
+
+    print()
+    print("=" * 60)
+    print("🇸🇳🧠🔥 TURBOFUSION 3.0")
+    print("COLLECTE PMU TERMINÉE")
+    print("=" * 60)
+
+    print(
+        "Courses collectées :",
+        len(courses),
+    )
+
+    print(
+        "Chevaux recensés :",
+        total_chevaux,
+    )
+
+    print(
+        "Partants :",
+        total_partants,
+    )
+
+    print(
+        "Non-partants :",
+        total_np,
+    )
+
+    print(
+        "Erreurs de collecte :",
+        len(erreurs),
+    )
+
+    print(
+        "Publication :",
+        OUTPUT_FILE,
+    )
+
+    print(
+        "Diagnostic :",
+        DIAGNOSTIC_FILE,
+    )
+
+    print("=" * 60)
+
+
+# ============================================================
+# PROGRAMME PRINCIPAL
+# ============================================================
+
+def main():
+    parser = argparse.ArgumentParser(
+        description=(
+            "TURBOFUSION 3.0 — "
+            "Collecte hippique PMU renforcée"
+        )
+    )
+
+    parser.add_argument(
+        "--date",
+        help="Date au format AAAA-MM-JJ",
+    )
+
+    arguments = parser.parse_args()
+
+    date_cible = None
+
+    if arguments.date:
+        try:
+            date_cible = dt.date.fromisoformat(
+                arguments.date
+            )
+
+        except ValueError:
+            parser.error(
+                "Date invalide. "
+                "Utiliser AAAA-MM-JJ."
+            )
+
+    collecter(date_cible)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+
+    except (
+        RuntimeError,
+        ValueError,
+        OSError,
+        TypeError,
+    ) as erreur:
+
+        print(
+            "ERREUR COLLECTE PMU :",
+            erreur,
+            file=sys.stderr,
+        )
+
+        sys.exit(1)
