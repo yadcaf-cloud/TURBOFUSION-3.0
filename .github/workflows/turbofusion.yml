@@ -1,9 +1,9 @@
-name: TURBOFUSION 3.0 - M1 a M5
+name: TURBOFUSION 3.0 - Intelligence M1 M5
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"
+    - cron: "*/15 * * * *"
 
 permissions:
   contents: write
@@ -21,123 +21,120 @@ jobs:
     steps:
       - name: Recuperer le depot
         uses: actions/checkout@v4
-        with:
-          persist-credentials: true
 
       - name: Installer Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
-      - name: Verifier les fichiers Python
+      - name: Verifier les programmes
         run: |
-          set -e
-          python -m py_compile main.py publish_data.py
-          echo "Fichiers Python valides"
+          python -m py_compile \
+            main.py \
+            publish_data.py \
+            collecte_pmu.py
 
-      - name: Controler la source des courses
+      - name: Collecter les courses PMU
+        env:
+          TURBOFUSION_SOURCE_URL: ${{ secrets.TURBOFUSION_SOURCE_URL }}
+        run: |
+          python collecte_pmu.py
+
+      - name: Verifier les donnees du jour
         run: |
           python - <<'PY'
           import json
-          from pathlib import Path
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
 
-          p = Path("data/courses.json")
+          with open("data/courses.json", encoding="utf-8") as f:
+              data = json.load(f)
 
-          if not p.is_file():
-              print("::warning::Source courses absente")
-              print("Aucune course verifiee disponible")
-          else:
-              data = json.loads(
-                  p.read_text(encoding="utf-8")
+          courses = data.get("courses", [])
+          assert courses, "Aucune course collectee"
+
+          today = datetime.now(
+              ZoneInfo("Europe/Paris")
+          ).date()
+
+          for course in courses:
+              depart = datetime.fromisoformat(course["depart"])
+              assert depart.tzinfo is not None
+              assert depart.astimezone(
+                  ZoneInfo("Europe/Paris")
+              ).date() == today
+
+          print("Courses validees :", len(courses))
+          PY
+
+      - name: Diagnostic M1 M2 M3 M4 M5
+        run: python main.py --diagnostic
+
+      - name: Executer les cinq moteurs
+        run: |
+          python main.py \
+            --figer \
+            --strict-input \
+            --safety-minutes 2
+
+      - name: Verifier les analyses
+        run: |
+          python - <<'PY'
+          import json
+
+          with open(
+              "data/publication_latest.json",
+              encoding="utf-8"
+          ) as f:
+              publication = json.load(f)
+
+          courses = publication.get("courses", [])
+          if not courses:
+              raise SystemExit("Aucune analyse publiee")
+
+          analyses = [
+              c for c in courses
+              if c.get("statut") in (
+                  "analyse_provisoire",
+                  "fige",
+                  "fige_existant"
+              )
+          ]
+
+          if not analyses:
+              raise SystemExit(
+                  "Aucune analyse exploitable"
               )
 
-              if not isinstance(data, dict):
-                  raise SystemExit("Source invalide")
+          for course in analyses:
+              moteurs = course.get("moteurs", {})
+              for nom in ("M1", "M2", "M3", "M4", "M5"):
+                  if nom not in moteurs:
+                      raise SystemExit(
+                          "Moteur absent : " + nom
+                      )
 
-              courses = data.get("courses")
-
-              if not isinstance(courses, list):
-                  raise SystemExit("Format courses invalide")
-
-              print("Courses disponibles :", len(courses))
-
-              if not courses:
-                  print("::warning::Liste des courses vide")
+          print("Analyses controlees :", len(analyses))
           PY
 
-      - name: Diagnostic des moteurs M1 a M5
+      - name: Enregistrer les donnees
         run: |
-          python main.py --diagnostic
-
-      - name: Executer les analyses M1 a M5
-        run: |
-          set +e
-          python main.py --figer --safety-minutes 2
-          code=$?
-          set -e
-
-          if [ "$code" -eq 2 ]; then
-            echo "::warning::Collecte en attente ou aucune course"
-          elif [ "$code" -ne 0 ]; then
-            echo "::error::Echec de l'analyse"
-            exit "$code"
-          fi
-
-      - name: Verifier la publication
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-
-          path = Path("data/publication_latest.json")
-
-          if not path.is_file():
-              raise SystemExit("Publication absente")
-
-          data = json.loads(
-              path.read_text(encoding="utf-8")
-          )
-
-          if not isinstance(data, dict):
-              raise SystemExit("Publication invalide")
-
-          courses = data.get("courses")
-
-          if not isinstance(courses, list):
-              raise SystemExit("Courses invalides")
-
-          print("Publication valide")
-          print("Courses publiees :", len(courses))
-          print(
-              "Etat collecte :",
-              data.get("statut_collecte", "inconnu")
-          )
-          PY
-
-      - name: Enregistrer les donnees et FIGES
-        run: |
-          set -e
-
           git config user.name "github-actions[bot]"
           git config user.email \
             "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add data/
 
-          if git diff --cached --quiet; then
-            echo "Aucune modification"
-          else
+          if ! git diff --cached --quiet; then
             git commit -m "Actualisation TURBOFUSION M1-M5"
-            git push
+            git pull --rebase origin main
+            git push origin HEAD:main
           fi
 
-      - name: Resume du fonctionnement
+      - name: Bilan de fonctionnement
         if: always()
         run: |
-          echo "================================"
           echo "TURBOFUSION 3.0"
-          echo "Intelligence hippique M1 a M5"
-          echo "================================"
-          echo "Controle GitHub Actions termine"
-          echo "Consulter les etapes precedentes"
-          echo "pour connaitre le resultat exact"
+          echo "Controle termine"
+          echo "Consulter les etapes du workflow"
+          
