@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "collecte_a": "2026-10-25T10:59:36.312617+00:00",
+  "collecte_a": "2026-10-25T11:29:52.646737+00:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026",
   "erreurs_participants": [],
   "courses": [
@@ -439,104 +439,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R4-C4",
-      "reunion": 4,
-      "course": 4,
-      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
-      "nom": "PRIX FELIX GUIBERT DIT \"FANFAN\"",
-      "depart": "2026-10-25T11:28:00+00:00",
-      "distance_metres": 2200,
-      "discipline": "ATTELE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R4/C4/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "FAKIR DE LARRE",
-          "non_partant": false,
-          "jockey_nom": "J.CH. SOREL",
-          "entraineur_nom": "P. POLIZZI"
-        },
-        {
-          "numero": 2,
-          "nom": "I LOVE IGNY",
-          "non_partant": false,
-          "jockey_nom": "E. GOUT",
-          "entraineur_nom": "E. GOUT"
-        },
-        {
-          "numero": 3,
-          "nom": "GOLDY SMILE",
-          "non_partant": false,
-          "jockey_nom": "NICOLAS GERMAIN LEFEVRE",
-          "entraineur_nom": "D. ALEXANDRE"
-        },
-        {
-          "numero": 4,
-          "nom": "ICARE FILE",
-          "non_partant": false,
-          "jockey_nom": "D. BEKAERT",
-          "entraineur_nom": "A.P. GIRAUD"
-        },
-        {
-          "numero": 5,
-          "nom": "JAURESS DE CANI",
-          "non_partant": false,
-          "jockey_nom": "J.CH. FERON",
-          "entraineur_nom": "R. LE VEXIER"
-        },
-        {
-          "numero": 6,
-          "nom": "GALVESTON",
-          "non_partant": false,
-          "jockey_nom": "R. BOUVIER",
-          "entraineur_nom": "CHARLES BOUVIER"
-        },
-        {
-          "numero": 7,
-          "nom": "JUGEMENT D'AVE",
-          "non_partant": false,
-          "jockey_nom": "TH. BRIAND",
-          "entraineur_nom": "P.A. RYNWALT-BOULARD"
-        },
-        {
-          "numero": 8,
-          "nom": "JET JET JET",
-          "non_partant": false,
-          "jockey_nom": "Mme LANA HENRY",
-          "entraineur_nom": "Y. HENRY"
-        },
-        {
-          "numero": 9,
-          "nom": "HOUSTON DE CUIGNY",
-          "non_partant": false,
-          "jockey_nom": "K. BUSNEL",
-          "entraineur_nom": "K. BUSNEL"
-        },
-        {
-          "numero": 10,
-          "nom": "ILLICO DU BISET",
-          "non_partant": false,
-          "jockey_nom": "N. CINIER",
-          "entraineur_nom": "D. CINIER"
-        },
-        {
-          "numero": 11,
-          "nom": "INO DE BRION",
-          "non_partant": false,
-          "jockey_nom": "Q. DAOUGABEL",
-          "entraineur_nom": "Sté. Ent. Quentin DAOUGABEL"
-        },
-        {
-          "numero": 12,
-          "nom": "HORUS DES CHAMPS",
-          "non_partant": false,
-          "jockey_nom": "L. GOETZ",
-          "entraineur_nom": "CHARLES BOUVIER"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R15-C1",
       "reunion": 15,
       "course": 1,
@@ -630,6 +532,104 @@
           "non_partant": false,
           "jockey_nom": "F. LE BRUN",
           "entraineur_nom": "PH. ALLAIRE"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
+      "id": "2026-10-25-R4-C4",
+      "reunion": 4,
+      "course": 4,
+      "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
+      "nom": "PRIX FELIX GUIBERT DIT \"FANFAN\"",
+      "depart": "2026-10-25T11:32:00+00:00",
+      "distance_metres": 2200,
+      "discipline": "ATTELE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R4/C4/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "FAKIR DE LARRE",
+          "non_partant": false,
+          "jockey_nom": "J.CH. SOREL",
+          "entraineur_nom": "P. POLIZZI"
+        },
+        {
+          "numero": 2,
+          "nom": "I LOVE IGNY",
+          "non_partant": false,
+          "jockey_nom": "E. GOUT",
+          "entraineur_nom": "E. GOUT"
+        },
+        {
+          "numero": 3,
+          "nom": "GOLDY SMILE",
+          "non_partant": false,
+          "jockey_nom": "NICOLAS GERMAIN LEFEVRE",
+          "entraineur_nom": "D. ALEXANDRE"
+        },
+        {
+          "numero": 4,
+          "nom": "ICARE FILE",
+          "non_partant": false,
+          "jockey_nom": "D. BEKAERT",
+          "entraineur_nom": "A.P. GIRAUD"
+        },
+        {
+          "numero": 5,
+          "nom": "JAURESS DE CANI",
+          "non_partant": false,
+          "jockey_nom": "J.CH. FERON",
+          "entraineur_nom": "R. LE VEXIER"
+        },
+        {
+          "numero": 6,
+          "nom": "GALVESTON",
+          "non_partant": false,
+          "jockey_nom": "R. BOUVIER",
+          "entraineur_nom": "CHARLES BOUVIER"
+        },
+        {
+          "numero": 7,
+          "nom": "JUGEMENT D'AVE",
+          "non_partant": false,
+          "jockey_nom": "TH. BRIAND",
+          "entraineur_nom": "P.A. RYNWALT-BOULARD"
+        },
+        {
+          "numero": 8,
+          "nom": "JET JET JET",
+          "non_partant": false,
+          "jockey_nom": "Mme LANA HENRY",
+          "entraineur_nom": "Y. HENRY"
+        },
+        {
+          "numero": 9,
+          "nom": "HOUSTON DE CUIGNY",
+          "non_partant": false,
+          "jockey_nom": "K. BUSNEL",
+          "entraineur_nom": "K. BUSNEL"
+        },
+        {
+          "numero": 10,
+          "nom": "ILLICO DU BISET",
+          "non_partant": false,
+          "jockey_nom": "N. CINIER",
+          "entraineur_nom": "D. CINIER"
+        },
+        {
+          "numero": 11,
+          "nom": "INO DE BRION",
+          "non_partant": false,
+          "jockey_nom": "Q. DAOUGABEL",
+          "entraineur_nom": "Sté. Ent. Quentin DAOUGABEL"
+        },
+        {
+          "numero": 12,
+          "nom": "HORUS DES CHAMPS",
+          "non_partant": false,
+          "jockey_nom": "L. GOETZ",
+          "entraineur_nom": "CHARLES BOUVIER"
         }
       ],
       "collecte_participants": "ok"
@@ -4890,7 +4890,7 @@
         {
           "numero": 9,
           "nom": "LUCKYLUKE DU GIVRE",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "F. HEON",
           "entraineur_nom": "F. HEON"
         },
