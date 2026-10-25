@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "collecte_a": "2026-10-25T13:19:07.146210+00:00",
+  "collecte_a": "2026-10-25T13:57:58.641947+00:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026",
   "erreurs_participants": [],
   "courses": [
@@ -4196,7 +4196,7 @@
       "course": 6,
       "hippodrome": "HIPPODROME DE NANTES",
       "nom": "PRIX DES SOCIETAIRES (GR B)",
-      "depart": "2026-10-25T13:45:00+00:00",
+      "depart": "2026-10-25T13:48:00+00:00",
       "distance_metres": 2275,
       "discipline": "ATTELE",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R12/C6/participants",
@@ -4253,7 +4253,7 @@
         {
           "numero": 8,
           "nom": "MINTRA",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "M. LEGROS",
           "entraineur_nom": "B. MARIE"
         },
@@ -4301,7 +4301,7 @@
       "course": 3,
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "nom": "PRIX DE LA PORTE DE GENTILLY",
-      "depart": "2026-10-25T13:50:00+00:00",
+      "depart": "2026-10-25T13:51:00+00:00",
       "distance_metres": 2150,
       "discipline": "ATTELE",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R5/C3/participants",
@@ -4695,132 +4695,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R14-C3",
-      "reunion": 14,
-      "course": 3,
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "nom": "PX CHATEL BEACH-MARQUE CHATELAILLONNAISE",
-      "depart": "2026-10-25T14:00:00+00:00",
-      "distance_metres": 2625,
-      "discipline": "ATTELE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C3/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "JOSS D'ATTAQUE",
-          "non_partant": false,
-          "jockey_nom": "TH. MARTIN",
-          "entraineur_nom": "O. PICARD"
-        },
-        {
-          "numero": 2,
-          "nom": "JUSTIN TRESOR",
-          "non_partant": false,
-          "jockey_nom": "J. MOUCHARD",
-          "entraineur_nom": "PH. BEILEARD"
-        },
-        {
-          "numero": 3,
-          "nom": "HOTMAIL",
-          "non_partant": false,
-          "jockey_nom": "M. BELLANGER",
-          "entraineur_nom": "Maxime BELLANGER"
-        },
-        {
-          "numero": 4,
-          "nom": "JASMINE DU MELEUC",
-          "non_partant": false,
-          "jockey_nom": "Mlle A. LEYSSENNE",
-          "entraineur_nom": "P. GODINEAU"
-        },
-        {
-          "numero": 5,
-          "nom": "IF DE QUERAY",
-          "non_partant": false,
-          "jockey_nom": "M. PRAT",
-          "entraineur_nom": "A. DEMISSY"
-        },
-        {
-          "numero": 6,
-          "nom": "ICE COCO",
-          "non_partant": false,
-          "jockey_nom": "H. DENIS",
-          "entraineur_nom": "L. RIVRON"
-        },
-        {
-          "numero": 7,
-          "nom": "JADORE GIRL",
-          "non_partant": false,
-          "jockey_nom": "D. GRIMAULT",
-          "entraineur_nom": "J.E. DAVID"
-        },
-        {
-          "numero": 8,
-          "nom": "JACEE DULYS",
-          "non_partant": false,
-          "jockey_nom": "CHARLY CLOZIER",
-          "entraineur_nom": "Q. MACHET"
-        },
-        {
-          "numero": 9,
-          "nom": "IGOR DE BOITRON",
-          "non_partant": false,
-          "jockey_nom": "TH. CORBES",
-          "entraineur_nom": "TH. CORBES"
-        },
-        {
-          "numero": 10,
-          "nom": "INSTANT DU BOIS",
-          "non_partant": false,
-          "jockey_nom": "TH. LELOUP",
-          "entraineur_nom": "K. AIT OUAKLI"
-        },
-        {
-          "numero": 11,
-          "nom": "HILKA DE BERTRANGE",
-          "non_partant": false,
-          "jockey_nom": "A. MOURAUD",
-          "entraineur_nom": "J.J. BEAUSSE"
-        },
-        {
-          "numero": 12,
-          "nom": "GRILO",
-          "non_partant": false,
-          "jockey_nom": "J.M. BERNARD",
-          "entraineur_nom": "J.M. BERNARD"
-        },
-        {
-          "numero": 13,
-          "nom": "HERMES DU DOMAINE",
-          "non_partant": false,
-          "jockey_nom": "J.PH. DERRIAN",
-          "entraineur_nom": "E. LAMY"
-        },
-        {
-          "numero": 14,
-          "nom": "FIRST DE BRETAGNE",
-          "non_partant": false,
-          "jockey_nom": "Mlle M. BODIN",
-          "entraineur_nom": "A. MILLET"
-        },
-        {
-          "numero": 15,
-          "nom": "HARLEY DU CHERISAY",
-          "non_partant": false,
-          "jockey_nom": "Mme B. GUENET",
-          "entraineur_nom": "Mme Barbara GUENET"
-        },
-        {
-          "numero": 16,
-          "nom": "ISEA D'HOULBEC",
-          "non_partant": false,
-          "jockey_nom": "C. LANGLOIS",
-          "entraineur_nom": "N. LANGLOIS"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R15-C6",
       "reunion": 15,
       "course": 6,
@@ -5136,6 +5010,132 @@
       "collecte_participants": "ok"
     },
     {
+      "id": "2026-10-25-R14-C3",
+      "reunion": 14,
+      "course": 3,
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "nom": "PX CHATEL BEACH-MARQUE CHATELAILLONNAISE",
+      "depart": "2026-10-25T14:05:00+00:00",
+      "distance_metres": 2625,
+      "discipline": "ATTELE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C3/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "JOSS D'ATTAQUE",
+          "non_partant": false,
+          "jockey_nom": "TH. MARTIN",
+          "entraineur_nom": "O. PICARD"
+        },
+        {
+          "numero": 2,
+          "nom": "JUSTIN TRESOR",
+          "non_partant": false,
+          "jockey_nom": "J. MOUCHARD",
+          "entraineur_nom": "PH. BEILEARD"
+        },
+        {
+          "numero": 3,
+          "nom": "HOTMAIL",
+          "non_partant": false,
+          "jockey_nom": "M. BELLANGER",
+          "entraineur_nom": "Maxime BELLANGER"
+        },
+        {
+          "numero": 4,
+          "nom": "JASMINE DU MELEUC",
+          "non_partant": false,
+          "jockey_nom": "Mlle A. LEYSSENNE",
+          "entraineur_nom": "P. GODINEAU"
+        },
+        {
+          "numero": 5,
+          "nom": "IF DE QUERAY",
+          "non_partant": false,
+          "jockey_nom": "M. PRAT",
+          "entraineur_nom": "A. DEMISSY"
+        },
+        {
+          "numero": 6,
+          "nom": "ICE COCO",
+          "non_partant": false,
+          "jockey_nom": "H. DENIS",
+          "entraineur_nom": "L. RIVRON"
+        },
+        {
+          "numero": 7,
+          "nom": "JADORE GIRL",
+          "non_partant": false,
+          "jockey_nom": "D. GRIMAULT",
+          "entraineur_nom": "J.E. DAVID"
+        },
+        {
+          "numero": 8,
+          "nom": "JACEE DULYS",
+          "non_partant": false,
+          "jockey_nom": "CHARLY CLOZIER",
+          "entraineur_nom": "Q. MACHET"
+        },
+        {
+          "numero": 9,
+          "nom": "IGOR DE BOITRON",
+          "non_partant": false,
+          "jockey_nom": "TH. CORBES",
+          "entraineur_nom": "TH. CORBES"
+        },
+        {
+          "numero": 10,
+          "nom": "INSTANT DU BOIS",
+          "non_partant": false,
+          "jockey_nom": "TH. LELOUP",
+          "entraineur_nom": "K. AIT OUAKLI"
+        },
+        {
+          "numero": 11,
+          "nom": "HILKA DE BERTRANGE",
+          "non_partant": false,
+          "jockey_nom": "A. MOURAUD",
+          "entraineur_nom": "J.J. BEAUSSE"
+        },
+        {
+          "numero": 12,
+          "nom": "GRILO",
+          "non_partant": false,
+          "jockey_nom": "J.M. BERNARD",
+          "entraineur_nom": "J.M. BERNARD"
+        },
+        {
+          "numero": 13,
+          "nom": "HERMES DU DOMAINE",
+          "non_partant": false,
+          "jockey_nom": "J.PH. DERRIAN",
+          "entraineur_nom": "E. LAMY"
+        },
+        {
+          "numero": 14,
+          "nom": "FIRST DE BRETAGNE",
+          "non_partant": false,
+          "jockey_nom": "Mlle M. BODIN",
+          "entraineur_nom": "A. MILLET"
+        },
+        {
+          "numero": 15,
+          "nom": "HARLEY DU CHERISAY",
+          "non_partant": false,
+          "jockey_nom": "Mme B. GUENET",
+          "entraineur_nom": "Mme Barbara GUENET"
+        },
+        {
+          "numero": 16,
+          "nom": "ISEA D'HOULBEC",
+          "non_partant": false,
+          "jockey_nom": "C. LANGLOIS",
+          "entraineur_nom": "N. LANGLOIS"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
       "id": "2026-10-25-R9-C4",
       "reunion": 9,
       "course": 4,
@@ -5337,7 +5337,7 @@
       "course": 7,
       "hippodrome": "HIPPODROME DE NANTES",
       "nom": "PRIX DE BELLEVUE",
-      "depart": "2026-10-25T14:15:00+00:00",
+      "depart": "2026-10-25T14:17:00+00:00",
       "distance_metres": 3000,
       "discipline": "ATTELE",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R12/C7/participants",
@@ -5668,104 +5668,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R14-C4",
-      "reunion": 14,
-      "course": 4,
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "nom": "PRIX OCTOBRE ROSE",
-      "depart": "2026-10-25T14:30:00+00:00",
-      "distance_metres": 2625,
-      "discipline": "ATTELE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C4/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "LADY DE GUEHAM",
-          "non_partant": false,
-          "jockey_nom": "Y.R. LE MEE",
-          "entraineur_nom": "Y.R. LE MEE"
-        },
-        {
-          "numero": 2,
-          "nom": "LUCKY SOTHO",
-          "non_partant": false,
-          "jockey_nom": "CL. GUILLON",
-          "entraineur_nom": "A. SOURICE"
-        },
-        {
-          "numero": 3,
-          "nom": "LANCELOT DE BEYLEV",
-          "non_partant": false,
-          "jockey_nom": "K. AIT OUAKLI",
-          "entraineur_nom": "K. AIT OUAKLI"
-        },
-        {
-          "numero": 4,
-          "nom": "LOLA DE VILLARD",
-          "non_partant": false,
-          "jockey_nom": "L.G. RICHARD",
-          "entraineur_nom": "ARNAUD DESMOTTES"
-        },
-        {
-          "numero": 5,
-          "nom": "LUPIN DES TOURS",
-          "non_partant": false,
-          "jockey_nom": "J.PH. MONCLIN",
-          "entraineur_nom": "J.PH. MONCLIN"
-        },
-        {
-          "numero": 6,
-          "nom": "L'ETOILE D'ETE",
-          "non_partant": false,
-          "jockey_nom": "A. BESCHER",
-          "entraineur_nom": "M. SASSIER"
-        },
-        {
-          "numero": 7,
-          "nom": "LEOPARD WIT",
-          "non_partant": false,
-          "jockey_nom": "E. LAMY",
-          "entraineur_nom": "E. LAMY"
-        },
-        {
-          "numero": 8,
-          "nom": "L'AS DE SAINT JEAN",
-          "non_partant": false,
-          "jockey_nom": "TH. CONSTANS",
-          "entraineur_nom": "A. CHAVATTE"
-        },
-        {
-          "numero": 9,
-          "nom": "LAMATTA",
-          "non_partant": false,
-          "jockey_nom": "A. GENDROT",
-          "entraineur_nom": "M. SASSIER"
-        },
-        {
-          "numero": 10,
-          "nom": "LYRIC",
-          "non_partant": false,
-          "jockey_nom": "P. MONTHULE",
-          "entraineur_nom": "P. MONTHULE"
-        },
-        {
-          "numero": 11,
-          "nom": "LE MAESTRO",
-          "non_partant": false,
-          "jockey_nom": "F. GENCE",
-          "entraineur_nom": "Nicolas Richard BROSSARD"
-        },
-        {
-          "numero": 12,
-          "nom": "LE MIRACLE",
-          "non_partant": false,
-          "jockey_nom": "M. MAIGNAN",
-          "entraineur_nom": "J.PH. RAFFEGEAU"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R15-C7",
       "reunion": 15,
       "course": 7,
@@ -5940,7 +5842,7 @@
         {
           "numero": 8,
           "nom": "LAIKA TEK",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "C.RIOU",
           "entraineur_nom": "H.JUMELLE"
         }
@@ -6011,7 +5913,7 @@
           "numero": 8,
           "nom": "MUSIQUE ROYALE",
           "non_partant": false,
-          "jockey_nom": "G.FAIVRE-PICON",
+          "jockey_nom": "N. CLAUDE",
           "entraineur_nom": "MME O.ELLART"
         },
         {
@@ -6174,6 +6076,104 @@
           "non_partant": false,
           "jockey_nom": "J. VANMEERBECK",
           "entraineur_nom": "Sté. Ent. Jonathan VANMEERBECK"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
+      "id": "2026-10-25-R14-C4",
+      "reunion": 14,
+      "course": 4,
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "nom": "PRIX OCTOBRE ROSE",
+      "depart": "2026-10-25T14:34:00+00:00",
+      "distance_metres": 2625,
+      "discipline": "ATTELE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C4/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "LADY DE GUEHAM",
+          "non_partant": false,
+          "jockey_nom": "Y.R. LE MEE",
+          "entraineur_nom": "Y.R. LE MEE"
+        },
+        {
+          "numero": 2,
+          "nom": "LUCKY SOTHO",
+          "non_partant": false,
+          "jockey_nom": "CL. GUILLON",
+          "entraineur_nom": "A. SOURICE"
+        },
+        {
+          "numero": 3,
+          "nom": "LANCELOT DE BEYLEV",
+          "non_partant": false,
+          "jockey_nom": "K. AIT OUAKLI",
+          "entraineur_nom": "K. AIT OUAKLI"
+        },
+        {
+          "numero": 4,
+          "nom": "LOLA DE VILLARD",
+          "non_partant": false,
+          "jockey_nom": "L.G. RICHARD",
+          "entraineur_nom": "ARNAUD DESMOTTES"
+        },
+        {
+          "numero": 5,
+          "nom": "LUPIN DES TOURS",
+          "non_partant": false,
+          "jockey_nom": "J.PH. MONCLIN",
+          "entraineur_nom": "J.PH. MONCLIN"
+        },
+        {
+          "numero": 6,
+          "nom": "L'ETOILE D'ETE",
+          "non_partant": false,
+          "jockey_nom": "A. BESCHER",
+          "entraineur_nom": "M. SASSIER"
+        },
+        {
+          "numero": 7,
+          "nom": "LEOPARD WIT",
+          "non_partant": false,
+          "jockey_nom": "E. LAMY",
+          "entraineur_nom": "E. LAMY"
+        },
+        {
+          "numero": 8,
+          "nom": "L'AS DE SAINT JEAN",
+          "non_partant": false,
+          "jockey_nom": "TH. CONSTANS",
+          "entraineur_nom": "A. CHAVATTE"
+        },
+        {
+          "numero": 9,
+          "nom": "LAMATTA",
+          "non_partant": false,
+          "jockey_nom": "A. GENDROT",
+          "entraineur_nom": "M. SASSIER"
+        },
+        {
+          "numero": 10,
+          "nom": "LYRIC",
+          "non_partant": false,
+          "jockey_nom": "P. MONTHULE",
+          "entraineur_nom": "P. MONTHULE"
+        },
+        {
+          "numero": 11,
+          "nom": "LE MAESTRO",
+          "non_partant": false,
+          "jockey_nom": "F. GENCE",
+          "entraineur_nom": "Nicolas Richard BROSSARD"
+        },
+        {
+          "numero": 12,
+          "nom": "LE MIRACLE",
+          "non_partant": false,
+          "jockey_nom": "M. MAIGNAN",
+          "entraineur_nom": "J.PH. RAFFEGEAU"
         }
       ],
       "collecte_participants": "ok"
@@ -6366,7 +6366,7 @@
       "course": 8,
       "hippodrome": "HIPPODROME DE NANTES",
       "nom": "PRIX ASSOCIATION AUTISME 44",
-      "depart": "2026-10-25T14:45:00+00:00",
+      "depart": "2026-10-25T14:46:00+00:00",
       "distance_metres": 3000,
       "discipline": "ATTELE",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R12/C8/participants",
@@ -6746,104 +6746,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R14-C5",
-      "reunion": 14,
-      "course": 5,
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "nom": "GRAND PRIX BARON D'ARDEUIL AOC BUZET",
-      "depart": "2026-10-25T15:00:00+00:00",
-      "distance_metres": 2625,
-      "discipline": "ATTELE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C5/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "KATYLAND",
-          "non_partant": false,
-          "jockey_nom": "A. GENDROT",
-          "entraineur_nom": "M. SASSIER"
-        },
-        {
-          "numero": 2,
-          "nom": "LESDY MAGODA",
-          "non_partant": false,
-          "jockey_nom": "L. JUBLOT",
-          "entraineur_nom": "L. JUBLOT"
-        },
-        {
-          "numero": 3,
-          "nom": "HERMES DE L'ISAC",
-          "non_partant": false,
-          "jockey_nom": "F. GUINE",
-          "entraineur_nom": "F. GUINE"
-        },
-        {
-          "numero": 4,
-          "nom": "LOTHBROCK",
-          "non_partant": false,
-          "jockey_nom": "CH. BOUTEILLER",
-          "entraineur_nom": "Pierrick LE MOEL"
-        },
-        {
-          "numero": 5,
-          "nom": "LAPS GEDE",
-          "non_partant": false,
-          "jockey_nom": "A. PILLON",
-          "entraineur_nom": "A. PILLON"
-        },
-        {
-          "numero": 6,
-          "nom": "LAUSSAC DU BUISSON",
-          "non_partant": false,
-          "jockey_nom": "E. LAMY",
-          "entraineur_nom": "TH. RAFFEGEAU"
-        },
-        {
-          "numero": 7,
-          "nom": "LICAR SOMOLLI",
-          "non_partant": false,
-          "jockey_nom": "M. MAIGNAN",
-          "entraineur_nom": "J.PH. RAFFEGEAU"
-        },
-        {
-          "numero": 8,
-          "nom": "LIBERTY PAT",
-          "non_partant": false,
-          "jockey_nom": "LILIAN BERTIN",
-          "entraineur_nom": "CH. MOTTIER"
-        },
-        {
-          "numero": 9,
-          "nom": "JOYEUSE D'ATOUT",
-          "non_partant": false,
-          "jockey_nom": "Y. LACOMBE",
-          "entraineur_nom": "Y. LACOMBE"
-        },
-        {
-          "numero": 10,
-          "nom": "LEWIS RIVER",
-          "non_partant": false,
-          "jockey_nom": "J.PH. MONCLIN",
-          "entraineur_nom": "S. GUARATO"
-        },
-        {
-          "numero": 11,
-          "nom": "ICARE DUNGY",
-          "non_partant": false,
-          "jockey_nom": "F. GENCE",
-          "entraineur_nom": "Y. LACOMBE"
-        },
-        {
-          "numero": 12,
-          "nom": "KEYNOTE",
-          "non_partant": false,
-          "jockey_nom": "M. CHAMPENOIS",
-          "entraineur_nom": "CH.A. MARY"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R15-C8",
       "reunion": 15,
       "course": 8,
@@ -7119,6 +7021,104 @@
           "non_partant": false,
           "jockey_nom": "A.BOUILLE",
           "entraineur_nom": "PO.ROBERT"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
+      "id": "2026-10-25-R14-C5",
+      "reunion": 14,
+      "course": 5,
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "nom": "GRAND PRIX BARON D'ARDEUIL AOC BUZET",
+      "depart": "2026-10-25T15:03:00+00:00",
+      "distance_metres": 2625,
+      "discipline": "ATTELE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C5/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "KATYLAND",
+          "non_partant": false,
+          "jockey_nom": "A. GENDROT",
+          "entraineur_nom": "M. SASSIER"
+        },
+        {
+          "numero": 2,
+          "nom": "LESDY MAGODA",
+          "non_partant": false,
+          "jockey_nom": "L. JUBLOT",
+          "entraineur_nom": "L. JUBLOT"
+        },
+        {
+          "numero": 3,
+          "nom": "HERMES DE L'ISAC",
+          "non_partant": false,
+          "jockey_nom": "F. GUINE",
+          "entraineur_nom": "F. GUINE"
+        },
+        {
+          "numero": 4,
+          "nom": "LOTHBROCK",
+          "non_partant": false,
+          "jockey_nom": "CH. BOUTEILLER",
+          "entraineur_nom": "Pierrick LE MOEL"
+        },
+        {
+          "numero": 5,
+          "nom": "LAPS GEDE",
+          "non_partant": false,
+          "jockey_nom": "A. PILLON",
+          "entraineur_nom": "A. PILLON"
+        },
+        {
+          "numero": 6,
+          "nom": "LAUSSAC DU BUISSON",
+          "non_partant": false,
+          "jockey_nom": "E. LAMY",
+          "entraineur_nom": "TH. RAFFEGEAU"
+        },
+        {
+          "numero": 7,
+          "nom": "LICAR SOMOLLI",
+          "non_partant": false,
+          "jockey_nom": "M. MAIGNAN",
+          "entraineur_nom": "J.PH. RAFFEGEAU"
+        },
+        {
+          "numero": 8,
+          "nom": "LIBERTY PAT",
+          "non_partant": false,
+          "jockey_nom": "LILIAN BERTIN",
+          "entraineur_nom": "CH. MOTTIER"
+        },
+        {
+          "numero": 9,
+          "nom": "JOYEUSE D'ATOUT",
+          "non_partant": false,
+          "jockey_nom": "Y. LACOMBE",
+          "entraineur_nom": "Y. LACOMBE"
+        },
+        {
+          "numero": 10,
+          "nom": "LEWIS RIVER",
+          "non_partant": false,
+          "jockey_nom": "J.PH. MONCLIN",
+          "entraineur_nom": "S. GUARATO"
+        },
+        {
+          "numero": 11,
+          "nom": "ICARE DUNGY",
+          "non_partant": false,
+          "jockey_nom": "F. GENCE",
+          "entraineur_nom": "Y. LACOMBE"
+        },
+        {
+          "numero": 12,
+          "nom": "KEYNOTE",
+          "non_partant": false,
+          "jockey_nom": "M. CHAMPENOIS",
+          "entraineur_nom": "CH.A. MARY"
         }
       ],
       "collecte_participants": "ok"
@@ -7768,132 +7768,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R14-C6",
-      "reunion": 14,
-      "course": 6,
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "nom": "PRIX ORPI DESVALLOIS",
-      "depart": "2026-10-25T15:30:00+00:00",
-      "distance_metres": 2625,
-      "discipline": "MONTE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C6/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "LA VITA VEETA",
-          "non_partant": false,
-          "jockey_nom": "F.A. WARTEL",
-          "entraineur_nom": "M. MOREAU"
-        },
-        {
-          "numero": 2,
-          "nom": "LADY MILLION ANAJO",
-          "non_partant": false,
-          "jockey_nom": "CH. BOUTEILLER",
-          "entraineur_nom": "J. RIVIERE"
-        },
-        {
-          "numero": 3,
-          "nom": "LIKA D'ARPENT",
-          "non_partant": false,
-          "jockey_nom": "Mlle L. PLANCHENAULT",
-          "entraineur_nom": "S. LELIEVRE"
-        },
-        {
-          "numero": 4,
-          "nom": "LUCKY MACKER",
-          "non_partant": false,
-          "jockey_nom": "J. CERISIER",
-          "entraineur_nom": "J. CERISIER"
-        },
-        {
-          "numero": 5,
-          "nom": "LEWIS D'ESPOIR",
-          "non_partant": false,
-          "jockey_nom": "LILIAN BERTIN",
-          "entraineur_nom": "B. GUILLOUX"
-        },
-        {
-          "numero": 6,
-          "nom": "LUST FOR KYDE",
-          "non_partant": false,
-          "jockey_nom": "A. GENDROT",
-          "entraineur_nom": "CH.A. MARY"
-        },
-        {
-          "numero": 7,
-          "nom": "LADY DU JOUR",
-          "non_partant": false,
-          "jockey_nom": "L. JUBLOT",
-          "entraineur_nom": "L. JUBLOT"
-        },
-        {
-          "numero": 8,
-          "nom": "LUIGI DELAROUE",
-          "non_partant": false,
-          "jockey_nom": "Mme M. DOUSSET",
-          "entraineur_nom": "Y. DOUSSET"
-        },
-        {
-          "numero": 9,
-          "nom": "LIVINGSTONE DU HAC",
-          "non_partant": false,
-          "jockey_nom": "Mme A. CONSTANTIN",
-          "entraineur_nom": "M. CONSTANTIN"
-        },
-        {
-          "numero": 10,
-          "nom": "LADY BOVARY",
-          "non_partant": false,
-          "jockey_nom": "M. CHAMPENOIS",
-          "entraineur_nom": "G. CHAMPENOIS"
-        },
-        {
-          "numero": 11,
-          "nom": "LASKA TURGOT",
-          "non_partant": false,
-          "jockey_nom": "Mlle L. DELAHAYE",
-          "entraineur_nom": "G. RIVIERE"
-        },
-        {
-          "numero": 12,
-          "nom": "LASER SEDUISANT",
-          "non_partant": false,
-          "jockey_nom": "O. PLACIER",
-          "entraineur_nom": "ARNAUD DESMOTTES"
-        },
-        {
-          "numero": 13,
-          "nom": "LILY DES CARREAUX",
-          "non_partant": false,
-          "jockey_nom": "Mme A. VAUTIER",
-          "entraineur_nom": "N. LANGLOIS"
-        },
-        {
-          "numero": 14,
-          "nom": "LADY DE L'ELLE",
-          "non_partant": false,
-          "jockey_nom": "Mlle ALEXIANE LEPAGE",
-          "entraineur_nom": "E. LAMY"
-        },
-        {
-          "numero": 15,
-          "nom": "LOVE TO RUN",
-          "non_partant": false,
-          "jockey_nom": "Mme L. CHARRIAUD",
-          "entraineur_nom": "M. ABRIVARD"
-        },
-        {
-          "numero": 16,
-          "nom": "LORD DES SOURCES",
-          "non_partant": false,
-          "jockey_nom": "Mlle M. BEUDARD",
-          "entraineur_nom": "E. BEUDARD"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R15-C9",
       "reunion": 15,
       "course": 9,
@@ -8033,7 +7907,7 @@
         {
           "numero": 3,
           "nom": "HELIOS DE FRETEL",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "G.VIEL",
           "entraineur_nom": "T.JOUIN"
         },
@@ -8146,8 +8020,134 @@
           "numero": 13,
           "nom": "LOGUIVY SAPI",
           "non_partant": false,
-          "jockey_nom": "G.FAIVRE-PICON",
+          "jockey_nom": "N. CLAUDE",
           "entraineur_nom": "MME O.ELLART"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
+      "id": "2026-10-25-R14-C6",
+      "reunion": 14,
+      "course": 6,
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "nom": "PRIX ORPI DESVALLOIS",
+      "depart": "2026-10-25T15:32:00+00:00",
+      "distance_metres": 2625,
+      "discipline": "MONTE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C6/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "LA VITA VEETA",
+          "non_partant": false,
+          "jockey_nom": "F.A. WARTEL",
+          "entraineur_nom": "M. MOREAU"
+        },
+        {
+          "numero": 2,
+          "nom": "LADY MILLION ANAJO",
+          "non_partant": false,
+          "jockey_nom": "CH. BOUTEILLER",
+          "entraineur_nom": "J. RIVIERE"
+        },
+        {
+          "numero": 3,
+          "nom": "LIKA D'ARPENT",
+          "non_partant": false,
+          "jockey_nom": "Mlle L. PLANCHENAULT",
+          "entraineur_nom": "S. LELIEVRE"
+        },
+        {
+          "numero": 4,
+          "nom": "LUCKY MACKER",
+          "non_partant": false,
+          "jockey_nom": "J. CERISIER",
+          "entraineur_nom": "J. CERISIER"
+        },
+        {
+          "numero": 5,
+          "nom": "LEWIS D'ESPOIR",
+          "non_partant": false,
+          "jockey_nom": "LILIAN BERTIN",
+          "entraineur_nom": "B. GUILLOUX"
+        },
+        {
+          "numero": 6,
+          "nom": "LUST FOR KYDE",
+          "non_partant": false,
+          "jockey_nom": "A. GENDROT",
+          "entraineur_nom": "CH.A. MARY"
+        },
+        {
+          "numero": 7,
+          "nom": "LADY DU JOUR",
+          "non_partant": false,
+          "jockey_nom": "L. JUBLOT",
+          "entraineur_nom": "L. JUBLOT"
+        },
+        {
+          "numero": 8,
+          "nom": "LUIGI DELAROUE",
+          "non_partant": false,
+          "jockey_nom": "Mme M. DOUSSET",
+          "entraineur_nom": "Y. DOUSSET"
+        },
+        {
+          "numero": 9,
+          "nom": "LIVINGSTONE DU HAC",
+          "non_partant": false,
+          "jockey_nom": "Mme A. CONSTANTIN",
+          "entraineur_nom": "M. CONSTANTIN"
+        },
+        {
+          "numero": 10,
+          "nom": "LADY BOVARY",
+          "non_partant": false,
+          "jockey_nom": "M. CHAMPENOIS",
+          "entraineur_nom": "G. CHAMPENOIS"
+        },
+        {
+          "numero": 11,
+          "nom": "LASKA TURGOT",
+          "non_partant": false,
+          "jockey_nom": "Mlle L. DELAHAYE",
+          "entraineur_nom": "G. RIVIERE"
+        },
+        {
+          "numero": 12,
+          "nom": "LASER SEDUISANT",
+          "non_partant": false,
+          "jockey_nom": "O. PLACIER",
+          "entraineur_nom": "ARNAUD DESMOTTES"
+        },
+        {
+          "numero": 13,
+          "nom": "LILY DES CARREAUX",
+          "non_partant": false,
+          "jockey_nom": "Mme A. VAUTIER",
+          "entraineur_nom": "N. LANGLOIS"
+        },
+        {
+          "numero": 14,
+          "nom": "LADY DE L'ELLE",
+          "non_partant": false,
+          "jockey_nom": "Mlle ALEXIANE LEPAGE",
+          "entraineur_nom": "E. LAMY"
+        },
+        {
+          "numero": 15,
+          "nom": "LOVE TO RUN",
+          "non_partant": false,
+          "jockey_nom": "Mme L. CHARRIAUD",
+          "entraineur_nom": "M. ABRIVARD"
+        },
+        {
+          "numero": 16,
+          "nom": "LORD DES SOURCES",
+          "non_partant": false,
+          "jockey_nom": "Mlle M. BEUDARD",
+          "entraineur_nom": "E. BEUDARD"
         }
       ],
       "collecte_participants": "ok"
@@ -8769,132 +8769,6 @@
       "collecte_participants": "ok"
     },
     {
-      "id": "2026-10-25-R14-C7",
-      "reunion": 14,
-      "course": 7,
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "nom": "PRIX EQUURES",
-      "depart": "2026-10-25T16:00:00+00:00",
-      "distance_metres": 2625,
-      "discipline": "ATTELE",
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C7/participants",
-      "partants": [
-        {
-          "numero": 1,
-          "nom": "KERBEROS",
-          "non_partant": false,
-          "jockey_nom": "B. DAVID",
-          "entraineur_nom": "W. DAVID"
-        },
-        {
-          "numero": 2,
-          "nom": "KESARO FIRST",
-          "non_partant": false,
-          "jockey_nom": "CH. BRIZARD",
-          "entraineur_nom": "J. GIROUARD"
-        },
-        {
-          "numero": 3,
-          "nom": "KRISTAL DU ROCHER",
-          "non_partant": false,
-          "jockey_nom": "TH. MARTIN",
-          "entraineur_nom": "D. FAIVRE"
-        },
-        {
-          "numero": 4,
-          "nom": "KOLANTA DU LOISIR",
-          "non_partant": false,
-          "jockey_nom": "A. MOURAUD",
-          "entraineur_nom": "J.J. BEAUSSE"
-        },
-        {
-          "numero": 5,
-          "nom": "KUEEN DES PRES",
-          "non_partant": false,
-          "jockey_nom": "M. RAHAULT",
-          "entraineur_nom": "J. GIROUARD"
-        },
-        {
-          "numero": 6,
-          "nom": "KIMBAMBA",
-          "non_partant": false,
-          "jockey_nom": "TH. XICLUNA",
-          "entraineur_nom": "TH. XICLUNA"
-        },
-        {
-          "numero": 7,
-          "nom": "JAZZMAN ERDE",
-          "non_partant": false,
-          "jockey_nom": "D. RABILLER",
-          "entraineur_nom": "B. GRONDIN"
-        },
-        {
-          "numero": 8,
-          "nom": "KOSAK PIEMONT",
-          "non_partant": false,
-          "jockey_nom": "C. LANGLOIS",
-          "entraineur_nom": "M.X. CHARLOT"
-        },
-        {
-          "numero": 9,
-          "nom": "JUS DE COCO",
-          "non_partant": false,
-          "jockey_nom": "H. DENIS",
-          "entraineur_nom": "L. RIVRON"
-        },
-        {
-          "numero": 10,
-          "nom": "KAOUITO DES GLENAN",
-          "non_partant": false,
-          "jockey_nom": "A. RAFFIN",
-          "entraineur_nom": "O. RAFFIN"
-        },
-        {
-          "numero": 11,
-          "nom": "KALINDA SPOKEN",
-          "non_partant": false,
-          "jockey_nom": "M. PRAT",
-          "entraineur_nom": "G. PRAT"
-        },
-        {
-          "numero": 12,
-          "nom": "INAO SAINT CLAIR",
-          "non_partant": false,
-          "jockey_nom": "J.PH. DERRIAN",
-          "entraineur_nom": "J.PH. DERRIAN"
-        },
-        {
-          "numero": 13,
-          "nom": "KEN DE CORDAY",
-          "non_partant": false,
-          "jockey_nom": "JULIEN RENAULT",
-          "entraineur_nom": "D.M. RENAULT"
-        },
-        {
-          "numero": 14,
-          "nom": "JADE DALAMEDA",
-          "non_partant": false,
-          "jockey_nom": "TH. CORBES",
-          "entraineur_nom": "M. CORBES"
-        },
-        {
-          "numero": 15,
-          "nom": "INOPINE",
-          "non_partant": false,
-          "jockey_nom": "Q. FAIVRE",
-          "entraineur_nom": "D. FAIVRE"
-        },
-        {
-          "numero": 16,
-          "nom": "KELROC",
-          "non_partant": false,
-          "jockey_nom": "TH. HERNANDEZ",
-          "entraineur_nom": "F. GUINHUT"
-        }
-      ],
-      "collecte_participants": "ok"
-    },
-    {
       "id": "2026-10-25-R15-C10",
       "reunion": 15,
       "course": 10,
@@ -9100,6 +8974,132 @@
           "non_partant": false,
           "jockey_nom": "A.DUVACHER",
           "entraineur_nom": "E.GRALL (S)"
+        }
+      ],
+      "collecte_participants": "ok"
+    },
+    {
+      "id": "2026-10-25-R14-C7",
+      "reunion": 14,
+      "course": 7,
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "nom": "PRIX EQUURES",
+      "depart": "2026-10-25T16:01:00+00:00",
+      "distance_metres": 2625,
+      "discipline": "ATTELE",
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C7/participants",
+      "partants": [
+        {
+          "numero": 1,
+          "nom": "KERBEROS",
+          "non_partant": false,
+          "jockey_nom": "B. DAVID",
+          "entraineur_nom": "W. DAVID"
+        },
+        {
+          "numero": 2,
+          "nom": "KESARO FIRST",
+          "non_partant": false,
+          "jockey_nom": "CH. BRIZARD",
+          "entraineur_nom": "J. GIROUARD"
+        },
+        {
+          "numero": 3,
+          "nom": "KRISTAL DU ROCHER",
+          "non_partant": false,
+          "jockey_nom": "TH. MARTIN",
+          "entraineur_nom": "D. FAIVRE"
+        },
+        {
+          "numero": 4,
+          "nom": "KOLANTA DU LOISIR",
+          "non_partant": false,
+          "jockey_nom": "A. MOURAUD",
+          "entraineur_nom": "J.J. BEAUSSE"
+        },
+        {
+          "numero": 5,
+          "nom": "KUEEN DES PRES",
+          "non_partant": false,
+          "jockey_nom": "M. RAHAULT",
+          "entraineur_nom": "J. GIROUARD"
+        },
+        {
+          "numero": 6,
+          "nom": "KIMBAMBA",
+          "non_partant": false,
+          "jockey_nom": "TH. XICLUNA",
+          "entraineur_nom": "TH. XICLUNA"
+        },
+        {
+          "numero": 7,
+          "nom": "JAZZMAN ERDE",
+          "non_partant": false,
+          "jockey_nom": "D. RABILLER",
+          "entraineur_nom": "B. GRONDIN"
+        },
+        {
+          "numero": 8,
+          "nom": "KOSAK PIEMONT",
+          "non_partant": false,
+          "jockey_nom": "C. LANGLOIS",
+          "entraineur_nom": "M.X. CHARLOT"
+        },
+        {
+          "numero": 9,
+          "nom": "JUS DE COCO",
+          "non_partant": false,
+          "jockey_nom": "H. DENIS",
+          "entraineur_nom": "L. RIVRON"
+        },
+        {
+          "numero": 10,
+          "nom": "KAOUITO DES GLENAN",
+          "non_partant": false,
+          "jockey_nom": "A. RAFFIN",
+          "entraineur_nom": "O. RAFFIN"
+        },
+        {
+          "numero": 11,
+          "nom": "KALINDA SPOKEN",
+          "non_partant": false,
+          "jockey_nom": "M. PRAT",
+          "entraineur_nom": "G. PRAT"
+        },
+        {
+          "numero": 12,
+          "nom": "INAO SAINT CLAIR",
+          "non_partant": false,
+          "jockey_nom": "J.PH. DERRIAN",
+          "entraineur_nom": "J.PH. DERRIAN"
+        },
+        {
+          "numero": 13,
+          "nom": "KEN DE CORDAY",
+          "non_partant": false,
+          "jockey_nom": "JULIEN RENAULT",
+          "entraineur_nom": "D.M. RENAULT"
+        },
+        {
+          "numero": 14,
+          "nom": "JADE DALAMEDA",
+          "non_partant": false,
+          "jockey_nom": "TH. CORBES",
+          "entraineur_nom": "M. CORBES"
+        },
+        {
+          "numero": 15,
+          "nom": "INOPINE",
+          "non_partant": false,
+          "jockey_nom": "Q. FAIVRE",
+          "entraineur_nom": "D. FAIVRE"
+        },
+        {
+          "numero": 16,
+          "nom": "KELROC",
+          "non_partant": false,
+          "jockey_nom": "TH. HERNANDEZ",
+          "entraineur_nom": "F. GUINHUT"
         }
       ],
       "collecte_participants": "ok"

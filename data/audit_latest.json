@@ -2,7 +2,7 @@
   "avertissement": "Aucune garantie de gain ; donnees sportives verifiees requises",
   "courses": [
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T10:56:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C1",
@@ -226,7 +226,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T11:26:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C2",
@@ -450,7 +450,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T11:57:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C3",
@@ -674,7 +674,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T12:15:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C1",
@@ -898,7 +898,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T12:30:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C1",
@@ -1122,7 +1122,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T12:32:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C4",
@@ -1346,7 +1346,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T12:45:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C2",
@@ -1570,7 +1570,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T12:51:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C1",
@@ -1794,7 +1794,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:00:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C2",
@@ -2018,7 +2018,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:05:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C1",
@@ -2242,7 +2242,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:07:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C5",
@@ -2466,7 +2466,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:15:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C3",
@@ -2690,7 +2690,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:25:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C2",
@@ -2914,7 +2914,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:30:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C1",
@@ -3138,7 +3138,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:30:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C3",
@@ -3362,7 +3362,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:30:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C1",
@@ -3586,7 +3586,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:35:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C2",
@@ -3810,7 +3810,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:35:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C6",
@@ -4034,7 +4034,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:40:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C1",
@@ -4258,7 +4258,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:41:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C1",
@@ -4482,7 +4482,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:45:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C4",
@@ -4706,7 +4706,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:55:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C1",
@@ -4930,7 +4930,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T13:59:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C3",
@@ -5154,7 +5154,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C1",
@@ -5378,7 +5378,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C2",
@@ -5602,7 +5602,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
       "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C1",
@@ -5826,7 +5826,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C4",
@@ -6050,7 +6050,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:00:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C2",
@@ -6274,7 +6274,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:05:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C3",
@@ -6498,7 +6498,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:05:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C7",
@@ -6722,7 +6722,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:10:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C2",
@@ -6946,7 +6946,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:15:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C5",
@@ -7170,7 +7170,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:16:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C2",
@@ -7394,7 +7394,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:25:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C2",
@@ -7436,7 +7436,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7478,7 +7478,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7520,7 +7520,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7562,7 +7562,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7604,21 +7604,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 13,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R8/C2/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C2",
@@ -7660,7 +7660,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7702,7 +7702,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7744,7 +7744,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7786,7 +7786,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7828,21 +7828,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 12,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R11/C2/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C3",
@@ -7884,7 +7884,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7926,7 +7926,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -7968,7 +7968,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8010,7 +8010,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8052,21 +8052,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 2,
       "partants": 10,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R13/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
       "hippodrome": "HIPPODROME DE CHATELAILLON",
       "id": "2026-10-25-R14-C2",
@@ -8108,7 +8108,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8150,7 +8150,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8192,7 +8192,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8234,7 +8234,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8276,21 +8276,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 16,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C2/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C5",
@@ -8332,7 +8332,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8374,7 +8374,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8416,7 +8416,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8458,7 +8458,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8500,21 +8500,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 18,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R15/C5/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:30:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C3",
@@ -8556,7 +8556,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8598,7 +8598,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8640,7 +8640,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8682,7 +8682,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8724,21 +8724,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 2,
       "partants": 8,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R16/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:34:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C4",
@@ -8780,7 +8780,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8822,7 +8822,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8864,7 +8864,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8906,7 +8906,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -8948,21 +8948,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 7,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R1/C4/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:35:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C4",
@@ -9004,7 +9004,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9046,7 +9046,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9088,7 +9088,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9130,7 +9130,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9172,21 +9172,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 13,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R10/C4/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:35:00+01:00",
       "hippodrome": "HIPPODROME DE SALON DE PROVENCE",
       "id": "2026-10-25-R4-C8",
@@ -9228,7 +9228,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9270,7 +9270,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9312,7 +9312,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9354,7 +9354,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9396,21 +9396,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 9,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R4/C8/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:40:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C3",
@@ -9452,7 +9452,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9494,7 +9494,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9536,7 +9536,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9578,7 +9578,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9620,22 +9620,22 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 1,
       "partants": 9,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R9/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T14:45:00+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T14:48:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C6",
       "moteurs": {
@@ -9676,7 +9676,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9718,7 +9718,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9760,7 +9760,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9802,7 +9802,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9844,22 +9844,22 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 13,
+      "motif_fige": "Delai de securite depasse",
+      "non_partants": 1,
+      "partants": 12,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R12/C6/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T14:50:00+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T14:51:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C3",
       "moteurs": {
@@ -9900,7 +9900,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9942,7 +9942,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -9984,7 +9984,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -10026,7 +10026,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -10068,21 +10068,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 1,
       "partants": 15,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R5/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T14:55:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C3",
@@ -10124,7 +10124,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -10166,7 +10166,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -10208,7 +10208,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -10250,7 +10250,7 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
@@ -10292,21 +10292,21 @@
           "ecart": 0.0,
           "gagnant_espere": null,
           "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
+          "motif": "Depart atteint ou depasse",
           "pari": "aucun pari automatique",
           "place_espere": null,
           "qualification": "abstention"
         }
       },
       "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
+      "motif_fige": "Delai de securite depasse",
       "non_partants": 0,
       "partants": 7,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R8/C3/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C3",
@@ -10530,7 +10530,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C4",
@@ -10754,231 +10754,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T15:00:00+01:00",
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "id": "2026-10-25-R14-C3",
-      "moteurs": {
-        "M1": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "JOSS D'ATTAQUE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JUSTIN TRESOR",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HOTMAIL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JASMINE DU MELEUC",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "IF DE QUERAY",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M2": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "JOSS D'ATTAQUE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JUSTIN TRESOR",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HOTMAIL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JASMINE DU MELEUC",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "IF DE QUERAY",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M3": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "JOSS D'ATTAQUE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JUSTIN TRESOR",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HOTMAIL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JASMINE DU MELEUC",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "IF DE QUERAY",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M4": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "JOSS D'ATTAQUE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JUSTIN TRESOR",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HOTMAIL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JASMINE DU MELEUC",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "IF DE QUERAY",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M5": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "JOSS D'ATTAQUE",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JUSTIN TRESOR",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HOTMAIL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "JASMINE DU MELEUC",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "IF DE QUERAY",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        }
-      },
-      "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 16,
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C3/participants",
-      "statut": "analyse_provisoire"
-    },
-    {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C6",
@@ -11202,7 +10978,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:00:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C4",
@@ -11426,7 +11202,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:05:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C5",
@@ -11650,7 +11426,231 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T15:05:00+01:00",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "id": "2026-10-25-R14-C3",
+      "moteurs": {
+        "M1": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "JOSS D'ATTAQUE",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JUSTIN TRESOR",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HOTMAIL",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JASMINE DU MELEUC",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "IF DE QUERAY",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M1",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M2": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "JOSS D'ATTAQUE",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JUSTIN TRESOR",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HOTMAIL",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JASMINE DU MELEUC",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "IF DE QUERAY",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M2",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M3": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "JOSS D'ATTAQUE",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JUSTIN TRESOR",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HOTMAIL",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JASMINE DU MELEUC",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "IF DE QUERAY",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M3",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M4": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "JOSS D'ATTAQUE",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JUSTIN TRESOR",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HOTMAIL",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JASMINE DU MELEUC",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "IF DE QUERAY",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M4",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M5": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "JOSS D'ATTAQUE",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JUSTIN TRESOR",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HOTMAIL",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "JASMINE DU MELEUC",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "IF DE QUERAY",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M5",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        }
+      },
+      "moteurs_qualifies": [],
+      "motif_fige": "Aucun moteur qualifie",
+      "non_partants": 0,
+      "partants": 16,
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C3/participants",
+      "statut": "analyse_provisoire"
+    },
+    {
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:10:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C4",
@@ -11874,7 +11874,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:15:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C5",
@@ -12098,8 +12098,8 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T15:15:00+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T15:17:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C7",
       "moteurs": {
@@ -12322,7 +12322,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C4",
@@ -12546,7 +12546,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C5",
@@ -12770,231 +12770,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T15:30:00+01:00",
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "id": "2026-10-25-R14-C4",
-      "moteurs": {
-        "M1": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LADY DE GUEHAM",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY SOTHO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LANCELOT DE BEYLEV",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOLA DE VILLARD",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUPIN DES TOURS",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M2": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LADY DE GUEHAM",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY SOTHO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LANCELOT DE BEYLEV",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOLA DE VILLARD",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUPIN DES TOURS",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M3": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LADY DE GUEHAM",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY SOTHO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LANCELOT DE BEYLEV",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOLA DE VILLARD",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUPIN DES TOURS",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M4": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LADY DE GUEHAM",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY SOTHO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LANCELOT DE BEYLEV",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOLA DE VILLARD",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUPIN DES TOURS",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M5": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LADY DE GUEHAM",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY SOTHO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LANCELOT DE BEYLEV",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOLA DE VILLARD",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUPIN DES TOURS",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        }
-      },
-      "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C4/participants",
-      "statut": "analyse_provisoire"
-    },
-    {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C7",
@@ -13218,7 +12994,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C5",
@@ -13436,13 +13212,13 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 1,
-      "partants": 7,
+      "non_partants": 2,
+      "partants": 6,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R16/C5/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:30:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C4",
@@ -13666,7 +13442,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:32:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C4",
@@ -13890,7 +13666,231 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T15:34:00+01:00",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "id": "2026-10-25-R14-C4",
+      "moteurs": {
+        "M1": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LADY DE GUEHAM",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY SOTHO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LANCELOT DE BEYLEV",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOLA DE VILLARD",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUPIN DES TOURS",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M1",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M2": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LADY DE GUEHAM",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY SOTHO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LANCELOT DE BEYLEV",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOLA DE VILLARD",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUPIN DES TOURS",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M2",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M3": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LADY DE GUEHAM",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY SOTHO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LANCELOT DE BEYLEV",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOLA DE VILLARD",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUPIN DES TOURS",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M3",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M4": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LADY DE GUEHAM",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY SOTHO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LANCELOT DE BEYLEV",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOLA DE VILLARD",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUPIN DES TOURS",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M4",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M5": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LADY DE GUEHAM",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY SOTHO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LANCELOT DE BEYLEV",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOLA DE VILLARD",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUPIN DES TOURS",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M5",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        }
+      },
+      "moteurs_qualifies": [],
+      "motif_fige": "Aucun moteur qualifie",
+      "non_partants": 0,
+      "partants": 12,
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C4/participants",
+      "statut": "analyse_provisoire"
+    },
+    {
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:35:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C6",
@@ -14114,7 +14114,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:40:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C5",
@@ -14338,8 +14338,8 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T15:45:00+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T15:46:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C8",
       "moteurs": {
@@ -14562,7 +14562,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T15:50:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C6",
@@ -14786,7 +14786,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C5",
@@ -15010,7 +15010,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C6",
@@ -15234,231 +15234,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T16:00:00+01:00",
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "id": "2026-10-25-R14-C5",
-      "moteurs": {
-        "M1": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KATYLAND",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LESDY MAGODA",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HERMES DE L'ISAC",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOTHBROCK",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LAPS GEDE",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M2": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KATYLAND",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LESDY MAGODA",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HERMES DE L'ISAC",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOTHBROCK",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LAPS GEDE",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M3": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KATYLAND",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LESDY MAGODA",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HERMES DE L'ISAC",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOTHBROCK",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LAPS GEDE",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M4": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KATYLAND",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LESDY MAGODA",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HERMES DE L'ISAC",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOTHBROCK",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LAPS GEDE",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M5": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KATYLAND",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LESDY MAGODA",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HERMES DE L'ISAC",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LOTHBROCK",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LAPS GEDE",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        }
-      },
-      "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 12,
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C5/participants",
-      "statut": "analyse_provisoire"
-    },
-    {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C8",
@@ -15682,7 +15458,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C6",
@@ -15906,7 +15682,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C5",
@@ -16130,7 +15906,231 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T16:03:00+01:00",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "id": "2026-10-25-R14-C5",
+      "moteurs": {
+        "M1": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KATYLAND",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LESDY MAGODA",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HERMES DE L'ISAC",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOTHBROCK",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LAPS GEDE",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M1",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M2": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KATYLAND",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LESDY MAGODA",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HERMES DE L'ISAC",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOTHBROCK",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LAPS GEDE",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M2",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M3": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KATYLAND",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LESDY MAGODA",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HERMES DE L'ISAC",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOTHBROCK",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LAPS GEDE",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M3",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M4": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KATYLAND",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LESDY MAGODA",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HERMES DE L'ISAC",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOTHBROCK",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LAPS GEDE",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M4",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M5": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KATYLAND",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LESDY MAGODA",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "HERMES DE L'ISAC",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LOTHBROCK",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LAPS GEDE",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M5",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        }
+      },
+      "moteurs_qualifies": [],
+      "motif_fige": "Aucun moteur qualifie",
+      "non_partants": 0,
+      "partants": 12,
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C5/participants",
+      "statut": "analyse_provisoire"
+    },
+    {
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:05:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C7",
@@ -16354,7 +16354,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:07:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C5",
@@ -16578,7 +16578,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:10:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C6",
@@ -16802,7 +16802,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:15:00+01:00",
       "hippodrome": "HIPPODROME DE NANTES",
       "id": "2026-10-25-R12-C9",
@@ -17026,7 +17026,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:25:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C7",
@@ -17250,7 +17250,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C6",
@@ -17474,231 +17474,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T16:30:00+01:00",
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "id": "2026-10-25-R14-C6",
-      "moteurs": {
-        "M1": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LA VITA VEETA",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LADY MILLION ANAJO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LIKA D'ARPENT",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY MACKER",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LEWIS D'ESPOIR",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M2": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LA VITA VEETA",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LADY MILLION ANAJO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LIKA D'ARPENT",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY MACKER",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LEWIS D'ESPOIR",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M3": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LA VITA VEETA",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LADY MILLION ANAJO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LIKA D'ARPENT",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY MACKER",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LEWIS D'ESPOIR",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M4": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LA VITA VEETA",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LADY MILLION ANAJO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LIKA D'ARPENT",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY MACKER",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LEWIS D'ESPOIR",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M5": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "LA VITA VEETA",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LADY MILLION ANAJO",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LIKA D'ARPENT",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LUCKY MACKER",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "LEWIS D'ESPOIR",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        }
-      },
-      "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 16,
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C6/participants",
-      "statut": "analyse_provisoire"
-    },
-    {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C9",
@@ -17922,7 +17698,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
       "hippodrome": "HIPPODROME DE MESLAY DU MAINE",
       "id": "2026-10-25-R16-C7",
@@ -17939,12 +17715,6 @@
               "couverture": 0.0,
               "nom": "JAROUSSKY AA",
               "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HELIOS DE FRETEL",
-              "numero": 3,
               "score": 0.0
             },
             {
@@ -17979,12 +17749,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "HELIOS DE FRETEL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MADN'ES",
               "numero": 4,
               "score": 0.0
@@ -18011,12 +17775,6 @@
               "couverture": 0.0,
               "nom": "JAROUSSKY AA",
               "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "HELIOS DE FRETEL",
-              "numero": 3,
               "score": 0.0
             },
             {
@@ -18051,12 +17809,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "HELIOS DE FRETEL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MADN'ES",
               "numero": 4,
               "score": 0.0
@@ -18087,12 +17839,6 @@
             },
             {
               "couverture": 0.0,
-              "nom": "HELIOS DE FRETEL",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
               "nom": "MADN'ES",
               "numero": 4,
               "score": 0.0
@@ -18110,13 +17856,13 @@
       },
       "moteurs_qualifies": [],
       "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 4,
+      "non_partants": 1,
+      "partants": 3,
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R16/C7/participants",
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:30:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C6",
@@ -18340,7 +18086,231 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T16:32:00+01:00",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "id": "2026-10-25-R14-C6",
+      "moteurs": {
+        "M1": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LA VITA VEETA",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LADY MILLION ANAJO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LIKA D'ARPENT",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY MACKER",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LEWIS D'ESPOIR",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M1",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M2": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LA VITA VEETA",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LADY MILLION ANAJO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LIKA D'ARPENT",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY MACKER",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LEWIS D'ESPOIR",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M2",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M3": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LA VITA VEETA",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LADY MILLION ANAJO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LIKA D'ARPENT",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY MACKER",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LEWIS D'ESPOIR",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M3",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M4": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LA VITA VEETA",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LADY MILLION ANAJO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LIKA D'ARPENT",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY MACKER",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LEWIS D'ESPOIR",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M4",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M5": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "LA VITA VEETA",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LADY MILLION ANAJO",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LIKA D'ARPENT",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LUCKY MACKER",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "LEWIS D'ESPOIR",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M5",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        }
+      },
+      "moteurs_qualifies": [],
+      "motif_fige": "Aucun moteur qualifie",
+      "non_partants": 0,
+      "partants": 16,
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C6/participants",
+      "statut": "analyse_provisoire"
+    },
+    {
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:35:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C8",
@@ -18564,7 +18534,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:40:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C7",
@@ -18788,7 +18758,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:40:00+01:00",
       "hippodrome": "HIPPODROME D'AGEN LA GARENNE",
       "id": "2026-10-25-R9-C7",
@@ -19012,7 +18982,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T16:42:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C6",
@@ -19236,7 +19206,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "id": "2026-10-25-R1-C8",
@@ -19460,7 +19430,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C7",
@@ -19684,231 +19654,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
-      "depart": "2026-10-25T17:00:00+01:00",
-      "hippodrome": "HIPPODROME DE CHATELAILLON",
-      "id": "2026-10-25-R14-C7",
-      "moteurs": {
-        "M1": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KERBEROS",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KESARO FIRST",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KRISTAL DU ROCHER",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KOLANTA DU LOISIR",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KUEEN DES PRES",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M1",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M2": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KERBEROS",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KESARO FIRST",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KRISTAL DU ROCHER",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KOLANTA DU LOISIR",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KUEEN DES PRES",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M2",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M3": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KERBEROS",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KESARO FIRST",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KRISTAL DU ROCHER",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KOLANTA DU LOISIR",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KUEEN DES PRES",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M3",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M4": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KERBEROS",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KESARO FIRST",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KRISTAL DU ROCHER",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KOLANTA DU LOISIR",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KUEEN DES PRES",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M4",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        },
-        "M5": {
-          "classement": [
-            {
-              "couverture": 0.0,
-              "nom": "KERBEROS",
-              "numero": 1,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KESARO FIRST",
-              "numero": 2,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KRISTAL DU ROCHER",
-              "numero": 3,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KOLANTA DU LOISIR",
-              "numero": 4,
-              "score": 0.0
-            },
-            {
-              "couverture": 0.0,
-              "nom": "KUEEN DES PRES",
-              "numero": 5,
-              "score": 0.0
-            }
-          ],
-          "couverture": 0.0,
-          "ecart": 0.0,
-          "gagnant_espere": null,
-          "moteur": "M5",
-          "motif": "Donnees sportives insuffisantes",
-          "pari": "aucun pari automatique",
-          "place_espere": null,
-          "qualification": "abstention"
-        }
-      },
-      "moteurs_qualifies": [],
-      "motif_fige": "Aucun moteur qualifie",
-      "non_partants": 0,
-      "partants": 16,
-      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C7/participants",
-      "statut": "analyse_provisoire"
-    },
-    {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
       "hippodrome": "MONT ST MICHEL - PONTORSON",
       "id": "2026-10-25-R15-C10",
@@ -20132,7 +19878,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT BRIEUC",
       "id": "2026-10-25-R8-C7",
@@ -20356,7 +20102,231 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
+      "depart": "2026-10-25T17:01:00+01:00",
+      "hippodrome": "HIPPODROME DE CHATELAILLON",
+      "id": "2026-10-25-R14-C7",
+      "moteurs": {
+        "M1": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KERBEROS",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KESARO FIRST",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KRISTAL DU ROCHER",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KOLANTA DU LOISIR",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KUEEN DES PRES",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M1",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M2": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KERBEROS",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KESARO FIRST",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KRISTAL DU ROCHER",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KOLANTA DU LOISIR",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KUEEN DES PRES",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M2",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M3": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KERBEROS",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KESARO FIRST",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KRISTAL DU ROCHER",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KOLANTA DU LOISIR",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KUEEN DES PRES",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M3",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M4": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KERBEROS",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KESARO FIRST",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KRISTAL DU ROCHER",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KOLANTA DU LOISIR",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KUEEN DES PRES",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M4",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        },
+        "M5": {
+          "classement": [
+            {
+              "couverture": 0.0,
+              "nom": "KERBEROS",
+              "numero": 1,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KESARO FIRST",
+              "numero": 2,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KRISTAL DU ROCHER",
+              "numero": 3,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KOLANTA DU LOISIR",
+              "numero": 4,
+              "score": 0.0
+            },
+            {
+              "couverture": 0.0,
+              "nom": "KUEEN DES PRES",
+              "numero": 5,
+              "score": 0.0
+            }
+          ],
+          "couverture": 0.0,
+          "ecart": 0.0,
+          "gagnant_espere": null,
+          "moteur": "M5",
+          "motif": "Donnees sportives insuffisantes",
+          "pari": "aucun pari automatique",
+          "place_espere": null,
+          "qualification": "abstention"
+        }
+      },
+      "moteurs_qualifies": [],
+      "motif_fige": "Aucun moteur qualifie",
+      "non_partants": 0,
+      "partants": 16,
+      "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R14/C7/participants",
+      "statut": "analyse_provisoire"
+    },
+    {
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:05:00+01:00",
       "hippodrome": "HIPPODROME DE LA CAPELLE",
       "id": "2026-10-25-R10-C9",
@@ -20580,7 +20550,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:10:00+01:00",
       "hippodrome": "HIPPODROME DE CHARTRES",
       "id": "2026-10-25-R13-C8",
@@ -20804,7 +20774,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:18:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C7",
@@ -21028,7 +20998,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:30:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C8",
@@ -21252,7 +21222,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T17:53:00+01:00",
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "id": "2026-10-25-R5-C8",
@@ -21476,7 +21446,7 @@
       "statut": "analyse_provisoire"
     },
     {
-      "analyse_a": "2026-10-25T14:19:07.347754+01:00",
+      "analyse_a": "2026-10-25T14:57:58.801541+01:00",
       "depart": "2026-10-25T18:00:00+01:00",
       "hippodrome": "HIPPODROME DE SAINT GALMIER",
       "id": "2026-10-25-R11-C9",
@@ -21701,7 +21671,7 @@
     }
   ],
   "date": "2026-10-25",
-  "genere_a": "2026-10-25T14:19:07.347754+01:00",
+  "genere_a": "2026-10-25T14:57:58.801541+01:00",
   "source": "data/courses.json",
   "statut_collecte": "ok"
 }
