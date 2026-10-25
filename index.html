@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071c18">
 <title>TURBOFUSION 3.0 — Intelligence hippique</title>
 <style>
 :root {
@@ -11,41 +12,38 @@
   --or:#e8bf66;
   --texte:#f4f6ef;
   --bord:#386657;
+  --muted:#c9d8c9;
 }
 * { box-sizing:border-box; }
 body {
   margin:0;
   background:var(--fond);
   color:var(--texte);
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
 }
 header {
   background:linear-gradient(120deg,#063b30,#10291f);
   text-align:center;
-  padding:40px 15px;
+  padding:38px 15px;
   border-bottom:3px solid var(--or);
 }
 h1 {
   color:var(--or);
-  font-size:clamp(30px,7vw,58px);
+  font-size:clamp(30px,7vw,56px);
   margin:10px 0;
 }
 h2 { color:var(--or); }
-.motto { color:#c9d8c9; }
-main {
-  max-width:1250px;
-  margin:auto;
-  padding:20px;
-}
+.motto { color:var(--muted); }
+main { max-width:1300px; margin:auto; padding:18px; }
 .engines {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:15px;
+  gap:12px;
 }
 .engine {
   background:var(--carte);
-  padding:20px;
-  border-radius:15px;
+  padding:18px;
+  border-radius:14px;
   border:1px solid var(--bord);
 }
 .engine h3 { margin:0 0 10px; }
@@ -55,26 +53,26 @@ main {
 .m4 { border-top:5px solid #ffa928; }
 .m5 { border-top:5px solid #f45d63; }
 section {
-  margin-top:30px;
+  margin-top:25px;
   background:#0e3028;
   border-radius:15px;
-  padding:20px;
+  padding:18px;
 }
 .scroll { overflow-x:auto; }
 table {
   border-collapse:collapse;
   width:100%;
-  min-width:1050px;
+  min-width:1150px;
 }
 th,td {
-  padding:12px;
+  padding:11px;
   border-bottom:1px solid var(--bord);
   text-align:left;
   vertical-align:top;
 }
-th { background:#205041;color:#f7d88b; }
+th { background:#205041; color:#f7d88b; }
 .status { color:#e9c676; }
-small { color:#c9d8c9; }
+small { color:var(--muted); }
 button {
   background:var(--or);
   color:#10291f;
@@ -84,7 +82,11 @@ button {
   font-weight:bold;
   cursor:pointer;
 }
-button:hover { filter:brightness(1.1); }
+button:disabled { opacity:.6; cursor:wait; }
+.qualified { color:#70e6a0; }
+.waiting { color:#e9c676; }
+.rejected { color:#ff9999; }
+.engine-detail { line-height:1.7; min-width:145px; }
 footer {
   text-align:center;
   padding:30px;
@@ -93,11 +95,10 @@ footer {
 </style>
 </head>
 <body>
-
 <header>
   <div style="font-size:35px">🇸🇳 🧠 🔥 🐎 🇫🇷</div>
   <h1>TURBOFUSION 3.0</h1>
-  <p>INTELLIGENCE HIPPIQUE SPÉCIALISÉE</p>
+  <p>INTELLIGENCE HIPPIQUE SPÉCIALISÉE — M1 À M5</p>
   <p class="motto">
     La mémoire conserve • L'analyse comprend • L'expérience enseigne
   </p>
@@ -105,8 +106,7 @@ footer {
 </header>
 
 <main>
-  <h2>🧠 Cinq moteurs indépendants — M1 à M5</h2>
-
+  <h2>🧠 Cinq moteurs indépendants</h2>
   <div class="engines">
     <div class="engine m1">
       <h3>🔵 M1</h3>
@@ -153,7 +153,7 @@ footer {
             <th>🟣 M3</th>
             <th>🟠 M4</th>
             <th>🔴 M5</th>
-            <th>Validation</th>
+            <th>Validation / FIGÉ</th>
           </tr>
         </thead>
         <tbody id="tableau"></tbody>
@@ -164,17 +164,21 @@ footer {
   <section>
     <h2>🔒 FIGÉS ET AUDITS</h2>
     <p>
-      Les pronostics FIGÉS sont des instantanés enregistrés
-      avant le départ. Une analyse provisoire ne constitue
-      jamais un FIGÉ.
+      Les FIGÉS sont des instantanés de pronostics
+      enregistrés avant le départ. Une analyse
+      provisoire ne constitue jamais un FIGÉ.
     </p>
     <p>
-      Les arrivées et résultats officiels ne sont publiés
+      La mention FIGÉ dans une publication n'est pas
+      une preuve suffisante : le fichier historique,
+      son horodatage et son empreinte SHA-256 doivent
+      également être contrôlés.
+    </p>
+    <p>
+      Les arrivées officielles ne sont affichées
       qu'après vérification de leurs sources.
     </p>
-    <p id="avertissement">
-      Aucun pari réel exécuté.
-    </p>
+    <p>Aucun pari réel exécuté.</p>
   </section>
 </main>
 
@@ -211,7 +215,6 @@ function heureParis(date) {
   if (!date) return "—";
   const d = new Date(date);
   if (Number.isNaN(d.getTime())) return "—";
-
   return new Intl.DateTimeFormat("fr-FR", {
     timeZone:"Europe/Paris",
     day:"2-digit",
@@ -223,32 +226,60 @@ function heureParis(date) {
 
 function obtenirMoteur(course, nom) {
   const moteurs = course.moteurs || {};
-
   if (Array.isArray(moteurs)) {
     return moteurs.find(m =>
       m && (m.moteur === nom || m.nom === nom)
     ) || null;
   }
-
   return moteurs[nom] || null;
 }
 
-function affichageMoteur(moteur) {
-  if (!moteur) return "Indisponible";
+function afficherMoteur(moteur) {
+  const td = document.createElement("td");
+  td.className = "engine-detail";
+
+  if (!moteur) {
+    td.textContent = "Indisponible";
+    return td;
+  }
 
   const classement = Array.isArray(moteur.classement)
     ? moteur.classement.map(h => h.numero)
-    : Array.isArray(moteur.ordre_espere)
-      ? moteur.ordre_espere
-      : [];
+    : [];
 
-  const qualification =
-    moteur.qualification || "Non qualifié";
+  const qualifie = moteur.qualification === "candidate";
+  const qualification = document.createElement("div");
+  qualification.className = qualifie ? "qualified" : "waiting";
+  qualification.textContent = qualifie
+    ? "🟢 Qualifié" : "🟡 Non qualifié";
+  td.appendChild(qualification);
 
-  if (!classement.length) return qualification;
+  const ordre = document.createElement("div");
+  ordre.textContent = classement.length
+    ? "Ordre espéré : " + classement.join(" - ")
+    : "Classement indisponible";
+  td.appendChild(ordre);
 
-  return classement.join(" - ") +
-    " | " + qualification;
+  if (qualifie && moteur.gagnant_espere != null) {
+    const gagnant = document.createElement("div");
+    gagnant.textContent =
+      "🥇 Gagnant espéré : " + moteur.gagnant_espere;
+    td.appendChild(gagnant);
+  }
+
+  if (qualifie && moteur.place_espere != null) {
+    const place = document.createElement("div");
+    place.textContent =
+      "🥈 Placé espéré : " + moteur.place_espere;
+    td.appendChild(place);
+  }
+
+  const pari = document.createElement("small");
+  pari.textContent = "🎯 " +
+    (moteur.pari || "Pari non défini");
+  td.appendChild(pari);
+
+  return td;
 }
 
 function afficher(data) {
@@ -257,16 +288,14 @@ function afficher(data) {
   }
 
   const courses = [...data.courses].sort((a,b) => {
-    const ta = Date.parse(a.depart || a.depart_paris || "");
-    const tb = Date.parse(b.depart || b.depart_paris || "");
+    const ta = Date.parse(a.depart || "");
+    const tb = Date.parse(b.depart || "");
     return (Number.isNaN(ta) ? Infinity : ta) -
            (Number.isNaN(tb) ? Infinity : tb);
   });
 
   statut.textContent =
-    (data.statut_collecte ||
-     data.statut_donnees ||
-     "État non vérifié") +
+    (data.statut_collecte || "État non vérifié") +
     " — " + courses.length + " course(s)";
 
   actualisation.textContent = data.genere_a
@@ -286,16 +315,30 @@ function afficher(data) {
     [
       course.id,
       course.hippodrome,
-      heureParis(course.depart || course.depart_paris),
-      course.partants ?? course.nombre_partants
+      heureParis(course.depart),
+      course.partants
     ].forEach(v => tr.appendChild(cellule(v)));
 
     for (let i = 1; i <= 5; i++) {
-      const moteur = obtenirMoteur(course, "M" + i);
-      tr.appendChild(cellule(affichageMoteur(moteur)));
+      tr.appendChild(
+        afficherMoteur(obtenirMoteur(course, "M" + i))
+      );
     }
 
-    tr.appendChild(cellule(course.statut || "Non vérifié"));
+    const validation = cellule(
+      course.statut || "Non vérifié"
+    );
+
+    if (course.statut === "fige") {
+      validation.className = "qualified";
+    } else if (course.statut === "rejetee" ||
+               course.statut === "fige_invalide") {
+      validation.className = "rejected";
+    } else {
+      validation.className = "waiting";
+    }
+
+    tr.appendChild(validation);
     tbody.appendChild(tr);
   });
 }
@@ -311,8 +354,9 @@ async function charger() {
     );
 
     if (!reponse.ok) {
-      throw new Error("Publication indisponible : HTTP " +
-        reponse.status);
+      throw new Error(
+        "Publication indisponible : HTTP " + reponse.status
+      );
     }
 
     const data = await reponse.json();
@@ -333,7 +377,5 @@ async function charger() {
 bouton.addEventListener("click", charger);
 charger();
 </script>
-
 </body>
-  </html>
-  
+</html>
