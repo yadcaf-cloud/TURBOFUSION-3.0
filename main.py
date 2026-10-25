@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
@@ -999,4 +1000,202 @@ def main(argv=None):
             ):
 
                 reports.append({
-  
+                    "statut": "rejetee",
+                    "motif": (
+                        "Course non objet"
+                    ),
+                })
+
+                continue
+
+            try:
+
+                course_date = (
+                    departure(course)
+                    .date()
+                    .isoformat()
+                )
+
+                if course_date != args.date:
+                    continue
+
+            except (
+                KeyError,
+                TypeError,
+                ValueError,
+                OverflowError,
+            ):
+                pass
+
+            cid = str(
+                course.get("id", "")
+            ).strip()
+
+            if cid and cid in seen:
+
+                reports.append({
+                    "id": cid,
+                    "statut": "rejetee",
+                    "motif": (
+                        "Identifiant dupliqué"
+                    ),
+                })
+
+                continue
+
+            seen.add(cid)
+
+            report = analyze(
+                course,
+                at,
+            )
+
+            # FIGÉ uniquement sur demande
+            # de l'exécution programmée.
+
+            if args.figer:
+
+                report = freeze(
+                    report,
+                    args.output,
+                    args.date,
+                    at,
+                    args.safety_minutes,
+                )
+
+            reports.append(report)
+
+        if not reports:
+            status = (
+                "aucune_course_verifiee"
+            )
+
+    # --------------------------------------------------------
+    # AUDIT DU PASSAGE
+    # --------------------------------------------------------
+
+    audit = {
+        "logiciel": LOGICIEL,
+        "date": args.date,
+        "genere_a": at.isoformat(),
+        "statut_collecte": status,
+        "courses": reports,
+        "source": (
+            str(args.input)
+            if args.input.is_file()
+            else None
+        ),
+        "avertissement": (
+            "Analyses expérimentales. "
+            "Aucune garantie de gain. "
+            "Données sportives vérifiées requises."
+        ),
+    }
+
+    write_atomic(
+        args.output / (
+            "audit_"
+            + args.date
+            + ".json"
+        ),
+        audit,
+    )
+
+    write_atomic(
+        args.output / "audit_latest.json",
+        audit,
+    )
+
+    # --------------------------------------------------------
+    # PUBLICATION OFFICIELLE CONTRÔLÉE
+    # --------------------------------------------------------
+
+    try:
+
+        from publish_data import publish
+
+        publication = publish(
+            data_dir=args.output
+        )
+
+    except Exception as exc:
+
+        print(
+            "ERREUR TURBOFUSION : "
+            f"publication impossible : {exc}",
+            file=sys.stderr,
+        )
+
+        return 3
+
+    if publication is None:
+
+        print(
+            "ERREUR TURBOFUSION : "
+            "publication du tableau officiel "
+            "impossible",
+            file=sys.stderr,
+        )
+
+        return 3
+
+    # --------------------------------------------------------
+    # RAPPORT FINAL
+    # --------------------------------------------------------
+
+    summary = {
+        "logiciel": LOGICIEL,
+        "version": VERSION,
+        "statut": status,
+        "courses": len(reports),
+        "moteurs": list(WEIGHTS),
+        "candidatures": sum(
+            len(
+                report.get(
+                    "moteurs_qualifies", []
+                )
+            )
+            for report in reports
+        ),
+        "figees": sum(
+            report.get("statut")
+            == "fige"
+            for report in reports
+        ),
+        "figes_existants": sum(
+            report.get("statut")
+            == "fige_existant"
+            for report in reports
+        ),
+        "figes_invalides": sum(
+            report.get("statut")
+            == "fige_invalide"
+            for report in reports
+        ),
+        "heure_paris": at.isoformat(),
+        "publication": "reussie",
+        "fichier_publication": str(
+            publication
+        ),
+        "paris_reels": "desactives",
+    }
+
+    print(
+        serialized(summary)
+    )
+
+    return (
+        0 if status == "ok"
+        else 2
+    )
+
+
+# ============================================================
+# DÉMARRAGE DU LOGICIEL
+# ============================================================
+
+if __name__ == "__main__":
+
+    raise SystemExit(
+        main()
+    )
