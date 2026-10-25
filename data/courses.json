@@ -1,6 +1,6 @@
 {
   "date": "2026-10-25",
-  "collecte_a": "2026-10-25T12:34:59.192511+00:00",
+  "collecte_a": "2026-10-25T13:19:07.146210+00:00",
   "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026",
   "erreurs_participants": [],
   "courses": [
@@ -2124,7 +2124,7 @@
       "course": 3,
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "nom": "PRIX PERTH",
-      "depart": "2026-10-25T12:58:00+00:00",
+      "depart": "2026-10-25T12:59:00+00:00",
       "distance_metres": 1600,
       "discipline": "PLAT",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R1/C3/participants",
@@ -2363,7 +2363,7 @@
         {
           "numero": 6,
           "nom": "NELVIS PASMARICK",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "P. DANET",
           "entraineur_nom": "P. DANET"
         },
@@ -2832,7 +2832,7 @@
         {
           "numero": 12,
           "nom": "ITAC DE PICDOM",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "L. OTT",
           "entraineur_nom": "J.M. LEGROS"
         },
@@ -3111,7 +3111,7 @@
       "course": 2,
       "hippodrome": "HIPPODROME D'ENGHIEN SOISY",
       "nom": "PRIX DE SAINT-AMAND-LES-EAUX",
-      "depart": "2026-10-25T13:15:00+00:00",
+      "depart": "2026-10-25T13:16:00+00:00",
       "distance_metres": 2875,
       "discipline": "ATTELE",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R5/C2/participants",
@@ -3483,7 +3483,7 @@
         {
           "numero": 9,
           "nom": "MARIE GALANTE",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "B. DE FOLLEVILLE",
           "entraineur_nom": "B. DE FOLLEVILLE"
         },
@@ -3819,7 +3819,7 @@
         {
           "numero": 5,
           "nom": "LOVELY JAP",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "K.DUBOURG",
           "entraineur_nom": "CH.DUBOURG (S)"
         },
@@ -3833,7 +3833,7 @@
         {
           "numero": 7,
           "nom": "MALICE DES BLINS",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "K.GEFFROY",
           "entraineur_nom": "MME M.SCHULER"
         },
@@ -3867,7 +3867,7 @@
       "course": 4,
       "hippodrome": "HIPPODROME DE SAINT-CLOUD",
       "nom": "CRITERIUM DE SAINT-CLOUD",
-      "depart": "2026-10-25T13:33:00+00:00",
+      "depart": "2026-10-25T13:34:00+00:00",
       "distance_metres": 2000,
       "discipline": "PLAT",
       "source": "https://online.turfinfo.api.pmu.fr/rest/client/61/programme/25102026/R1/C4/participants",
@@ -5926,7 +5926,7 @@
         {
           "numero": 6,
           "nom": "KANVILFLOMORINIERE",
-          "non_partant": false,
+          "non_partant": true,
           "jockey_nom": "K.DUBOURG",
           "entraineur_nom": "CH.DUBOURG (S)"
         },
@@ -8713,7 +8713,7 @@
           "numero": 7,
           "nom": "LOIR BOURBON",
           "non_partant": false,
-          "jockey_nom": "M. WEISS",
+          "jockey_nom": "A. CURY",
           "entraineur_nom": "Mme G. MASSCHAELE"
         },
         {
