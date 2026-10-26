@@ -1,9 +1,9 @@
-name: TURBOFUSION 3.0 - Analyse controlee
+name: TURBOFUSION 3.0 - M1 M5 controles
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 * * * *"
+    - cron: '15 * * * *'
 
 permissions:
   contents: write
@@ -15,7 +15,7 @@ concurrency:
 jobs:
   analyser:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Recuperer le depot
@@ -26,54 +26,100 @@ jobs:
       - name: Installer Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
-      - name: Verifier les fichiers Python
+      - name: Controle de syntaxe Python
         run: |
-          python -m py_compile main.py
-          python -m py_compile collecte_pmu.py
-          python -m py_compile publish_data.py
+          python -m py_compile main.py collecte_pmu.py
 
-      - name: Diagnostic des moteurs M1-M5
+      - name: Diagnostic TURBOFUSION M1-M5
         run: |
           python main.py --diagnostic
 
-      - name: Controle de la collecte PMU
-        id: collecte
+      - name: Verifier la presence de la source
+        id: source
         shell: bash
         run: |
-          if python collecte_pmu.py; then
+          if [ -f data/courses_source.json ]; then
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "Collecte indisponible."
+            echo "::warning::Source PMU absente. Aucun FIGE ne sera cree."
           fi
 
-      - name: Analyse M1-M5 et FIGE
-        if: steps.collecte.outputs.ready == 'true'
+      - name: Valider les courses PMU
+        if: steps.source.outputs.ready == 'true'
         run: |
-          python main.py \
-            --figer \
-            --strict-input \
-            --safety-minutes 2
+          python collecte_pmu.py
 
-      - name: Publication des donnees
-        if: steps.collecte.outputs.ready == 'true'
+      - name: Analyser M1-M5 et creer les FIGES
+        if: steps.source.outputs.ready == 'true'
         run: |
-          python publish_data.py
+          python main.py --figer --strict-input --safety-minutes 2
 
-      - name: Enregistrer les archives
-        if: steps.collecte.outputs.ready == 'true'
+      - name: Verifier les fichiers produits
+        if: steps.source.outputs.ready == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          required = [
+              Path("data/courses.json"),
+              Path("data/publication_latest.json"),
+          ]
+
+          for path in required:
+              if not path.is_file():
+                  raise SystemExit(f"Fichier obligatoire absent : {path}")
+
+          for path in Path("data").rglob("*.json"):
+              with path.open(encoding="utf-8-sig") as f:
+                  json.load(f)
+              print("JSON valide :", path)
+
+          publication = json.loads(
+              Path("data/publication_latest.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          if not isinstance(publication.get("courses"), list):
+              raise SystemExit("Publication invalide : courses[] absent")
+
+          for course in publication["courses"]:
+              if course.get("statut") == "fige":
+                  preuve = course.get("preuve_fige", {})
+                  if not preuve.get("verifie"):
+                      raise SystemExit(
+                          f"FIGE non verifie : {course.get('id')}"
+                      )
+
+          print("Publication TURBOFUSION controlee.")
+          PY
+
+      - name: Enregistrer publications et archives
+        if: steps.source.outputs.ready == 'true'
         shell: bash
         run: |
+          set -euo pipefail
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add data/courses.json \
-            data/publication_latest.json \
-            data/figes/ || true
+          git add data/courses.json data/publication_latest.json
 
-          if ! git diff --cached --quiet; then
-            git commit -m "TURBOFUSION: publication et archives controlees"
-            git push
+          if [ -d data/figes ]; then
+            git add data/figes/
           fi
+
+          if git diff --cached --quiet; then
+            echo "Aucune modification a enregistrer."
+            exit 0
+          fi
+
+          git commit -m "TURBOFUSION : actualisation M1-M5 PV FIGES"
+
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+          
