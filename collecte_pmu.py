@@ -3,27 +3,17 @@
 
 """TURBOFUSION 3.0 — Validation sécurisée des courses PMU.
 
-ENTRÉE :
-    data/courses_source.json
+Entrée : data/courses_source.json
+Sortie : data/courses.json
 
-SORTIE :
-    data/courses.json
-
-RÈGLES :
-- Courses physiquement disputées en France.
-- Uniquement la date du jour, heure de Paris.
-- Vérification des champs et des partants.
-- Contrôle des non-partants et des doublons.
-- Dates obligatoirement accompagnées d'un fuseau.
-- Aucune invention de courses ou de chevaux.
-- Aucun FIGÉ créé par ce programme.
-- Aucune connexion réseau.
-- La provenance n'est pas vérifiée indépendamment.
+Courses françaises du jour uniquement.
+Aucune connexion réseau, aucun pronostic inventé.
+Aucun FIGÉ créé par ce programme.
 """
 
 import json
-import math
 import os
+import re
 import sys
 import tempfile
 
@@ -35,10 +25,8 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
-
 SOURCE = DATA / "courses_source.json"
 DEST = DATA / "courses.json"
-
 PARIS = ZoneInfo("Europe/Paris")
 
 CHAMPS_OBLIGATOIRES = (
@@ -52,28 +40,23 @@ CHAMPS_OBLIGATOIRES = (
 
 
 def sans_doublons(paires):
-    """Refuser les clés JSON dupliquées."""
     resultat = {}
-
     for cle, valeur in paires:
         if cle in resultat:
             raise ValueError(
                 f"Clé JSON dupliquée : {cle}"
             )
         resultat[cle] = valeur
-
     return resultat
 
 
 def refuser_constante(valeur):
-    """Refuser NaN et Infinity dans le JSON."""
     raise ValueError(
         f"Constante JSON interdite : {valeur}"
     )
 
 
 def lire_json(chemin):
-    """Lire un fichier JSON strict."""
     return json.loads(
         chemin.read_text(encoding="utf-8-sig"),
         object_pairs_hook=sans_doublons,
@@ -89,7 +72,6 @@ def texte_valide(valeur):
 
 
 def verifier_url(adresse):
-    """Vérification syntaxique, sans accès réseau."""
     if not texte_valide(adresse):
         raise ValueError("URL source absente")
 
@@ -99,7 +81,7 @@ def verifier_url(adresse):
     url = urlparse(adresse)
 
     try:
-        port = url.port
+        _ = url.port
     except ValueError as erreur:
         raise ValueError(
             "Port de l'URL invalide"
@@ -117,11 +99,8 @@ def verifier_url(adresse):
             "URL source HTTPS invalide"
         )
 
-    return True
-
 
 def verifier_date(valeur):
-    """Valider une date ISO avec fuseau horaire."""
     if not texte_valide(valeur):
         raise ValueError("Date absente")
 
@@ -146,7 +125,6 @@ def verifier_date(valeur):
 
 
 def verifier_chevaux(course):
-    """Vérifier partants et non-partants."""
     chevaux = course["partants"]
 
     if (
@@ -158,6 +136,7 @@ def verifier_chevaux(course):
         )
 
     numeros = set()
+    np_individuels = set()
 
     for cheval in chevaux:
         if not isinstance(cheval, dict):
@@ -188,6 +167,18 @@ def verifier_chevaux(course):
 
         numeros.add(numero)
 
+        statut_np = cheval.get(
+            "non_partant", False
+        )
+
+        if type(statut_np) is not bool:
+            raise ValueError(
+                f"Statut NP invalide : {numero}"
+            )
+
+        if statut_np:
+            np_individuels.add(numero)
+
     non_partants = course.get(
         "non_partants", []
     )
@@ -197,31 +188,35 @@ def verifier_chevaux(course):
             "Liste des non-partants invalide"
         )
 
-    deja_vus = set()
+    np_declares = set()
 
     for numero in non_partants:
         if (
             type(numero) is not int
             or numero <= 0
             or numero not in numeros
-            or numero in deja_vus
+            or numero in np_declares
         ):
             raise ValueError(
                 f"Non-partant incohérent : {numero}"
             )
 
-        deja_vus.add(numero)
+        np_declares.add(numero)
 
-    if len(numeros - deja_vus) < 2:
+    tous_np = np_declares | np_individuels
+
+    if len(numeros - tous_np) < 2:
         raise ValueError(
             "Moins de deux chevaux encore partants"
         )
+
+    # Harmoniser les deux formes de déclaration NP.
+    course["non_partants"] = sorted(tous_np)
 
     return True
 
 
 def verifier_course(course):
-    """Valider les informations d'une course."""
     if not isinstance(course, dict):
         raise ValueError(
             "Course non représentée par un objet"
@@ -233,11 +228,23 @@ def verifier_course(course):
                 f"Champ obligatoire absent : {champ}"
             )
 
-    for champ in ("id", "hippodrome"):
-        if not texte_valide(course[champ]):
-            raise ValueError(
-                f"Champ invalide : {champ}"
-            )
+    identifiant = course["id"]
+
+    if (
+        not texte_valide(identifiant)
+        or not re.fullmatch(
+            r"[A-Za-z0-9_-]{1,80}",
+            identifiant,
+        )
+    ):
+        raise ValueError(
+            "Identifiant de course invalide"
+        )
+
+    if not texte_valide(course["hippodrome"]):
+        raise ValueError(
+            "Hippodrome invalide"
+        )
 
     pays = course["pays"]
 
@@ -258,7 +265,6 @@ def verifier_course(course):
 
 
 def ecriture_atomique(chemin, donnees):
-    """Publier un JSON complet sans écriture partielle."""
     chemin.parent.mkdir(
         parents=True,
         exist_ok=True,
@@ -370,15 +376,6 @@ def main():
         )
     )
 
-    sortie = {
-        "courses": [
-            course
-            for _, course in courses_du_jour
-        ]
-    }
-
-    # Une liste vide ne doit pas effacer une
-    # précédente publication exploitable.
     if not courses_du_jour:
         print(
             "ATTENTION : aucune course française "
@@ -392,10 +389,14 @@ def main():
         )
         return 3
 
-    ecriture_atomique(
-        DEST,
-        sortie,
-    )
+    sortie = {
+        "courses": [
+            course
+            for _, course in courses_du_jour
+        ]
+    }
+
+    ecriture_atomique(DEST, sortie)
 
     print(
         f"Courses validées : "
@@ -444,3 +445,4 @@ if __name__ == "__main__":
             file=sys.stderr,
         )
         sys.exit(1)
+        
