@@ -1,7 +1,11 @@
-
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""TURBOFUSION 3.0 — M1 à M5. Analyses expérimentales, aucun pari exécuté."""
+"""TURBOFUSION 3.0 — analyse M1-M5, PV et FIGÉS non rétroactifs.
+
+Entrée: data/courses.json (courses réellement sourcées).
+Sortie: data/publication_latest.json et archives immuables data/figes/.
+Aucune récupération réseau, aucun score artificiel, aucun pari exécuté.
+"""
 from __future__ import annotations
 import argparse
 import datetime as dt
@@ -13,295 +17,310 @@ import re
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import urlparse
 from zoneinfo import ZoneInfo
 
+ROOT = Path(__file__).resolve().parent
+DATA = ROOT / 'data'
+SOURCE = DATA / 'courses.json'
+PUBLICATION = DATA / 'publication_latest.json'
+ARCHIVES = DATA / 'figes'
 PARIS = ZoneInfo('Europe/Paris')
-BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / 'data'
-COURSES_FILE = DATA_DIR / 'courses.json'
-PUBLICATION_FILE = DATA_DIR / 'publication_latest.json'
-FIGES_DIR = DATA_DIR / 'figes'
-# Chaque moteur utilise ses critères propres; aucun score absent n'est estimé.
 MOTEURS = {
-    'M1': {'specialite': 'Forme et régularité', 'criteres': ('forme', 'regularite')},
-    'M2': {'specialite': 'Aptitudes et conditions', 'criteres': ('aptitude', 'distance', 'terrain')},
-    'M3': {'specialite': 'Origines et entourage', 'criteres': ('origines', 'jockey', 'entraineur')},
-    'M4': {'specialite': 'Classe et stratégie', 'criteres': ('classe', 'strategie')},
-    'M5': {'specialite': 'Risques et fiabilité', 'criteres': ('fiabilite', 'regularite')},
+    'M1': ('Forme et régularité', ('forme', 'regularite')),
+    'M2': ('Aptitudes et conditions', ('aptitude', 'distance', 'terrain')),
+    'M3': ('Origines et entourage', ('origines', 'jockey', 'entraineur')),
+    'M4': ('Classe et stratégie', ('classe', 'strategie')),
+    'M5': ('Risques et fiabilité', ('fiabilite', 'regularite')),
 }
-# Compatibilité avec le workflow antérieur, sans modifier les spécialités.
-WEIGHTS = {nom: {critere: 1 / len(cfg['criteres']) for critere in cfg['criteres']}
-           for nom, cfg in MOTEURS.items()}
 
 
-def maintenant_paris():
+def now():
     return dt.datetime.now(PARIS)
 
 
-def analyser_date(valeur):
-    if not isinstance(valeur, str):
-        raise ValueError('Date de départ invalide')
-    date = dt.datetime.fromisoformat(valeur.replace('Z', '+00:00'))
-    if date.tzinfo is None or date.utcoffset() is None:
+def date_iso(s):
+    if not isinstance(s, str):
+        raise ValueError('Date absente')
+    x = dt.datetime.fromisoformat(s.replace('Z', '+00:00'))
+    if x.tzinfo is None or x.utcoffset() is None:
         raise ValueError('Date sans fuseau horaire')
-    return date.astimezone(PARIS)
+    return x.astimezone(PARIS)
 
 
-def lire_json(chemin):
-    with chemin.open(encoding='utf-8') as fichier:
-        return json.load(fichier)
+def no_duplicates(pairs):
+    obj = {}
+    for k, v in pairs:
+        if k in obj:
+            raise ValueError('Clé JSON dupliquée : ' + k)
+        obj[k] = v
+    return obj
 
 
-def ecrire_json(chemin, donnees):
-    chemin.parent.mkdir(parents=True, exist_ok=True)
-    temporaire = None
+def bad_constant(value):
+    raise ValueError('Constante JSON interdite : ' + value)
+
+
+def read(path):
+    return json.loads(path.read_text(encoding='utf-8-sig'),
+                      object_pairs_hook=no_duplicates, parse_constant=bad_constant)
+
+
+def serialized(value):
+    return (json.dumps(value, ensure_ascii=False, sort_keys=True,
+                       indent=2, allow_nan=False) + '\n').encode('utf-8')
+
+
+def atomic_write(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = None
     try:
-        with tempfile.NamedTemporaryFile('w', encoding='utf-8', dir=chemin.parent,
-                                         suffix='.tmp', delete=False) as f:
-            temporaire = Path(f.name)
-            json.dump(donnees, f, ensure_ascii=False, indent=2, allow_nan=False)
-            f.write('\n')
+        with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as f:
+            temporary = Path(f.name)
+            f.write(serialized(value))
             f.flush()
             os.fsync(f.fileno())
-        os.replace(temporaire, chemin)
+        os.replace(temporary, path)
     finally:
-        if temporaire is not None:
-            temporaire.unlink(missing_ok=True)
+        if temporary is not None:
+            temporary.unlink(missing_ok=True)
 
 
-def valeur_sportive(cheval, critere):
-    valeur = cheval.get(critere)
-    if type(valeur) not in (int, float) or not math.isfinite(valeur):
-        return None
-    return float(valeur) if 0 <= valeur <= 1 else None
+def unique_write(path, value):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('xb') as f:
+        f.write(serialized(value))
+        f.flush()
+        os.fsync(f.fileno())
 
 
-def verifier_course(course):
-    if not isinstance(course, dict):
-        raise ValueError('Course invalide')
-    identifiant = course.get('id')
-    if not isinstance(identifiant, str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,80}', identifiant):
-        raise ValueError('Identifiant de course non sécurisé')
-    depart = analyser_date(course.get('depart'))
-    chevaux = course.get('partants')
-    if not isinstance(chevaux, list) or len(chevaux) < 2:
-        raise ValueError('Liste des chevaux invalide')
-    numeros = set()
-    for cheval in chevaux:
-        if not isinstance(cheval, dict) or type(cheval.get('numero')) is not int or cheval['numero'] <= 0:
-            raise ValueError('Numéro de cheval invalide')
-        if cheval['numero'] in numeros:
-            raise ValueError('Numéro de cheval dupliqué')
-        numeros.add(cheval['numero'])
-        if not isinstance(cheval.get('nom'), str) or not cheval['nom'].strip():
-            raise ValueError('Nom de cheval manquant')
-    np = course.get('non_partants', [])
+def verify_course(c):
+    if not isinstance(c, dict):
+        raise ValueError('Course non objet')
+    cid = c.get('id')
+    if not isinstance(cid, str) or not re.fullmatch(r'[A-Za-z0-9_-]{1,80}', cid):
+        raise ValueError('Identifiant de course invalide')
+    depart = date_iso(c.get('depart'))
+    if not isinstance(c.get('hippodrome'), str) or not c['hippodrome'].strip():
+        raise ValueError(cid + ' : hippodrome absent')
+    if str(c.get('pays', '')).strip().upper() not in ('FR', 'FRANCE'):
+        raise ValueError(cid + ' : pays français non confirmé')
+    url = c.get('source')
+    parsed = urlparse(url) if isinstance(url, str) else None
+    if not parsed or parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
+        raise ValueError(cid + ' : source HTTPS absente ou invalide')
+    horses = c.get('partants')
+    if not isinstance(horses, list) or len(horses) < 2:
+        raise ValueError(cid + ' : partants insuffisants')
+    nums = set()
+    for h in horses:
+        if not isinstance(h, dict) or type(h.get('numero')) is not int or h['numero'] <= 0:
+            raise ValueError(cid + ' : numéro invalide')
+        if h['numero'] in nums:
+            raise ValueError(cid + ' : numéro dupliqué')
+        nums.add(h['numero'])
+        if not isinstance(h.get('nom'), str) or not h['nom'].strip():
+            raise ValueError(cid + ' : nom absent')
+    np = c.get('non_partants', [])
     if not isinstance(np, list) or any(type(n) is not int for n in np):
-        raise ValueError('Liste NP invalide')
-    if len(np) != len(set(np)) or not set(np).issubset(numeros):
-        raise ValueError('NP incohérents')
-    np_set = set(np)
-    np_set.update(c['numero'] for c in chevaux if c.get('non_partant') is True)
-    actifs = [c for c in chevaux if c['numero'] not in np_set]
-    return depart, actifs, sorted(np_set)
+        raise ValueError(cid + ' : NP invalides')
+    if len(np) != len(set(np)) or not set(np).issubset(nums):
+        raise ValueError(cid + ' : NP incohérents')
+    exclusions = set(np) | {h['numero'] for h in horses if h.get('non_partant') is True}
+    active = [h for h in horses if h['numero'] not in exclusions]
+    return depart, active, sorted(exclusions)
 
 
-def analyser_moteur(nom_moteur, chevaux, heure_analyse, heure_depart):
-    cfg = MOTEURS[nom_moteur]
-    criteres = cfg['criteres']
-    classement = []
-    for cheval in chevaux:
-        valeurs = [valeur_sportive(cheval, critere) for critere in criteres]
-        disponibles = [v for v in valeurs if v is not None]
-        complet = len(disponibles) == len(criteres)
-        classement.append({
-            'numero': cheval['numero'], 'nom': cheval['nom'],
-            'score': round(sum(disponibles) / len(disponibles), 4) if complet else None,
-            'couverture': round(len(disponibles) / len(criteres), 3),
+def score(horse, key):
+    value = horse.get(key)
+    if type(value) not in (int, float) or not math.isfinite(value):
+        return None
+    return float(value) if 0 <= value <= 1 else None
+
+
+def engine(name, horses, instant, depart):
+    speciality, criteria = MOTEURS[name]
+    ranking = []
+    for h in horses:
+        values = [score(h, k) for k in criteria]
+        complete = all(v is not None for v in values)
+        ranking.append({
+            'numero': h['numero'], 'nom': h['nom'],
+            'score': round(sum(values) / len(values), 6) if complete else None,
+            'couverture': sum(v is not None for v in values) / len(values),
         })
-    donnees_completes = len(classement) >= 2 and all(c['score'] is not None for c in classement)
-    if donnees_completes:
-        classement.sort(key=lambda c: (-c['score'], c['numero']))
+    all_complete = len(ranking) >= 2 and all(x['score'] is not None for x in ranking)
+    if all_complete:
+        ranking.sort(key=lambda x: (-x['score'], x['numero']))
     else:
-        classement.sort(key=lambda c: c['numero'])
-    eligible = (donnees_completes and heure_analyse < heure_depart
-                and classement[0]['score'] > classement[1]['score'])
-    ordre = [c['numero'] for c in classement[:5]] if eligible else []
-    if heure_analyse >= heure_depart:
-        motif = 'Départ atteint ou dépassé'
-    elif not donnees_completes:
-        motif = 'Critères sportifs manquants : abstention'
-    elif not eligible:
-        motif = 'Premiers scores ex aequo : abstention'
-    else:
-        motif = 'Scores complets et distincts; analyse expérimentale'
+        ranking.sort(key=lambda x: x['numero'])
+    qualified = (instant < depart and all_complete and
+                 ranking[0]['score'] > ranking[1]['score'])
+    order = [x['numero'] for x in ranking[:5]] if qualified else []
+    reason = ('Départ atteint' if instant >= depart else
+              'Données sportives incomplètes' if not all_complete else
+              'Égalité des deux premiers scores' if not qualified else
+              'Classement expérimental calculé sur les données fournies')
     return {
-        'moteur': nom_moteur, 'specialite': cfg['specialite'],
-        'classement_detail': classement[:5],
-        'classement': ordre, 'ordre_arrivee_espere': ordre,
-        'gagnant_espere': ordre[0] if ordre else None,
-        'place_espere': ordre[1] if len(ordre) > 1 else None,
-        'qualification': 'candidate' if eligible else 'abstention',
-        'motif': motif, 'pari': 'Aucun pari proposé',
-        'couverture': min((c['couverture'] for c in classement), default=0),
+        'moteur': name, 'specialite': speciality, 'criteres': list(criteria),
+        'classement_detail': ranking[:5], 'classement': order,
+        'ordre_arrivee_espere': order,
+        'gagnant_espere': order[0] if order else None,
+        'place_espere': order[1] if len(order) > 1 else None,
+        'qualification': 'candidate' if qualified else 'abstention',
+        'motif': reason, 'pari': 'Aucun pari exécuté',
+        'couverture': min((x['couverture'] for x in ranking), default=0),
     }
 
 
-def chemin_fige(identifiant):
-    return FIGES_DIR / (identifiant + '.json')
+def paths(cid):
+    return ARCHIVES / (cid + '.json'), ARCHIVES / (cid + '.pv.json')
 
 
-def verifier_fige(chemin, course):
+def load_archive(cid, depart):
+    fig, pv = paths(cid)
+    if not fig.exists() and not pv.exists():
+        return None, None, False, None
+    if not fig.exists() or not pv.exists():
+        return None, None, False, 'Archive FIGÉ/PV incomplète'
     try:
-        contenu = chemin.read_bytes()
-        archive = json.loads(contenu)
-        depart = analyser_date(archive['depart'])
-        fige_a = analyser_date(archive['fige_a'])
-        valide = (archive.get('course_id') == course['id']
-                  and depart == analyser_date(course['depart'])
-                  and fige_a < depart
-                  and isinstance(archive.get('moteurs'), dict)
-                  and set(archive['moteurs']) == set(MOTEURS))
-        # L'empreinte recalculée détecte des changements seulement si elle est
-        # comparée à une empreinte de référence conservée séparément.
-        empreinte = hashlib.sha256(contenu).hexdigest()
-        return archive, empreinte, valide
-    except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError):
-        return None, None, False
+        archive, proof = read(fig), read(pv)
+        content_hash = hashlib.sha256(fig.read_bytes()).hexdigest()
+        valid = (archive.get('course_id') == cid and
+                 date_iso(archive['depart']) == depart and
+                 date_iso(archive['fige_a']) < depart and
+                 set(archive.get('moteurs', {})) == set(MOTEURS) and
+                 proof.get('course_id') == cid and
+                 proof.get('sha256_fige') == content_hash and
+                 proof.get('fige_a') == archive['fige_a'] and
+                 proof.get('version') == archive.get('version'))
+        return archive, content_hash, valid, None if valid else 'PV/FIGÉ incohérents'
+    except (OSError, ValueError, TypeError, KeyError, json.JSONDecodeError) as e:
+        return None, None, False, 'Archive illisible : ' + str(e)
 
 
-def enregistrer_fige(course, analyses, heure_analyse):
-    FIGES_DIR.mkdir(parents=True, exist_ok=True)
-    chemin = chemin_fige(course['id'])
+def freeze(course, analyses, instant):
+    cid = course['id']
+    fig, pv = paths(cid)
+    if fig.exists() or pv.exists():
+        return
     archive = {
-        'logiciel': 'TURBOFUSION 3.0', 'course_id': course['id'],
-        'depart': course['depart'], 'fige_a': heure_analyse.isoformat(),
-        'moteurs': analyses, 'source': course.get('source'),
+        'logiciel': 'TURBOFUSION 3.0', 'course_id': cid,
+        'depart': course['depart'], 'fige_a': instant.isoformat(),
+        'source': course['source'], 'moteurs': analyses,
         'pv': 'PV1', 'version': 'V1',
     }
-    contenu = (json.dumps(archive, ensure_ascii=False, sort_keys=True,
-                          indent=2, allow_nan=False) + '\n').encode('utf-8')
-    try:
-        with chemin.open('xb') as fichier:
-            fichier.write(contenu)
-            fichier.flush()
-            os.fsync(fichier.fileno())
-    except FileExistsError:
-        pass
-    return verifier_fige(chemin, course)
+    digest = hashlib.sha256(serialized(archive)).hexdigest()
+    proof = {
+        'course_id': cid, 'pv': 'PV1', 'version': 'V1',
+        'fige_a': archive['fige_a'], 'sha256_fige': digest,
+        'decision': 'FIGÉ expérimental avant départ',
+        'note': 'Horodatage local du workflow; non certifié par tiers indépendant',
+    }
+    # Écriture exclusive : jamais d'écrasement d'un FIGÉ existant.
+    unique_write(fig, archive)
+    unique_write(pv, proof)
 
 
-def traiter_courses(arguments):
-    heure = maintenant_paris()
-    if not COURSES_FILE.is_file():
-        raise RuntimeError('data/courses.json absent : exécuter collect_courses.py')
-    donnees = lire_json(COURSES_FILE)
-    if not isinstance(donnees, dict) or not isinstance(donnees.get('courses'), list):
-        raise ValueError('Format courses[] invalide')
-    publications = []
-    avertissements = []
-    identifiants = set()
-    for course in donnees['courses']:
+def run(args):
+    instant = now()
+    if not SOURCE.is_file():
+        raise RuntimeError('data/courses.json absent : exécuter collecte_pmu.py')
+    data = read(SOURCE)
+    if not isinstance(data, dict) or not isinstance(data.get('courses'), list):
+        raise ValueError('Format attendu : {"courses": [...]}')
+    seen, output, warnings = set(), [], []
+    for course in data['courses']:
         try:
-            depart, chevaux, np = verifier_course(course)
-            if course['id'] in identifiants:
-                raise ValueError('Course dupliquée')
-            identifiants.add(course['id'])
-            if depart.date() != heure.date():
+            depart, horses, np = verify_course(course)
+            cid = course['id']
+            if cid in seen:
+                raise ValueError('Identifiant de course dupliqué : ' + cid)
+            seen.add(cid)
+            if depart.date() != instant.date():
                 continue
-            analyses = {nom: analyser_moteur(nom, chevaux, heure, depart) for nom in MOTEURS}
-            qualifies = [nom for nom, a in analyses.items() if a['qualification'] == 'candidate']
-            admissible = bool(qualifies) and len(chevaux) >= 2
-            publication = {
-                'id': course['id'], 'hippodrome': course.get('hippodrome', ''),
-                'depart': course['depart'], 'partants': len(chevaux),
-                'non_partants': np, 'source': course.get('source'),
-                'analyse_a': heure.isoformat(), 'moteurs': analyses,
-                'moteurs_qualifies': qualifies,
-                'qualification': 'verte' if admissible else 'non_valide',
-                'statut': 'analyse_provisoire' if admissible else 'non_valide',
+            fig, pv = paths(cid)
+            archive, digest, valid, error = load_archive(cid, depart)
+            analyses = {name: engine(name, horses, instant, depart) for name in MOTEURS}
+            qualified = [n for n, a in analyses.items() if a['qualification'] == 'candidate']
+            if args.figer and not fig.exists() and not pv.exists() and qualified and len(horses) >= 2 and instant < depart - dt.timedelta(minutes=args.safety_minutes):
+                freeze(course, analyses, instant)
+                archive, digest, valid, error = load_archive(cid, depart)
+            status = 'fige' if valid else ('fige_invalide' if fig.exists() or pv.exists() else
+                     'analyse_provisoire' if qualified else 'non_valide')
+            if valid:
+                analyses = archive['moteurs']
+                qualified = [n for n, a in analyses.items() if a.get('qualification') == 'candidate']
+            if error:
+                warnings.append(cid + ' : ' + error)
+            entry = {
+                'id': cid, 'hippodrome': course['hippodrome'], 'depart': course['depart'],
+                'partants': len(horses), 'non_partants': np, 'source': course['source'],
+                'analyse_a': instant.isoformat(), 'moteurs': analyses,
+                'moteurs_qualifies': qualified,
+                'qualification': 'verte' if qualified and status != 'fige_invalide' else 'non_valide',
+                'statut': status,
+                'preuve_fige': {
+                    'verifie': bool(valid), 'horodatage_avant_depart': bool(valid),
+                    'sha256_verifie': bool(valid), 'pv_verifie': bool(valid),
+                    'certification_externe': False,
+                },
             }
-            chemin = chemin_fige(course['id'])
-            archive = empreinte = None
-            valide = False
-            if chemin.exists():
-                archive, empreinte, valide = verifier_fige(chemin, course)
-            elif arguments.figer and admissible and heure < depart - dt.timedelta(minutes=arguments.safety_minutes):
-                archive, empreinte, valide = enregistrer_fige(course, analyses, heure)
-            if chemin.exists():
-                publication['fichier_fige'] = chemin.relative_to(BASE_DIR).as_posix()
-                publication['sha256'] = empreinte
-                if valide:
-                    publication['statut'] = 'fige'
-                    publication['pv'] = archive.get('pv', 'PV1')
-                    publication['version'] = archive.get('version', 'V1')
-                    publication['fige_a'] = archive['fige_a']
-                    # Afficher le pronostic archivé, jamais une reconstruction.
-                    publication['moteurs'] = archive['moteurs']
-                    publication['moteurs_qualifies'] = [
-                        nom for nom, a in archive['moteurs'].items()
-                        if isinstance(a, dict) and a.get('qualification') == 'candidate'
-                    ]
-                    publication['qualification'] = 'verte' if publication['moteurs_qualifies'] else 'non_valide'
-                else:
-                    publication['statut'] = 'fige_invalide'
-                    publication['qualification'] = 'non_valide'
-                    avertissements.append(course['id'] + ' : FIGÉ non vérifiable')
-                publication['preuve_fige'] = {
-                    'verifie': False, 'horodatage_avant_depart': bool(valide),
-                    'sha256_verifie': False, 'pv_verifie': False,
-                }
-            publications.append(publication)
-        except (ValueError, TypeError, KeyError) as erreur:
-            avertissements.append(str(course.get('id', '?')) + ' : ' + str(erreur))
-            if arguments.strict_input:
+            if fig.exists():
+                entry['fichier_fige'] = fig.relative_to(ROOT).as_posix()
+            if pv.exists():
+                entry['fichier_pv'] = pv.relative_to(ROOT).as_posix()
+            if digest:
+                entry['sha256'] = digest
+            if valid:
+                entry.update({'pv': archive['pv'], 'version': archive['version'],
+                              'fige_a': archive['fige_a']})
+            output.append(entry)
+        except (ValueError, KeyError, TypeError) as e:
+            warnings.append(str(course.get('id', '?')) + ' : ' + str(e))
+            if args.strict_input:
                 raise
-    publications.sort(key=lambda c: analyser_date(c['depart']))
-    resultat = {
-        'logiciel': 'TURBOFUSION 3.0', 'date': heure.date().isoformat(),
-        'genere_a': heure.isoformat(), 'statut_collecte': 'structure_validee',
-        'moteurs': list(MOTEURS), 'courses': publications,
-        'audits': [], 'avertissements': avertissements + [
-            'Scores uniquement issus des données fournies.',
-            'FIGÉS non certifiés cryptographiquement sans empreinte externe.',
+    output.sort(key=lambda x: date_iso(x['depart']))
+    publication = {
+        'logiciel': 'TURBOFUSION 3.0', 'date': instant.date().isoformat(),
+        'genere_a': instant.isoformat(), 'statut_collecte': 'structure_validee',
+        'moteurs': list(MOTEURS), 'courses': output, 'audits': [],
+        'avertissements': warnings + [
+            'Origine des données non vérifiée indépendamment.',
+            'FIGÉS avec PV local, sans certification externe indépendante.',
             'Aucun pari réel exécuté. Aucune garantie de gain.',
         ],
     }
-    ecrire_json(PUBLICATION_FILE, resultat)
-    print(f'TURBOFUSION : {len(publications)} course(s) publiée(s), '
-          f'{sum(c["statut"] == "fige" for c in publications)} FIGÉ(s) historiques.')
-    for avertissement in avertissements:
-        print('AVERTISSEMENT :', avertissement, file=sys.stderr)
-
-
-def diagnostic():
-    print('TURBOFUSION 3.0 — DIAGNOSTIC')
-    print('Heure Paris :', maintenant_paris().isoformat())
-    for nom, cfg in MOTEURS.items():
-        print(nom, cfg['specialite'], '—', ', '.join(cfg['criteres']))
-    for chemin in (COURSES_FILE, PUBLICATION_FILE, FIGES_DIR):
-        print(chemin.relative_to(BASE_DIR), 'présent :', chemin.exists())
-    print('Diagnostic structurel seulement : aucun pronostic certifié.')
+    atomic_write(PUBLICATION, publication)
+    print('TURBOFUSION :', len(output), 'course(s),',
+          sum(x['statut'] == 'fige' for x in output), 'FIGÉ(s) avec PV.')
+    for w in warnings:
+        print('AVERTISSEMENT :', w, file=sys.stderr)
 
 
 def main():
-    parser = argparse.ArgumentParser(description='TURBOFUSION 3.0 M1 à M5')
-    parser.add_argument('--diagnostic', action='store_true')
-    parser.add_argument('--figer', action='store_true')
-    parser.add_argument('--strict-input', action='store_true')
-    parser.add_argument('--safety-minutes', type=int, default=2)
-    args = parser.parse_args()
-    if args.safety_minutes < 0:
-        parser.error('Le délai de sécurité doit être positif ou nul')
-    if args.diagnostic:
-        diagnostic()
+    p = argparse.ArgumentParser()
+    p.add_argument('--diagnostic', action='store_true')
+    p.add_argument('--figer', action='store_true')
+    p.add_argument('--strict-input', action='store_true')
+    p.add_argument('--safety-minutes', type=int, default=2)
+    a = p.parse_args()
+    if a.safety_minutes < 0:
+        p.error('safety-minutes doit être positif ou nul')
+    if a.diagnostic:
+        print('TURBOFUSION 3.0 —', now().isoformat())
+        for n, (s, criteria) in MOTEURS.items():
+            print(n, s, '—', ', '.join(criteria))
+        print('Source présente :', SOURCE.is_file())
+        print('Diagnostic structurel, pas de pronostic certifié.')
     else:
-        traiter_courses(args)
+        run(a)
 
 
 if __name__ == '__main__':
     try:
         main()
-    except (RuntimeError, ValueError, OSError, KeyError, TypeError, json.JSONDecodeError) as erreur:
-        print('ERREUR TURBOFUSION :', erreur, file=sys.stderr)
+    except (OSError, RuntimeError, ValueError, TypeError, KeyError, json.JSONDecodeError) as e:
+        print('ERREUR TURBOFUSION :', e, file=sys.stderr)
         sys.exit(1)
+            
